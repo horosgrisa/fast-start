@@ -1,6 +1,6 @@
 {
-  "server": true,
-  "browserify": true,
+  "server": false,
+  "browserify": false,
   "dist": "./dist",
   "deploy": {
     "hostname": "",

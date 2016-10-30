@@ -117,7 +117,7 @@ module.exports = function (gulp) {
   })
 
   gulp.task('backend', (done) => {
-    if (!global.CONFIG.!server) {
+    if (global.CONFIG.server) {
       return gulp.src([
         'src/lib/**/*.js',
         'src/routes/**/*.js',
@@ -137,7 +137,7 @@ module.exports = function (gulp) {
   gulp.task('views', () => {
     const pugFilter = filter(['**/*.pug'], {restore: true})
     const htmlFilter = filter(['**/*.html'], {restore: true})
-    if (global.CONFIG.!server) {
+    if (global.CONFIG.server) {
       return gulp.src(['src/views/*.*'], { base: 'src/views' })
         .pipe(flatmap(function (stream, file) {
           return stream

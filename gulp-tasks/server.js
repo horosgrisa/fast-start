@@ -5,7 +5,7 @@ const browserSync = require('browser-sync').create()
 
 module.exports = function (gulp) {
   gulp.task('server:node', (done) => {
-    if (!argv.production && !global.CONFIG.!server) {
+    if (!argv.production && global.CONFIG.server) {
       let started = false
       nodemon({
         script: global.CONFIG.dist + '/index.js',
@@ -25,8 +25,7 @@ module.exports = function (gulp) {
   })
   gulp.task('server:bs', (done) => {
     if (!argv.production) {
-      if (global.CONFIG.!server) {
-        console.log(1)
+      if (!global.CONFIG.server) {
         browserSync.init({
           server: {
             baseDir: 'dist/views',
@@ -40,7 +39,7 @@ module.exports = function (gulp) {
             global.CONFIG.dist + '/public/img/**/*.*',
             global.CONFIG.dist + '/public/font/**/*.*'
           ],
-          serve!server: [{
+          serveserver: [{
             route: '/public',
             dir: './dist/public'
           }, {

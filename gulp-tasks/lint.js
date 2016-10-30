@@ -27,7 +27,7 @@ module.exports = function (gulp) {
   })
 
   gulp.task('backend::lint', (done) => {
-    if (!global.CONFIG.!server) {
+    if (global.CONFIG.server) {
       return gulp.src([
         'src/lib/**/*.js',
         'src/routes/**/*.js',

@@ -39,7 +39,7 @@ module.exports = function (gulp) {
   })
 
   gulp.task('backend::fix', (done) => {
-    if (!global.CONFIG.!server) {
+    if (global.CONFIG.server) {
       const isFixed = (file) => {
         return file.eslint != null && file.eslint.fixed
       }
