@@ -1,3 +1,4 @@
+# This is framework for create and compiling of your site
 ## Features
 
 *   Nodejs run with nodemon
@@ -25,6 +26,8 @@
 
 ## Project Structure
 
+### File tree
+
 <pre>src
 ├── package.json
 ├── bower.json
@@ -32,19 +35,21 @@
 ├── lib/
 ├── routes/
 ├── public/
-│   ├── js/
-│   │   ├── includes/
-│   │   ├── partials/
-│   │   └── views/
-│   ├── css/
-│   │   ├── includes/
-│   │   ├── partials/
-│   │   └── views/
-│   ├── font/
-│   └── img/
+│   ├── js/
+│   │   ├── includes/
+│   │   ├── partials/
+│   │   └── views/
+│   ├── css/
+│   │   ├── includes/
+│   │   ├── partials/
+│   │   └── views/
+│   ├── font/
+│   └── img/
 └── views/
    ├── partials/
    └── templates/</pre>
+
+### Description
 
 <dl>
 
@@ -99,7 +104,32 @@ Example of CSS including
 
 <dt>views/</dt>
 
-This folder for your views for site if you use own server
+<dd>This folder for your views for site if you use own server
 If you create static site put your Pug or HTML there, and this files will be routed as `/`. For example
 `views/index.pug -> /index.html`
-`views/about.html -> /about.html`</dl>
+`views/about.html -> /about.html`</dd>
+
+</dl>
+
+### Also, this framework provides configs for various tools, such as:
+
+*   Bablel `.babelrc`
+*   Eslint `.eslintrc`
+*   htmllint `.htmllintrc`
+*   js-beautify `.jsbeautifyrc`
+*   postcss-sorting `.postcss-sorting.json`
+*   pug-lint `.pug-lintrc`
+*   Stylelint `.stylelintrc`
+
+### How to use
+
+First you need create file structure described previous, if you use Yeoman generator, skip this step
+
+<pre>cp -Rp example/ src/</pre>
+
+Create sample config, if you use Yeoman generator, skip this step
+
+<pre>cp config.example.json config.json
+vim config.json</pre>
+
+Now you can execute `gulp`  for start build, watching and live-reload code. Or you can run `gulp build` or `gulp server` separately. Also you can run `gulp lint` for linting, `gulp fix` for fixing and beautifing code and`gulp self-update` for update this script.`--all` flag enable build of all files, no one changed.`--production` flag enable production mode.`--deploy` flag enable deploy uing rsync.

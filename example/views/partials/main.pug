@@ -24,6 +24,7 @@ ul
   li Pug lint with pug-lint
 
 h2 Project Structure
+h3 File tree
 pre
   |src
   |├── package.json
@@ -45,6 +46,7 @@ pre
   |└── views/
   |    ├── partials/
   |    └── templates/
+h3 Description
 dl
   dt package.json
   dd File with npm deps
@@ -99,10 +101,47 @@ dl
 
   dt views/
   dd
-  |This folder for your views for site if you use own server
-  br
-  |If you create static site put your Pug or HTML there, and this files will be routed as `/`. For example
-  br
-  | `views/index.pug -> /index.html`
-  br
-  | `views/about.html -> /about.html`
+    |This folder for your views for site if you use own server
+    br
+    |If you create static site put your Pug or HTML there, and this files will be routed as `/`. For example
+    br
+    | `views/index.pug -> /index.html`
+    br
+    | `views/about.html -> /about.html`
+h3 Also, this framework provides configs for various tools, such as:
+ul
+  li Bablel `.babelrc`
+  li Eslint `.eslintrc`
+  li htmllint `.htmllintrc`
+  li js-beautify `.jsbeautifyrc`
+  li postcss-sorting `.postcss-sorting.json`
+  li pug-lint `.pug-lintrc`
+  li Stylelint `.stylelintrc`
+h3 How to use
+p First you need create file structure described previous, if you use Yeoman generator, skip this step
+pre cp -Rp example/ src/
+p Create sample config, if you use Yeoman generator, skip this step
+pre
+  |cp config.example.json config.json
+  |vim config.json
+p
+  |Now you can execute&nbsp;
+  code gulp
+  |&nbsp;for start build, watching and live-reload code.
+  |Or you can run&nbsp;
+  code gulp build
+  |&nbsp;or&nbsp;
+  code gulp server
+  |&nbsp;separately. Also you can run&nbsp;
+  code gulp lint
+  |&nbsp;for linting,&nbsp;
+  code gulp fix
+  |&nbsp;for fixing and beautifing code and
+  code gulp self-update
+  |&nbsp;for update this script.
+  code --all
+  |&nbsp;flag enable build of all files, no one changed.
+  code --production
+  |&nbsp;flag enable production mode.
+  code --deploy
+  |&nbsp;flag enable deploy uing rsync. 

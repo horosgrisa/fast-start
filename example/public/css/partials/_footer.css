@@ -1,6 +1,6 @@
 footer {
   margin: 0;
-  padding: 2.5em 2em 0;
+  padding: 1em 0;
 
   text-align: center;
 
@@ -8,18 +8,20 @@ footer {
   border-top: 1px solid #e0e0e0;
 
   & h3 {
-    margin-top: 0;
+    margin: 0;
     padding: 0;
 
     color: #666;
 
     font-weight: 300;
+    line-height: 2.5em;
   }
 
   & a {
     color: #777;
   }
-  & a:hover{
-    color:#888;
+
+  & a:hover {
+    color: #888;
   }
 }
