@@ -26,26 +26,26 @@ ul
 h2 Project Structure
 h3 File tree
 pre
-  |src
-  |├── package.json
-  |├── bower.json
-  |├── index.js
-  |├── lib/
-  |├── routes/
-  |├── public/
-  |│   ├── js/
-  |│   │   ├── includes/
-  |│   │   ├── partials/
-  |│   │   └── views/
-  |│   ├── css/
-  |│   │   ├── includes/
-  |│   │   ├── partials/
-  |│   │   └── views/
-  |│   ├── font/
-  |│   └── img/
-  |└── views/
-  |    ├── partials/
-  |    └── templates/
+  | src
+  | ├── package.json
+  | ├── bower.json
+  | ├── index.js
+  | ├── lib/
+  | ├── routes/
+  | ├── public/
+  | │   ├── js/
+  | │   │   ├── includes/
+  | │   │   ├── partials/
+  | │   │   └── views/
+  | │   ├── css/
+  | │   │   ├── includes/
+  | │   │   ├── partials/
+  | │   │   └── views/
+  | │   ├── font/
+  | │   └── img/
+  | └── views/
+  |     ├── partials/
+  |     └── templates/
 h3 Description
 dl
   dt package.json
@@ -54,14 +54,14 @@ dl
   dd File with bower deps
   dt index.js
   dd
-    |Main file of your Nodejs project. This script will be called by nodemon when you run `gulp`.
+    | Main file of your Nodejs project. This script will be called by nodemon when you run `gulp`.
     br
-    |If you make static site, you don't need this file.
+    | If you make static site, you don't need this file.
 
   dt lib/
   dd Your JavaScript code for backend
     br
-    |If you make static site, you don't need this folder.
+    | If you make static site, you don't need this folder.
 
   dt routes/
   dd This folder good to use for scripts they used for define routes for you site
@@ -74,15 +74,15 @@ dl
 
   dt public/*/views/*
   dd
-    |Will be good if you will use this files for some routes, for example
+    | Will be good if you will use this files for some routes, for example
     br
-    |`views/index.css -> /`
+    | `views/index.css -> /`
     br
-    |`views/about.css -> /about`
+    | `views/about.css -> /about`
 
   dt public/*/includes
   dd
-    |Will be good if you will use this files for including in main files
+    | Will be good if you will use this files for including in main files
     br
     | Example of JavaScript including
     br
@@ -96,14 +96,14 @@ dl
 
   dt public/*/partials
   dd
-    |This folder similar to includes/, but will be good if you will use this folder for some widgets on your site
-    |and if you will include this files only in main files, not views/*
+    | This folder similar to includes/, but will be good if you will use this folder for some widgets on your site
+    | and if you will include this files only in main files, not views/*
 
   dt views/
   dd
-    |This folder for your views for site if you use own server
+    | This folder for your views for site if you use own server
     br
-    |If you create static site put your Pug or HTML there, and this files will be routed as `/`. For example
+    | If you create static site put your Pug or HTML there, and this files will be routed as `/`. For example
     br
     | `views/index.pug -> /index.html`
     br
@@ -122,26 +122,26 @@ p First you need create file structure described previous, if you use Yeoman gen
 pre cp -Rp example/ src/
 p Create sample config, if you use Yeoman generator, skip this step
 pre
-  |cp config.example.json config.json
-  |vim config.json
+  | cp config.example.json config.json
+  | vim config.json
 p
-  |Now you can execute&nbsp;
+  | Now you can execute 
   code gulp
-  |&nbsp;for start build, watching and live-reload code.
-  |Or you can run&nbsp;
+  |  for start build, watching and live-reload code. 
+  |  Or you can run 
   code gulp build
-  |&nbsp;or&nbsp;
+  |  or 
   code gulp server
-  |&nbsp;separately. Also you can run&nbsp;
+  |  separately. Also you can run 
   code gulp lint
-  |&nbsp;for linting,&nbsp;
+  |  for linting, 
   code gulp fix
-  |&nbsp;for fixing and beautifing code and
+  |  for fixing and beautifing code and 
   code gulp self-update
-  |&nbsp;for update this script.
+  |  for update this script. 
   code --all
-  |&nbsp;flag enable build of all files, no one changed.
+  |  flag enable build of all files, no one changed. 
   code --production
-  |&nbsp;flag enable production mode.
+  |  flag enable production mode. 
   code --deploy
-  |&nbsp;flag enable deploy uing rsync. 
+  |  flag enable deploy uing rsync. 

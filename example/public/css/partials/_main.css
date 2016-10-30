@@ -59,13 +59,14 @@ main {
 
     border: 0;
     border-radius: 3px;
-    background-color: #e7e7e7;
+    background-color: #e6e6e6;
 
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: 85%;
   }
 
-  code::after ,code::before {
+  code::after,
+  code::before {
     content: "\00a0";
     letter-spacing: -0.2em;
   }
