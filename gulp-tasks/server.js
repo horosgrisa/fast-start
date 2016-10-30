@@ -30,7 +30,11 @@ module.exports = function (gulp) {
           server: {
             baseDir: 'dist/views',
             index: 'index.html',
-            directory: true
+            directory: true,
+            routes: {
+              '/public': './dist/public',
+              '/bower_components': './dist/bower_components'
+            }
           },
           files: [
             global.CONFIG.dist + '/views/**/*.html',
@@ -39,13 +43,6 @@ module.exports = function (gulp) {
             global.CONFIG.dist + '/public/img/**/*.*',
             global.CONFIG.dist + '/public/font/**/*.*'
           ],
-          serveserver: [{
-            route: '/public',
-            dir: './dist/public'
-          }, {
-            route: '/bower_components',
-            dir: './dist/bower_components'
-          }],
           port: 8000,
           using: true,
           reloadDelay: 1000,
