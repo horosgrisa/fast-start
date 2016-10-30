@@ -1,2 +1,4 @@
 @import 'includes/base';
-@import 'partials/copyright';
+@import 'partials/header';
+@import 'partials/main';
+@import 'partials/footer';

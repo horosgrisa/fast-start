@@ -1,0 +1,108 @@
+h2 Features
+ul
+  li Nodejs run with nodemon
+  li Static server with browsersync
+  li Live code reload with nodemon and/or browsersync
+  li Deploy with rsync
+  li Pug or HTML templates
+  li Pug compilation
+  li HTML compilation (`gulp-include`) as fallback
+  li Browserify support
+  li JavaScript compilation with gulp-include as fallback
+  li Babel for JavaScript
+  li Uglify code for production
+  li Postcss support (precss and postcss-cssnext)
+  li CSS minimization with cssmin
+  li Sourcemaps support for JavaScript and CSS
+  li Image compress with imagemin
+  li CSS lint with stylelint
+  li CSS fix with stylefmt and postcss-sorting
+  li JavaScript lint with eslint
+  li JavaScript fix with eslint and js-beautify
+  li HTML lint with htmllint
+  li HTML prettify with html-prettify
+  li Pug lint with pug-lint
+
+h2 Project Structure
+pre
+  |src
+  |├── package.json
+  |├── bower.json
+  |├── index.js
+  |├── lib/
+  |├── routes/
+  |├── public/
+  |│   ├── js/
+  |│   │   ├── includes/
+  |│   │   ├── partials/
+  |│   │   └── views/
+  |│   ├── css/
+  |│   │   ├── includes/
+  |│   │   ├── partials/
+  |│   │   └── views/
+  |│   ├── font/
+  |│   └── img/
+  |└── views/
+  |    ├── partials/
+  |    └── templates/
+dl
+  dt package.json
+  dd File with npm deps
+  dt bower.json
+  dd File with bower deps
+  dt index.js
+  dd
+    |Main file of your Nodejs project. This script will be called by nodemon when you run `gulp`.
+    br
+    |If you make static site, you don't need this file.
+
+  dt lib/
+  dd Your JavaScript code for backend
+    br
+    |If you make static site, you don't need this folder.
+
+  dt routes/
+  dd This folder good to use for scripts they used for define routes for you site
+
+  dt public/
+  dd This folder be routed as '/public' with Browsersync or, if you use own server, you need make this folder accesible as `/public`
+
+  dt public/{js,css}/*
+  dd Will be good if you will use this files as main scripts/styles for your site
+
+  dt public/*/views/*
+  dd
+    |Will be good if you will use this files for some routes, for example
+    br
+    |`views/index.css -> /`
+    br
+    |`views/about.css -> /about`
+
+  dt public/*/includes
+  dd
+    |Will be good if you will use this files for including in main files
+    br
+    | Example of JavaScript including
+    br
+    | const $ = require('jquery') // If you use Browserify
+    br
+    | //=require includes/somefile.js // If you use fallback `gulp-include`
+    br
+    | Example of CSS including
+    br
+    | @import 'includes/somefile'; /* This import in your css includes/_somefile.css */
+
+  dt public/*/partials
+  dd
+    |This folder similar to includes/, but will be good if you will use this folder for some widgets on your site
+    |and if you will include this files only in main files, not views/*
+
+  dt views/
+  dd
+  |This folder for your views for site if you use own server
+  br
+  |If you create static site put your Pug or HTML there, and this files will be routed as `/`. For example
+  br
+  | `views/index.pug -> /index.html`
+  br
+  | `views/about.html -> /about.html`

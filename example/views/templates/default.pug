@@ -5,40 +5,14 @@ html
     meta(charset='utf-8')
     meta(name='viewport',content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet',href='/bower_components/normalize-css/normalize.css')
-    link(rel='stylesheet',href='/bower_components/pure/pure.css')
     link(rel='stylesheet',href='/public/css/default.css')
     link(rel='stylesheet',href='/public/css/views/index.css')
   body
-    #layout
-      .main
-        header
-          h1 Simple page
-          h2 Example of page
-        h2 Features
-        ul
-          li.hidden Nodejs run
-          li Static server
-          li Deploy with rsync
-          li Pug compilation
-          li HTML compilation (`gulp-include`)
-          li.hidden Backend support
-          li.hidden Browserify support
-          li `gulp-include` for JavaScript
-          li Postcss support (precss and postcss-cssnext)
-          li CSS lint with stylelint
-          li CSS fix with stylefmt and postcss-sorting
-          li JavaScript lint with eslint
-          li JavaScript fix with eslint and js-beautify
-
-        h2 Config
-        pre.
-          {
-            "static": true,
-            "browserify": false,
-            ...
-          }
-      footer
-        block footer
-          | Some footer from `default.pug`
+    header
+      block header
+    main
+      block main
+    footer
+      block footer
     script(src='/public/js/main.js')
     script(src='/public/js/views/index.js')

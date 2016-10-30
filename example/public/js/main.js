@@ -1,3 +1,5 @@
-//=include partials/copyright.js
+// If you use browserify, uncomment followiing line
+// require('./partials/footer.js')()
 
-require('./partials/copyright.js')()
+// If you use gulp-include, don't do nothing
+//=include partials/footer.js

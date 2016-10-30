@@ -20,7 +20,6 @@ const sourcemaps = require('gulp-sourcemaps')
 const uglify = require('gulp-uglify')
 const cssmin = require('gulp-cssmin')
 const babel = require('gulp-babel')
-
 const tap = require('gulp-tap')
 const browserify = require('browserify')
 const sourcemapify = require('sourcemapify')
