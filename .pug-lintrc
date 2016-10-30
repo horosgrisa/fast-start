@@ -1,0 +1,14 @@
+{
+  "disallowAttributeConcatenation": true,
+  "disallowBlockExpansion": true,
+  "disallowClassAttributeWithStaticValue": true,
+  "disallowHtmlText": true,
+  "disallowIdAttributeWithStaticValue": true,
+  "disallowLegacyMixinCall": true,
+  "disallowMultipleLineBreaks": true,
+  "disallowSpaceAfterCodeOperator": true,
+  "disallowSpacesInsideAttributeBrackets": true,
+  "requireLowerCaseTags": true,
+  "requireLowerCaseAttributes": true,
+  "validateDivTags": true
+}

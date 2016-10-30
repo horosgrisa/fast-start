@@ -1,0 +1,12 @@
+{
+  "server": true,
+  "browserify": true,
+  "dist": "./dist",
+  "deploy": {
+    "hostname": "",
+    "username": "",
+    "destination": "",
+    "silent": true,
+    "compress": true
+  }
+}

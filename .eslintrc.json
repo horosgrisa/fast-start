@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "pug",
+    "json",
+    "standard",
+    "promise"
+  ],
+  "extends": "standard",
+  "rules": {
+    "spaced-comment": ["error", "always", {
+      "markers": ["=require", "=include"]
+    }],
+    "no-unused-vars": ["off"]
+  }
+}

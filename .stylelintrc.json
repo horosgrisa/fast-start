@@ -1,0 +1,15 @@
+{
+  "plugins": ["stylelint-selector-bem-pattern"],
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "comment-empty-line-before": "never",
+    "declaration-empty-line-before": [
+      "never", {
+        "ignore": [
+          "after-declaration",
+          "inside-single-line-block"
+        ]
+      }
+    ]
+  }
+}

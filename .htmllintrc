@@ -1,0 +1,11 @@
+{
+  "indent-width": 2,
+  "indent-style": "spaces",
+  "doctype-html5": true,
+  "tag-close": false,
+  "attr-no-dup": true,
+  "attr-no-unsafe-char": true,
+  "attr-quote-style": "quoted",
+  "doctype-first": true,
+  "tag-name-lowercase": true
+}
