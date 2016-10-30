@@ -39,6 +39,10 @@ gulp.task('fix', gulp.series(
   'views::fix'
 ))
 
+gulp.task('self-update', gulp.series(
+  'update'
+))
+
 gulp.task('default',
   gulp.series(
     'build',
