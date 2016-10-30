@@ -21,7 +21,6 @@
     "eslint-plugin-standard": "",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-babel": "",
-    "gulp-buffer": "",
     "gulp-cssmin": "",
     "gulp-eslint": "",
     "gulp-filter": "",

@@ -22,7 +22,6 @@ const cssmin = require('gulp-cssmin')
 const babel = require('gulp-babel')
 
 const tap = require('gulp-tap')
-const buffer = require('gulp-buffer')
 const browserify = require('browserify')
 const sourcemapify = require('sourcemapify')
 
@@ -42,26 +41,32 @@ module.exports = function (gulp) {
         })))
         .pipe(using({path: 'relative', color: 'green', filesize: false}))
         .pipe(gulpif(global.CONFIG.browserify, tap(function (file) {
-          console.log(11)
-          file.contents = browserify(file.path, {debug: true})
+          if (argv.production) {
+            file.contents = browserify(file.path, {debug: false})
+            .transform('babelify', {presets: ['es2015']})
+            .transform('uglifyify')
+            .bundle()
+          } else {
+            file.contents = browserify(file.path, {debug: true})
             .transform('babelify', {presets: ['es2015']})
             .transform('uglifyify')
             .plugin(sourcemapify, {base: 'src/public/js', root: '/public/js'})
             .bundle()
+          }
         })))
-        .pipe(gulpif(global.CONFIG.browserify, buffer()))
-        .pipe(gulpif(!global.CONFIG.browserify, sourcemaps.init()))
+        .pipe(gulpif(global.CONFIG.browserify, gulp.dest(global.CONFIG.dist + '/public/js/')))
+        .pipe(gulpif(!global.CONFIG.browserify && !argv.production, sourcemaps.init({})))
         .pipe(gulpif(!global.CONFIG.browserify, include()))
         .pipe(gulpif(!global.CONFIG.browserify, babel({
           presets: ['es2015']
         })))
         .pipe(gulpif(!global.CONFIG.browserify, uglify()))
-        .pipe(gulpif(!global.CONFIG.browserify, sourcemaps.write('.', {
+        .pipe(gulpif(!global.CONFIG.browserify && !argv.production, sourcemaps.write({
           mapSources: function (mapFilePath) {
             return '/public/js/' + mapFilePath
           }
         })))
-        .pipe(gulp.dest(global.CONFIG.dist + '/public/js/'))
+        .pipe(gulpif(!global.CONFIG.browserify, gulp.dest(global.CONFIG.dist + '/public/js/')))
         .pipe(touch())
         .pipe(gulpif(argv.deploy, rsync(global.CONFIG.deploy)))
     }))
@@ -84,7 +89,7 @@ module.exports = function (gulp) {
           .pipe(gulpif(!argv.production, sourcemaps.init()))
           .pipe(postcss(postcssPlugins))
           .pipe(gulpif(argv.production, cssmin()))
-          .pipe(gulpif(!argv.production, sourcemaps.write('.', {
+          .pipe(gulpif(!argv.production, sourcemaps.write({
             mapSources: function (mapFilePath) {
               return '/public/css/' + mapFilePath
             }

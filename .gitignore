@@ -1,5 +1,4 @@
-src/
-!src/.empty
+src
 dist/
 config.json
 
