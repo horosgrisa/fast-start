@@ -9,6 +9,7 @@ require('./gulp-tasks/lint')(gulp)
 require('./gulp-tasks/fix')(gulp)
 require('./gulp-tasks/watch')(gulp)
 require('./gulp-tasks/server')(gulp)
+require('./gulp-tasks/update')(gulp)
 
 gulp.task('build', gulp.parallel(
   'frontend:js',
