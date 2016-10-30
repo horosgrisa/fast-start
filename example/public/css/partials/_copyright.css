@@ -1,5 +1,6 @@
-footer{
-  font-style: 'Roboto', 'Droid Sans', sans;
-  font-size: 18px;
+footer {
   color: #333;
+
+  font-size: 18px;
+  font-style: 'Roboto', 'Droid Sans', sans;
 }

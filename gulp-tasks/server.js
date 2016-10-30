@@ -49,7 +49,8 @@ module.exports = function (gulp) {
           online: true,
           open: false,
           logFileChanges: false,
-          notify: false
+          notify: false,
+          ui: false
         })
         done()
       } else {
@@ -67,7 +68,8 @@ module.exports = function (gulp) {
           online: true,
           open: false,
           logFileChanges: false,
-          notify: false
+          notify: false,
+          ui: false
         })
         done()
       }

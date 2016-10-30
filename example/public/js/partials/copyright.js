@@ -1,6 +1,8 @@
 const genCopyright = function () {
-  const year = new Date().getFullYear()
+  const year = new Date()
+    .getFullYear()
   return `Grigorii Horos © ${year}`
 }
 
-document.getElementById('copyright').innerHTML = genCopyright()
+document.getElementById('copyright')
+  .innerHTML = genCopyright()
