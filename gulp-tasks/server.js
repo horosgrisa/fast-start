@@ -48,7 +48,7 @@ module.exports = function (gulp) {
           reloadDelay: 1000,
           online: true,
           open: false,
-          logFileChanges: true,
+          logFileChanges: false,
           notify: false
         })
         done()
