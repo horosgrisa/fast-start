@@ -41,7 +41,7 @@ gulp.task('fix', gulp.series(
 ))
 
 gulp.task('self-update', gulp.series(
-  'update'
+  'self-update:git'
 ))
 
 gulp.task('default',
