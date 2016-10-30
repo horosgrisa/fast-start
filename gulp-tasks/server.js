@@ -54,7 +54,7 @@ module.exports = function (gulp) {
         })
         done()
       } else {
-        browserSync.init({
+        browserSync.init(null, {
           proxy: 'http://localhost:10000',
           files: [
             global.CONFIG.dist + '/public/css/**/*.css',
