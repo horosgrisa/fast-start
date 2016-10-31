@@ -20,7 +20,7 @@
     "eslint-plugin-promise": "",
     "eslint-plugin-pug": "",
     "eslint-plugin-standard": "",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "gulpjs/gulp#4.0",
     "gulp-babel": "",
     "gulp-cssmin": "",
     "gulp-eslint": "",
