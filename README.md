@@ -1,4 +1,4 @@
-# This is framework for create and compiling of your site
+# This is a lightweight framework used to create and compile your site
 ## Features
 
 *   Nodejs run with nodemon
@@ -15,7 +15,7 @@
 *   Postcss support (precss and postcss-cssnext)
 *   CSS minimization with cssmin
 *   Sourcemaps support for JavaScript and CSS
-*   Image compress with imagemin
+*   Image compressing with imagemin
 *   CSS lint with stylelint
 *   CSS fix with stylefmt and postcss-sorting
 *   JavaScript lint with eslint
@@ -64,54 +64,54 @@
 <dt>index.js</dt>
 
 <dd>Main file of your Nodejs project. This script will be called by nodemon when you run `gulp`.
-If you make static site, you don't need this file.</dd>
+If you're making a static site, you won't need this file.</dd>
 
 <dt>lib/</dt>
 
 <dd>Your JavaScript code for backend
-If you make static site, you don't need this folder.</dd>
+If you're making a static site, you won't need this folder either.</dd>
 
 <dt>routes/</dt>
 
-<dd>This folder good to use for scripts they used for define routes for you site</dd>
+<dd>This folder should be used for scripts which define the routes for you site</dd>
 
 <dt>public/</dt>
 
-<dd>This folder be routed as '/public' with Browsersync or, if you use own server, you need make this folder accesible as `/public`</dd>
+<dd>This folder will be routed as '/public' with Browsersync, or, in case you use your own server, you must make this folder accesible as `/public`</dd>
 
 <dt>public/{js,css}/*</dt>
 
-<dd>Will be good if you will use this files as main scripts/styles for your site</dd>
+<dd>It'll be a good practice if you'll use those files as the main scripts/styles for your site</dd>
 
 <dt>public/*/views/*</dt>
 
-<dd>Will be good if you will use this files for some routes, for example
+<dd>Also it would be very nice if you'll use this files for some of your routes, for example
 `views/index.css -> /`
 `views/about.css -> /about`</dd>
 
 <dt>public/*/includes</dt>
 
-<dd>Will be good if you will use this files for including in main files
+<dd>It's recommended for you to use this files in order to include the main files
 Example of JavaScript including
 const $ = require('jquery') // If you use Browserify
 //=require includes/somefile.js // If you use fallback `gulp-include`
 Example of CSS including
-@import 'includes/somefile'; /* This import in your css includes/_somefile.css */</dd>
+@import 'includes/somefile'; /* This imports 'somefile' in your css includes/_somefile.css */</dd>
 
 <dt>public/*/partials</dt>
 
-<dd>This folder similar to includes/, but will be good if you will use this folder for some widgets on your site and if you will include this files only in main files, not views/*</dd>
+<dd>This folder is very similar to includes/, but it would be nice if you'll use this folder for some widgets of your site, and it's recommended to include this files only in the main files (and not in the views/* files)</dd>
 
 <dt>views/</dt>
 
-<dd>This folder for your views for site if you use own server
-If you create static site put your Pug or HTML there, and this files will be routed as `/`. For example
+<dd>This is the folder for your views of the site, if you use your own server
+If youre creating a static site - put your Pug or HTML there, and the files will be routed as `/`. For example
 `views/index.pug -> /index.html`
 `views/about.html -> /about.html`</dd>
 
 </dl>
 
-### Also, this framework provides configs for various tools, such as:
+### Also, this framework provides configs for a lot of various tools, such as:
 
 *   Bablel `.babelrc`
 *   Eslint `.eslintrc`
@@ -123,13 +123,13 @@ If you create static site put your Pug or HTML there, and this files will be rou
 
 ### How to use
 
-First you need create file structure described previous, if you use Yeoman generator, skip this step
+First you need create the file structure described previous (if you use Yeoman generator, you can skip this step)
 
 <pre>cp -Rp example/ src/</pre>
 
-Create sample config, if you use Yeoman generator, skip this step
+Create a sample config (if you use Yeoman generator, skip this step)
 
 <pre>cp config.example.json config.json
 vim config.json</pre>
 
-Now you can execute `gulp`  for start build, watching and live-reload code. Or you can run `gulp build` or `gulp server` separately. Also you can run `gulp lint` for linting, `gulp fix` for fixing and beautifing code and`gulp self-update` for update this script.`--all` flag enable build of all files, no one changed.`--production` flag enable production mode.`--deploy` flag enable deploy uing rsync.
+Now you can execute `gulp` in order to start the build, being able to watch and live-reload your code. Or you can simply run `gulp build` or `gulp server` separately. Also you can run `gulp lint` for linting, `gulp fix` for fixing and beautifing the code and `gulp self-update` for updating this script.`--all` flag enables the building of all the files, without changing none of them. `--production` flag enables the production mode.`--deploy` flag enables deploying using rsync.
