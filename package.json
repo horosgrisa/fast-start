@@ -1,14 +1,15 @@
 {
-  "name": "gts",
-  "version": "1.0.0",
+  "name": "fast-start",
+  "version": "0.0.4",
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
     "babel-preset-es2015": "",
     "babelify": "",
     "browser-sync": "",
@@ -55,6 +56,5 @@
     "stylelint-selector-bem-pattern": "",
     "uglifyify": "",
     "yargs": ""
-  },
-  "dependencies": {}
+  }
 }

@@ -1,6 +1,6 @@
-# Fast Start [![NPM version][npm-image]][npm-url]
+# Fast Start
 
-# This is framework for create and compiling of your site
+## This is framework for create and compiling of your site
 
 ## Features
 
@@ -158,7 +158,3 @@ Now you can execute `gulp`  for start build, watching and live-reload code. Or
 ## License
 
 MIT © [Grigorii Horos](https://github.com/horosgrisa)
-
-
-[npm-image]: https://badge.fury.io/js/fast-start.svg
-[npm-url]: https://npmjs.org/package/fast-start
