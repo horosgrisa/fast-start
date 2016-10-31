@@ -1,34 +1,38 @@
+# Fast Start [![NPM version][npm-image]][npm-url]
+
 # This is framework for create and compiling of your site
+
 ## Features
 
-*   Nodejs run with nodemon
-*   Static server with browsersync
-*   Live code reload with nodemon and/or browsersync
-*   Deploy with rsync
-*   Pug or HTML templates
-*   Pug compilation
-*   HTML compilation (`gulp-include`) as fallback
-*   Browserify support
-*   JavaScript compilation with gulp-include as fallback
-*   Babel for JavaScript
-*   Uglify code for production
-*   Postcss support (precss and postcss-cssnext)
-*   CSS minimization with cssmin
-*   Sourcemaps support for JavaScript and CSS
-*   Image compress with imagemin
-*   CSS lint with stylelint
-*   CSS fix with stylefmt and postcss-sorting
-*   JavaScript lint with eslint
-*   JavaScript fix with eslint and js-beautify
-*   HTML lint with htmllint
-*   HTML prettify with html-prettify
-*   Pug lint with pug-lint
+* Nodejs run with nodemon
+* Static server with browsersync
+* Live code reload with nodemon and/or browsersync
+* Deploy with rsync
+* Pug or HTML templates
+* Pug compilation
+* HTML compilation (`gulp-include`) as fallback
+* Browserify support
+* JavaScript compilation with gulp-include as fallback
+* Babel for JavaScript
+* Uglify code for production
+* Postcss support (precss and postcss-cssnext)
+* CSS minimization with cssmin
+* Sourcemaps support for JavaScript and CSS
+* Image compress with imagemin
+* CSS lint with stylelint
+* CSS fix with stylefmt and postcss-sorting
+* JavaScript lint with eslint
+* JavaScript fix with eslint and js-beautify
+* HTML lint with htmllint
+* HTML prettify with html-prettify
+* Pug lint with pug-lint
 
 ## Project Structure
 
 ### File tree
 
-<pre>src
+```
+src
 ├── package.json
 ├── bower.json
 ├── index.js
@@ -47,7 +51,8 @@
 │   └── img/
 └── views/
    ├── partials/
-   └── templates/</pre>
+   └── templates/
+```
 
 ### Description
 
@@ -86,17 +91,25 @@ If you make static site, you don't need this folder.</dd>
 <dt>public/*/views/*</dt>
 
 <dd>Will be good if you will use this files for some routes, for example
-`views/index.css -> /`
-`views/about.css -> /about`</dd>
+```
+views/index.css -> /
+views/about.css -> /about
+```
+</dd>
 
 <dt>public/*/includes</dt>
 
 <dd>Will be good if you will use this files for including in main files
 Example of JavaScript including
+```js
 const $ = require('jquery') // If you use Browserify
 //=require includes/somefile.js // If you use fallback `gulp-include`
+```
 Example of CSS including
-@import 'includes/somefile'; /* This import in your css includes/_somefile.css */</dd>
+```css
+@import 'includes/somefile'; /* This import in your css includes/_somefile.css */
+```
+</dd>
 
 <dt>public/*/partials</dt>
 
@@ -106,30 +119,46 @@ Example of CSS including
 
 <dd>This folder for your views for site if you use own server
 If you create static site put your Pug or HTML there, and this files will be routed as `/`. For example
-`views/index.pug -> /index.html`
-`views/about.html -> /about.html`</dd>
+```
+views/index.pug -> /index.html
+views/about.html -> /about.html
+```
+</dd>
 
 </dl>
 
 ### Also, this framework provides configs for various tools, such as:
 
-*   Bablel `.babelrc`
-*   Eslint `.eslintrc`
-*   htmllint `.htmllintrc`
-*   js-beautify `.jsbeautifyrc`
-*   postcss-sorting `.postcss-sorting.json`
-*   pug-lint `.pug-lintrc`
-*   Stylelint `.stylelintrc`
+* Bablel `.babelrc`
+* Eslint `.eslintrc`
+* htmllint `.htmllintrc`
+* js-beautify `.jsbeautifyrc`
+* postcss-sorting `.postcss-sorting.json`
+* pug-lint `.pug-lintrc`
+* Stylelint `.stylelintrc`
 
 ### How to use
 
 First you need create file structure described previous, if you use Yeoman generator, skip this step
 
-<pre>cp -Rp example/ src/</pre>
+```
+cp -Rp example/ src/
+```
 
 Create sample config, if you use Yeoman generator, skip this step
 
-<pre>cp config.example.json config.json
-vim config.json</pre>
+```
+cp config.example.json config.json
+vim config.json
+```
 
 Now you can execute `gulp`  for start build, watching and live-reload code. Or you can run `gulp build` or `gulp server` separately. Also you can run `gulp lint` for linting, `gulp fix` for fixing and beautifing code and`gulp self-update` for update this script.`--all` flag enable build of all files, no one changed.`--production` flag enable production mode.`--deploy` flag enable deploy uing rsync.
+
+
+## License
+
+MIT © [Grigorii Horos](https://github.com/horosgrisa)
+
+
+[npm-image]: https://badge.fury.io/js/fast-start.svg
+[npm-url]: https://npmjs.org/package/fast-start
