@@ -1,6 +1,7 @@
 # Fast Start
 
-# This is a lightweight framework used to create and compile your site
+This is a lightweight framework used to create and compile your site
+
 ## Features
 
 * Nodejs run with nodemon
@@ -30,100 +31,95 @@
 
 ### File tree
 
-```
-src
-├── package.json
-├── bower.json
-├── index.js
-├── lib/
-├── routes/
-├── public/
-│   ├── js/
-│   │   ├── includes/
-│   │   ├── partials/
-│   │   └── views/
-│   ├── css/
-│   │   ├── includes/
-│   │   ├── partials/
-│   │   └── views/
-│   ├── font/
-│   └── img/
-└── views/
-   ├── partials/
-   └── templates/
-```
+    src
+    ├── package.json
+    ├── bower.json
+    ├── index.js
+    ├── lib/
+    ├── routes/
+    ├── public/
+    │   ├── js/
+    │   │   ├── includes/
+    │   │   ├── partials/
+    │   │   └── views/
+    │   ├── css/
+    │   │   ├── includes/
+    │   │   ├── partials/
+    │   │   └── views/
+    │   ├── font/
+    │   └── img/
+    └── views/
+       ├── partials/
+       └── templates/
+
 
 ### Description
 
-<dl>
+#### package.json
 
-<dt>package.json</dt>
+File with npm deps
 
-<dd>File with npm deps</dd>
+#### bower.json
 
-<dt>bower.json</dt>
+File with bower deps
 
-<dd>File with bower deps</dd>
+#### index.js
 
-<dt>index.js</dt>
+Main file of your Nodejs project. This script will be called by nodemon when you run `gulp`.
+If you're making a static site, you won't need this file.
 
-<dd>Main file of your Nodejs project. This script will be called by nodemon when you run `gulp`.
-If you're making a static site, you won't need this file.</dd>
+#### lib/
 
-<dt>lib/</dt>
+Your JavaScript code for backend
+If you're making a static site, you won't need this folder either.
 
-<dd>Your JavaScript code for backend
-If you're making a static site, you won't need this folder either.</dd>
+#### routes/
 
-<dt>routes/</dt>
+This folder should be used for scripts which define the routes for you site
 
-<dd>This folder should be used for scripts which define the routes for you site</dd>
+#### public/
 
-<dt>public/</dt>
+This folder will be routed as '/public' with Browsersync, or, in case you use your own server, you must make this folder accesible as `/public`
 
-<dd>This folder will be routed as '/public' with Browsersync, or, in case you use your own server, you must make this folder accesible as `/public`</dd>
+#### public/{js,css}/
 
-<dt>public/{js,css}/*</dt>
+It'll be a good practice if you'll use those files as the main scripts/styles for your site
 
-<dd>It'll be a good practice if you'll use those files as the main scripts/styles for your site</dd>
+#### public/\*/views/
 
-<dt>public/*/views/*</dt>
+Also it would be very nice if you'll use this files for some of your routes, for example
 
-<dd>Also it would be very nice if you'll use this files for some of your routes, for example
-```
-views/index.css -> /
-views/about.css -> /about
-```
-</dd>
+    views/index.css -> /
+    views/about.css -> /about
 
-<dt>public/*/includes</dt>
+#### public/\*/includes/
 
-<dd>It's recommended for you to use this files in order to include the main files
+It's recommended for you to use this files in order to include the main files
 Example of JavaScript including
-```js
-const $ = require('jquery') // If you use Browserify
-//=require includes/somefile.js // If you use fallback `gulp-include`
-```
-Example of CSS including:
-```css
-@import 'includes/somefile'; /* This import in your css includes/_somefile.css */
-```
-</dd>
 
-<dt>public/*/partials</dt>
+    const $ = require('jquery') // If you use Browserify
+    //=require includes/somefile.js // If you use fallback `gulp-include`
 
-<dd>This folder is very similar to includes/, but it would be nice if you'll use this folder for some widgets of your site, and it's recommended to include this files only in the main files (and not in the views/* files)</dd>
+Example of CSS including:  
 
-<dt>views/</dt>
+    @import 'includes/somefile';
+    /* This import in your css includes/_somefile.css */
 
-<dd>This is the folder for your views of the site, if you use your own server
+
+
+#### public/*/partials
+
+This folder is very similar to includes/, but it would be nice if you'll use this folder for some widgets of your site, and it's recommended to include this files only in the main files (and not in the views/* files)
+
+#### views/
+
+This is the folder for your views of the site, if you use your own server
 If youre creating a static site - put your Pug or HTML there, and the files will be routed as `/`. For example
-```
-views/index.pug -> /index.html
-views/about.html -> /about.html
-```
-</dd>
-</dl>
+
+    views/index.pug -> /index.html
+    views/about.html -> /about.html
+
+
 
 ### Also, this framework provides configs for a lot of various tools, such as:
 
@@ -137,18 +133,15 @@ views/about.html -> /about.html
 
 ### How to use
 
-First you need create the file structure described previous (if you use Yeoman generator, you can skip this step)
+First you need create the file structure described previous (if you use Yeoman generator, you can skip this step)  
 
-```
-cp -Rp example/ src/
-```
+    cp -Rp example/ src/
 
-Create a sample config (if you use Yeoman generator, skip this step)
 
-```
-cp config.example.json config.json
-vim config.json
-```
+Create a sample config (if you use Yeoman generator, skip this step)  
+
+    cp config.example.json config.json
+    vim config.json
 
 Now you can execute `gulp` in order to start the build, watching and live-reload your code. Or you can simply run `gulp build` or `gulp server` separately. Also you can run `gulp lint` for linting, `gulp fix` for fixing and beautifing the code and `gulp self-update` for updating this script.`--all` flag enables the building of all the files, without changing none of them. `--production` flag enables the production mode.`--deploy` flag enables deploying using rsync.
 
