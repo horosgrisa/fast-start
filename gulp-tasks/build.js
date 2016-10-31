@@ -11,10 +11,6 @@ const filter = require('gulp-filter')
 const include = require('gulp-include')
 const imagemin = require('gulp-imagemin')
 const postcss = require('gulp-postcss')
-const postcssPlugins = [
-  require('precss')(),
-  require('postcss-cssnext')()
-]
 const pug = require('gulp-pug')
 const sourcemaps = require('gulp-sourcemaps')
 const uglify = require('gulp-uglify')
@@ -86,8 +82,13 @@ module.exports = function (gulp) {
           })))
           .pipe(using({path: 'relative', color: 'green', filesize: false}))
           .pipe(gulpif(!argv.production, sourcemaps.init()))
-          .pipe(postcss(postcssPlugins))
-          .pipe(gulpif(argv.production, cssmin()))
+          .pipe(postcss([
+            require('precss')(),
+            require('postcss-cssnext')()
+          ]))
+          .pipe(gulpif(argv.production, postcss([
+            require('cssnano')()
+          ])))
           .pipe(gulpif(!argv.production, sourcemaps.write({
             mapSources: function (mapFilePath) {
               return '/public/css/' + mapFilePath

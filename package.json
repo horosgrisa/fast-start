@@ -18,6 +18,7 @@
     "babelify": "",
     "browser-sync": "",
     "browserify": "",
+    "cssnano": "",
     "eslint-config-standard": "",
     "eslint-plugin-html": "",
     "eslint-plugin-json": "",
@@ -26,7 +27,6 @@
     "eslint-plugin-standard": "",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-babel": "",
-    "gulp-cssmin": "",
     "gulp-eslint": "",
     "gulp-filter": "",
     "gulp-flatmap": "",
@@ -55,11 +55,11 @@
     "postcss-sorting": "",
     "precss": "",
     "pug-lint": "",
+    "sourcemapify": "",
     "stylelint": "",
     "stylelint-config-standard": "",
     "stylelint-selector-bem-pattern": "",
     "uglifyify": "",
-    "yargs": "",
-    "sourcemapify": ""
+    "yargs": ""
   }
 }
