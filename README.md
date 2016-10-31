@@ -97,13 +97,13 @@ views/about.css -> /about
 
 It's recommended for you to use this files in order to include the main files
 Example of JavaScript including
-```
+```js
 const $ = require('jquery') // If you use Browserify
 //=require includes/somefile.js // If you use fallback `gulp-include`
 ```
 
 Example of CSS including:  
-```
+```css
 @import 'includes/somefile';
 /* This import in your css includes/_somefile.css */
 ```
