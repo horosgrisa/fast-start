@@ -55,6 +55,7 @@
     "stylelint-config-standard": "",
     "stylelint-selector-bem-pattern": "",
     "uglifyify": "",
-    "yargs": ""
+    "yargs": "",
+    "sourcemapify": ""
   }
 }
