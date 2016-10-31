@@ -3,28 +3,28 @@
 # This is a lightweight framework used to create and compile your site
 ## Features
 
-*   Nodejs run with nodemon
-*   Static server with browsersync
-*   Live code reload with nodemon and/or browsersync
-*   Deploy with rsync
-*   Pug or HTML templates
-*   Pug compilation
-*   HTML compilation (`gulp-include`) as fallback
-*   Browserify support
-*   JavaScript compilation with gulp-include as fallback
-*   Babel for JavaScript
-*   Uglify code for production
-*   Postcss support (precss and postcss-cssnext)
-*   CSS minimization with cssmin
-*   Sourcemaps support for JavaScript and CSS
-*   Image compressing with imagemin
-*   CSS lint with stylelint
-*   CSS fix with stylefmt and postcss-sorting
-*   JavaScript lint with eslint
-*   JavaScript fix with eslint and js-beautify
-*   HTML lint with htmllint
-*   HTML prettify with html-prettify
-*   Pug lint with pug-lint
+* Nodejs run with nodemon
+* Static server with browsersync
+* Live code reload with nodemon and/or browsersync
+* Deploy with rsync
+* Pug or HTML templates
+* Pug compilation
+* HTML compilation (`gulp-include`) as fallback
+* Browserify support
+* JavaScript compilation with gulp-include as fallback
+* Babel for JavaScript
+* Uglify code for production
+* Postcss support (precss and postcss-cssnext)
+* CSS minimization with cssmin
+* Sourcemaps support for JavaScript and CSS
+* Image compressing with imagemin
+* CSS lint with stylelint
+* CSS fix with stylefmt and postcss-sorting
+* JavaScript lint with eslint
+* JavaScript fix with eslint and js-beautify
+* HTML lint with htmllint
+* HTML prettify with html-prettify
+* Pug lint with pug-lint
 
 ## Project Structure
 
@@ -116,7 +116,6 @@ Example of CSS including:
 
 <dt>views/</dt>
 
-<<<<<<< HEAD
 <dd>This is the folder for your views of the site, if you use your own server
 If youre creating a static site - put your Pug or HTML there, and the files will be routed as `/`. For example
 ```
