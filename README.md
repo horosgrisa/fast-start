@@ -155,4 +155,3 @@ Now you can execute `gulp` in order to start the build, watching and live-reloa
 ## License
 
 MIT © [Grigorii Horos](https://github.com/horosgrisa)
-=======
