@@ -30,28 +30,28 @@ This is a lightweight framework used to create and compile your site
 ## Project Structure
 
 ### File tree
-
-    src
-    ├── package.json
-    ├── bower.json
-    ├── index.js
-    ├── lib/
-    ├── routes/
-    ├── public/
-    │   ├── js/
-    │   │   ├── includes/
-    │   │   ├── partials/
-    │   │   └── views/
-    │   ├── css/
-    │   │   ├── includes/
-    │   │   ├── partials/
-    │   │   └── views/
-    │   ├── font/
-    │   └── img/
-    └── views/
-       ├── partials/
-       └── templates/
-
+```
+src
+├── package.json
+├── bower.json
+├── index.js
+├── lib/
+├── routes/
+├── public/
+│   ├── js/
+│   │   ├── includes/
+│   │   ├── partials/
+│   │   └── views/
+│   ├── css/
+│   │   ├── includes/
+│   │   ├── partials/
+│   │   └── views/
+│   ├── font/
+│   └── img/
+└── views/
+   ├── partials/
+   └── templates/
+```
 
 ### Description
 
@@ -88,24 +88,25 @@ It'll be a good practice if you'll use those files as the main scripts/styles fo
 #### public/\*/views/
 
 Also it would be very nice if you'll use this files for some of your routes, for example
-
-    views/index.css -> /
-    views/about.css -> /about
+```
+views/index.css -> /
+views/about.css -> /about
+```
 
 #### public/\*/includes/
 
 It's recommended for you to use this files in order to include the main files
 Example of JavaScript including
-
-    const $ = require('jquery') // If you use Browserify
-    //=require includes/somefile.js // If you use fallback `gulp-include`
+```
+const $ = require('jquery') // If you use Browserify
+//=require includes/somefile.js // If you use fallback `gulp-include`
+```
 
 Example of CSS including:  
-
-    @import 'includes/somefile';
-    /* This import in your css includes/_somefile.css */
-
-
+```
+@import 'includes/somefile';
+/* This import in your css includes/_somefile.css */
+```
 
 #### public/*/partials
 
@@ -115,11 +116,10 @@ This folder is very similar to includes/, but it would be nice if you'll use thi
 
 This is the folder for your views of the site, if you use your own server
 If youre creating a static site - put your Pug or HTML there, and the files will be routed as `/`. For example
-
-    views/index.pug -> /index.html
-    views/about.html -> /about.html
-
-
+```
+views/index.pug -> /index.html
+views/about.html -> /about.html
+```
 
 ### Also, this framework provides configs for a lot of various tools, such as:
 
@@ -134,14 +134,15 @@ If youre creating a static site - put your Pug or HTML there, and the files will
 ### How to use
 
 First you need create the file structure described previous (if you use Yeoman generator, you can skip this step)  
-
-    cp -Rp example/ src/
-
+```
+cp -Rp example/ src/
+```
 
 Create a sample config (if you use Yeoman generator, skip this step)  
-
-    cp config.example.json config.json
-    vim config.json
+```
+cp config.example.json config.json
+vim config.json
+```
 
 Now you can execute `gulp` in order to start the build, watching and live-reload your code. Or you can simply run `gulp build` or `gulp server` separately. Also you can run `gulp lint` for linting, `gulp fix` for fixing and beautifing the code and `gulp self-update` for updating this script.`--all` flag enables the building of all the files, without changing none of them. `--production` flag enables the production mode.`--deploy` flag enables deploying using rsync.
 
