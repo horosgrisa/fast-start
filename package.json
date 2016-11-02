@@ -41,7 +41,7 @@
     "gulp-plumber": "",
     "gulp-postcss": "",
     "gulp-pug": "",
-    "gulp-pug-lint": "",
+    "gulp-pug-linter": "",
     "gulp-rsync": "",
     "gulp-sourcemaps": "",
     "gulp-strip-debug": "",

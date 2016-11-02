@@ -4,7 +4,7 @@ const plumber = require('gulp-plumber')
 const filter = require('gulp-filter')
 const eslint = require('gulp-eslint')
 const stylelint = require('gulp-stylelint')
-const puglint = require('gulp-pug-lint')
+const pugLinter = require('gulp-pug-linter')
 const htmllint = require('gulp-htmllint')
 
 module.exports = function (gulp) {
@@ -49,7 +49,8 @@ module.exports = function (gulp) {
     return gulp.src('src/views/**/*.*')
       .pipe(plumber())
       .pipe(pugFilter)
-      .pipe(puglint())
+      .pipe(pugLinter())
+      .pipe(pugLinter.reporter())
       .pipe(pugFilter.restore)
       .pipe(htmlFilter)
       .pipe(htmllint())
