@@ -1,5 +1,6 @@
 'use strict'
 let $ = require('gulp-load-plugins')()
+$.buffer = require('gulp-buffer')
 
 const argv = require('yargs').argv
 const browserify = require('browserify')
@@ -64,6 +65,7 @@ module.exports = function (gulp) {
           })))
           .pipe($.if(!global.CONFIG.browserify, gulp.dest(global.CONFIG.dist + '/public/js/')))
           .pipe($.touch())
+          .pipe($.buffer())
           .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
       }))
   })

@@ -77,6 +77,8 @@ module.exports = function (gulp) {
         })
         done()
       }
+    } else {
+      done()
     }
   })
 }
