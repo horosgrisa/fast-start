@@ -51,6 +51,7 @@ module.exports = function (gulp) {
                 .bundle()
             }
           })))
+          .pipe($.if(global.CONFIG.browserify, $.buffer()))
           .pipe($.if(global.CONFIG.browserify, gulp.dest(global.CONFIG.dist + '/public/js/')))
           .pipe($.if(!global.CONFIG.browserify && !argv.production, $.sourcemaps.init({})))
           .pipe($.if(!global.CONFIG.browserify, $.include()))
@@ -65,7 +66,6 @@ module.exports = function (gulp) {
           })))
           .pipe($.if(!global.CONFIG.browserify, gulp.dest(global.CONFIG.dist + '/public/js/')))
           .pipe($.touch())
-          .pipe($.buffer())
           .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
       }))
   })
