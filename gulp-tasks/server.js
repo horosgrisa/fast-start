@@ -1,24 +1,28 @@
 'use strict'
+let $ = require('gulp-load-plugins')()
+
 const argv = require('yargs').argv
-const nodemon = require('gulp-nodemon')
 const browserSync = require('browser-sync').create()
 
 module.exports = function (gulp) {
   gulp.task('server:node', (done) => {
     if (!argv.production && global.CONFIG.server) {
       let started = false
-      nodemon({
+      $.nodemon({
         script: global.CONFIG.dist + '/index.js',
         ext: 'js',
         watch: [global.CONFIG.dist + '/lib/*', global.CONFIG.dist + '/index.js'],
-        env: { 'NODE_ENV': 'dev' },
+        env: {
+          'NODE_ENV': 'dev'
+        },
         quiet: false
-      }).on('start', () => {
-        if (!started) {
-          done()
-          started = true
-        }
       })
+        .on('start', () => {
+          if (!started) {
+            done()
+            started = true
+          }
+        })
     } else {
       done()
     }

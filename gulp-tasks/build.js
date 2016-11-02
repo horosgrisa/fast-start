@@ -1,78 +1,79 @@
 'use strict'
-const gulpif = require('gulp-if')
-const plumber = require('gulp-plumber')
-const newer = require('gulp-newer')
-const using = require('gulp-using')
+let $ = require('gulp-load-plugins')()
+
 const argv = require('yargs').argv
-const flatmap = require('gulp-flatmap')
-const touch = require('gulp-touch')
-const rsync = require('gulp-rsync')
-const filter = require('gulp-filter')
-const include = require('gulp-include')
-const imagemin = require('gulp-imagemin')
-const postcss = require('gulp-postcss')
-const pug = require('gulp-pug')
-const sourcemaps = require('gulp-sourcemaps')
-const uglify = require('gulp-uglify')
-const cssmin = require('gulp-cssmin')
-const babel = require('gulp-babel')
-const tap = require('gulp-tap')
 const browserify = require('browserify')
 const sourcemapify = require('sourcemapify')
 
 module.exports = function (gulp) {
   gulp.task('frontend:js', () => {
-    return gulp.src(['src/public/js/*.js', 'src/public/js/views/*.js'], { base: 'src/public/js' })
-    .pipe(plumber())
-    .pipe(flatmap((stream, file) => {
-      return stream
-        .pipe(gulpif(!argv.all, newer({
-          extra: [
-            'src/public/js/includes/**/*.js',
-            'src/public/js/partials/**/*.js'
-          ],
-          dest: global.CONFIG.dist + '/public/js/',
-          ext: '.js'
-        })))
-        .pipe(using({path: 'relative', color: 'green', filesize: false}))
-        .pipe(gulpif(global.CONFIG.browserify, tap(function (file) {
-          if (argv.production) {
-            file.contents = browserify(file.path, {debug: false})
-            .transform('babelify', {presets: ['es2015']})
-            .transform('uglifyify')
-            .bundle()
-          } else {
-            file.contents = browserify(file.path, {debug: true})
-            .transform('babelify', {presets: ['es2015']})
-            .transform('uglifyify')
-            .plugin(sourcemapify, {base: 'src/public/js', root: '/public/js'})
-            .bundle()
-          }
-        })))
-        .pipe(gulpif(global.CONFIG.browserify, gulp.dest(global.CONFIG.dist + '/public/js/')))
-        .pipe(gulpif(!global.CONFIG.browserify && !argv.production, sourcemaps.init({})))
-        .pipe(gulpif(!global.CONFIG.browserify, include()))
-        .pipe(gulpif(!global.CONFIG.browserify, babel({
-          presets: ['es2015']
-        })))
-        .pipe(gulpif(!global.CONFIG.browserify, uglify()))
-        .pipe(gulpif(!global.CONFIG.browserify && !argv.production, sourcemaps.write({
-          mapSources: function (mapFilePath) {
-            return '/public/js/' + mapFilePath
-          }
-        })))
-        .pipe(gulpif(!global.CONFIG.browserify, gulp.dest(global.CONFIG.dist + '/public/js/')))
-        .pipe(touch())
-        .pipe(gulpif(argv.deploy, rsync(global.CONFIG.deploy)))
-    }))
+    return gulp.src(['src/public/js/*.js', 'src/public/js/views/*.js'], {
+      base: 'src/public/js'
+    })
+      .pipe($.flatmap((stream, file) => {
+        return stream
+          .pipe($.if(!argv.all, $.newer({
+            extra: [
+              'src/public/js/includes/**/*.js',
+              'src/public/js/partials/**/*.js'
+            ],
+            dest: global.CONFIG.dist + '/public/js/',
+            ext: '.js'
+          })))
+          .pipe($.using({
+            path: 'relative',
+            color: 'green',
+            filesize: false
+          }))
+          .pipe($.if(global.CONFIG.browserify, $.tap(function (file) {
+            if (argv.production) {
+              file.contents = browserify(file.path, {
+                debug: false
+              })
+                .transform('babelify', {
+                  presets: ['es2015']
+                })
+                .transform('uglifyify')
+                .bundle()
+            } else {
+              file.contents = browserify(file.path, {
+                debug: true
+              })
+                .transform('babelify', {
+                  presets: ['es2015']
+                })
+                .plugin(sourcemapify, {
+                  base: 'src/public/js',
+                  root: '/public/js'
+                })
+                .bundle()
+            }
+          })))
+          .pipe($.if(global.CONFIG.browserify, gulp.dest(global.CONFIG.dist + '/public/js/')))
+          .pipe($.if(!global.CONFIG.browserify && !argv.production, $.sourcemaps.init({})))
+          .pipe($.if(!global.CONFIG.browserify, $.include()))
+          .pipe($.if(!global.CONFIG.browserify, $.babel({
+            presets: ['es2015']
+          })))
+          .pipe($.if(!global.CONFIG.browserify, $.uglify()))
+          .pipe($.if(!global.CONFIG.browserify && !argv.production, $.sourcemaps.write({
+            mapSources: function (mapFilePath) {
+              return '/public/js/' + mapFilePath
+            }
+          })))
+          .pipe($.if(!global.CONFIG.browserify, gulp.dest(global.CONFIG.dist + '/public/js/')))
+          .pipe($.touch())
+          .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
+      }))
   })
 
-  gulp.task('frontend:css', () => {
-    return gulp.src(['src/public/css/*.css', 'src/public/css/views/*.css'], { base: 'src/public/css' })
-      .pipe(flatmap(function (stream, file) {
+  gulp.task('frontend:css', (done) => {
+    return gulp.src(['src/public/css/*.css', 'src/public/css/views/*.css'], {
+      base: 'src/public/css'
+    })
+      .pipe($.flatmap(function (stream, file) {
         return stream
-          .pipe(plumber())
-          .pipe(gulpif(!argv.all, newer({
+          .pipe($.if(!argv.all, $.newer({
             extra: [
               'src/public/css/includes/**/*.css',
               'src/public/css/partials/**/*.css'
@@ -80,45 +81,59 @@ module.exports = function (gulp) {
             dest: global.CONFIG.dist + '/public/css/',
             ext: '.css'
           })))
-          .pipe(using({path: 'relative', color: 'green', filesize: false}))
-          .pipe(gulpif(!argv.production, sourcemaps.init()))
-          .pipe(postcss([
+          .pipe($.using({
+            path: 'relative',
+            color: 'green',
+            filesize: false
+          }))
+          .pipe($.if(!argv.production, $.sourcemaps.init()))
+          .pipe($.postcss([
             require('precss')(),
             require('postcss-cssnext')()
-          ]))
-          .pipe(gulpif(argv.production, postcss([
+          ])
+            .on('error', (err) => {
+              console.log(err.message)
+              done()
+            }))
+          .pipe($.if(argv.production, $.postcss([
             require('cssnano')()
           ])))
-          .pipe(gulpif(!argv.production, sourcemaps.write({
+          .pipe($.if(!argv.production, $.sourcemaps.write({
             mapSources: function (mapFilePath) {
               return '/public/css/' + mapFilePath
             }
           })))
           .pipe(gulp.dest(global.CONFIG.dist + '/public/css/'))
-          .pipe(touch())
-          .pipe(gulpif(argv.deploy, rsync(global.CONFIG.deploy)))
+          .pipe($.touch())
+          .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
       }))
   })
 
   gulp.task('frontend:font', () => {
     return gulp.src('src/public/font/**/*.*')
-      .pipe(plumber())
-      .pipe(gulpif(!argv.all, newer(global.CONFIG.dist + '/public/font')))
-      .pipe(using({path: 'relative', color: 'green', filesize: false}))
+      .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/public/font')))
+      .pipe($.using({
+        path: 'relative',
+        color: 'green',
+        filesize: false
+      }))
       .pipe(gulp.dest(global.CONFIG.dist + '/public/font'))
-      .pipe(touch())
-      .pipe(gulpif(argv.deploy, rsync(global.CONFIG.deploy)))
+      .pipe($.touch())
+      .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
   })
 
   gulp.task('frontend:img', () => {
     return gulp.src('src/public/img/**/*.*')
-      .pipe(plumber())
-      .pipe(gulpif(!argv.all, newer(global.CONFIG.dist + '/public/img')))
-      .pipe(using({path: 'relative', color: 'green', filesize: false}))
-      .pipe(imagemin())
+      .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/public/img')))
+      .pipe($.using({
+        path: 'relative',
+        color: 'green',
+        filesize: false
+      }))
+      .pipe($.imagemin())
       .pipe(gulp.dest(global.CONFIG.dist + '/public/img'))
-      .pipe(touch())
-      .pipe(gulpif(argv.deploy, rsync(global.CONFIG.deploy)))
+      .pipe($.touch())
+      .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
   })
 
   gulp.task('backend', (done) => {
@@ -127,27 +142,37 @@ module.exports = function (gulp) {
         'src/lib/**/*.js',
         'src/routes/**/*.js',
         'src/index.js'
-      ], { base: 'src' })
-      .pipe(plumber())
-      .pipe(gulpif(!argv.all, newer(global.CONFIG.dist + '/')))
-      .pipe(using({path: 'relative', color: 'green', filesize: false}))
-      .pipe(gulp.dest(global.CONFIG.dist + '/'))
-      .pipe(touch())
-      .pipe(gulpif(argv.deploy, rsync(global.CONFIG.deploy)))
+      ], {
+        base: 'src'
+      })
+        .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/')))
+        .pipe($.using({
+          path: 'relative',
+          color: 'green',
+          filesize: false
+        }))
+        .pipe(gulp.dest(global.CONFIG.dist + '/'))
+        .pipe($.touch())
+        .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
     } else {
       done()
     }
   })
 
-  gulp.task('views', () => {
-    const pugFilter = filter(['**/*.pug'], {restore: true})
-    const htmlFilter = filter(['**/*.html'], {restore: true})
+  gulp.task('views', (done) => {
+    const pugFilter = $.filter(['**/*.pug'], {
+      restore: true
+    })
+    const htmlFilter = $.filter(['**/*.html'], {
+      restore: true
+    })
     if (!global.CONFIG.server) {
-      return gulp.src(['src/views/*.*'], { base: 'src/views' })
-        .pipe(flatmap(function (stream, file) {
+      return gulp.src(['src/views/*.*'], {
+        base: 'src/views'
+      })
+        .pipe($.flatmap(function (stream, file) {
           return stream
-            .pipe(plumber())
-            .pipe(gulpif(!argv.all, newer({
+            .pipe($.if(!argv.all, $.newer({
               extra: [
                 'src/views/partials/**/*.*',
                 'src/views/templates/**/*.*'
@@ -155,36 +180,58 @@ module.exports = function (gulp) {
               dest: global.CONFIG.dist + '/views/',
               ext: '.html'
             })))
-            .pipe(using({path: 'relative', color: 'green', filesize: false}))
+            .pipe($.using({
+              path: 'relative',
+              color: 'green',
+              filesize: false
+            }))
             .pipe(pugFilter)
-            .pipe(gulpif(!argv.production, pug({pretty: true})))
-            .pipe(gulpif(argv.production, pug()))
+            .pipe($.if(!argv.production, $.pug({
+              pretty: true
+            })
+              .on('error', (err) => {
+                console.log(err.message)
+                done()
+              })))
+            .pipe($.if(argv.production, $.pug()
+              .on('error', (err) => {
+                console.log(err.message)
+                done()
+              })))
             .pipe(pugFilter.restore)
             .pipe(htmlFilter)
-            .pipe(include())
+            .pipe($.include())
             .pipe(htmlFilter.restore)
             .pipe(gulp.dest(global.CONFIG.dist + '/views/'))
-            .pipe(touch())
-            .pipe(gulpif(argv.deploy, rsync(global.CONFIG.deploy)))
+            .pipe($.touch())
+            .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
         }))
     } else {
       return gulp.src('src/views/**/*.*')
-      .pipe(plumber())
-      .pipe(gulpif(!argv.all, newer(global.CONFIG.dist + '/views/')))
-      .pipe(using({path: 'relative', color: 'green', filesize: false}))
-      .pipe(gulp.dest(global.CONFIG.dist + '/views/'))
-      .pipe(touch())
-      .pipe(gulpif(argv.deploy, rsync(global.CONFIG.deploy)))
+        .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/views/')))
+        .pipe($.using({
+          path: 'relative',
+          color: 'green',
+          filesize: false
+        }))
+        .pipe(gulp.dest(global.CONFIG.dist + '/views/'))
+        .pipe($.touch())
+        .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
     }
   })
 
   gulp.task('config', () => {
-    return gulp.src('src/{package.json,bower.json,config.json}', { base: 'src' })
-      .pipe(plumber())
-      .pipe(gulpif(!argv.all, newer(global.CONFIG.dist + '/')))
-      .pipe(using({path: 'relative', color: 'green', filesize: false}))
+    return gulp.src('src/{package.json,bower.json,config.json}', {
+      base: 'src'
+    })
+      .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/')))
+      .pipe($.using({
+        path: 'relative',
+        color: 'green',
+        filesize: false
+      }))
       .pipe(gulp.dest(global.CONFIG.dist + '/'))
-      .pipe(touch())
-      .pipe(gulpif(argv.deploy, rsync(global.CONFIG.deploy)))
+      .pipe($.touch())
+      .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
   })
 }

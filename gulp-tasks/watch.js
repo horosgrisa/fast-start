@@ -17,7 +17,6 @@ module.exports = function (gulp) {
       ], gulp.parallel('backend'))
       gulp.watch('src/views/**', gulp.parallel('views'))
     }
-
     done()
   })
 }

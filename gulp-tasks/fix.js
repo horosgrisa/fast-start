@@ -1,14 +1,6 @@
 'use strict'
 
-const gulpif = require('gulp-if')
-const plumber = require('gulp-plumber')
-const using = require('gulp-using')
-const filter = require('gulp-filter')
-const eslint = require('gulp-eslint')
-const stylefmt = require('gulp-stylefmt')
-const jsbeautifier = require('gulp-jsbeautifier')
-const prettify = require('gulp-html-prettify')
-const postcss = require('gulp-postcss')
+let $ = require('gulp-load-plugins')()
 
 module.exports = function (gulp) {
   gulp.task('frontend:js::fix', () => {
@@ -16,21 +8,27 @@ module.exports = function (gulp) {
       return file.eslint != null && file.eslint.fixed
     }
     return gulp.src('src/public/js/**/*.js')
-    .pipe(plumber())
-    .pipe(using({path: 'relative', color: 'yellow', filesize: false}))
-    .pipe(jsbeautifier())
-    .pipe(eslint({
-      fix: true
-    }))
-    .pipe(gulpif(isFixed, gulp.dest('src/public/js/')))
+      .pipe($.using({
+        path: 'relative',
+        color: 'yellow',
+        filesize: false
+      }))
+      .pipe($.jsbeautifier())
+      .pipe($.eslint({
+        fix: true
+      }))
+      .pipe($.if(isFixed, gulp.dest('src/public/js/')))
   })
 
   gulp.task('frontend:css::fix', () => {
     return gulp.src('src/public/css/**/*.css')
-      .pipe(plumber())
-      .pipe(using({path: 'relative', color: 'yellow', filesize: false}))
-      .pipe(stylefmt())
-      .pipe(postcss([
+      .pipe($.using({
+        path: 'relative',
+        color: 'yellow',
+        filesize: false
+      }))
+      .pipe($.stylefmt())
+      .pipe($.postcss([
         require('postcss-sorting')(
           require('../.postcss-sorting.json')
         )
@@ -49,26 +47,39 @@ module.exports = function (gulp) {
         'src/index.js',
         'src/package.json',
         'src/bower.json'
-      ], { base: 'src/' })
-      .pipe(plumber())
-      .pipe(using({path: 'relative', color: 'yellow', filesize: false}))
-      .pipe(jsbeautifier())
-      .pipe(eslint({
-        fix: true
-      }))
-      .pipe(gulpif(isFixed, gulp.dest('src/')))
+      ], {
+        base: 'src/'
+      })
+        .pipe($.using({
+          path: 'relative',
+          color: 'yellow',
+          filesize: false
+        }))
+        .pipe($.jsbeautifier())
+        .pipe($.eslint({
+          fix: true
+        }))
+        .pipe($.if(isFixed, gulp.dest('src/')))
     } else {
       done()
     }
   })
 
   gulp.task('views::fix', () => {
-    const htmlFilter = filter(['**/*.html'], {restore: true})
+    const htmlFilter = $.filter(['**/*.html'], {
+      restore: true
+    })
     return gulp.src('src/views/**/*.*')
-      .pipe(plumber())
-      .pipe(using({path: 'relative', color: 'yellow', filesize: false}))
+      .pipe($.using({
+        path: 'relative',
+        color: 'yellow',
+        filesize: false
+      }))
       .pipe(htmlFilter)
-      .pipe(prettify({indent_char: ' ', indent_size: 2}))
+      .pipe($.jsbeautifier({
+        indent_char: ' ',
+        indent_size: 2
+      }))
       .pipe(htmlFilter.restore)
       .pipe(gulp.dest('src/views/'))
   })
