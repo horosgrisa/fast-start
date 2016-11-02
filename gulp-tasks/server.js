@@ -54,7 +54,8 @@ module.exports = function (gulp) {
           open: false,
           logFileChanges: false,
           notify: false,
-          ui: false
+          ui: false,
+          ghostMode: false
         })
         done()
       } else {
@@ -73,7 +74,8 @@ module.exports = function (gulp) {
           open: false,
           logFileChanges: false,
           notify: false,
-          ui: false
+          ui: false,
+          ghostMode: false
         })
         done()
       }
