@@ -25,6 +25,7 @@ module.exports = function (gulp) {
             color: 'green',
             filesize: false
           }))
+          .pipe($.plumber())
           .pipe($.if(global.CONFIG.browserify, $.tap(function (file) {
             if (argv.production) {
               file.contents = browserify(file.path, {
@@ -86,15 +87,13 @@ module.exports = function (gulp) {
             color: 'green',
             filesize: false
           }))
+          .pipe($.plumber())
           .pipe($.if(!argv.production, $.sourcemaps.init()))
           .pipe($.postcss([
             require('precss')(),
             require('postcss-cssnext')()
           ])
-            .on('error', (err) => {
-              console.log(err.message)
-              done()
-            }))
+          )
           .pipe($.if(argv.production, $.postcss([
             require('cssnano')()
           ])))
@@ -117,6 +116,7 @@ module.exports = function (gulp) {
         color: 'green',
         filesize: false
       }))
+      .pipe($.plumber())
       .pipe(gulp.dest(global.CONFIG.dist + '/public/font'))
       .pipe($.touch())
       .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
@@ -130,6 +130,7 @@ module.exports = function (gulp) {
         color: 'green',
         filesize: false
       }))
+      .pipe($.plumber())
       .pipe($.imagemin())
       .pipe(gulp.dest(global.CONFIG.dist + '/public/img'))
       .pipe($.touch())
@@ -151,6 +152,7 @@ module.exports = function (gulp) {
           color: 'green',
           filesize: false
         }))
+        .pipe($.plumber())
         .pipe(gulp.dest(global.CONFIG.dist + '/'))
         .pipe($.touch())
         .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
@@ -185,19 +187,14 @@ module.exports = function (gulp) {
               color: 'green',
               filesize: false
             }))
+            .pipe($.plumber())
             .pipe(pugFilter)
             .pipe($.if(!argv.production, $.pug({
               pretty: true
             })
-              .on('error', (err) => {
-                console.log(err.message)
-                done()
-              })))
+          ))
             .pipe($.if(argv.production, $.pug()
-              .on('error', (err) => {
-                console.log(err.message)
-                done()
-              })))
+              ))
             .pipe(pugFilter.restore)
             .pipe(htmlFilter)
             .pipe($.include())
@@ -214,6 +211,7 @@ module.exports = function (gulp) {
           color: 'green',
           filesize: false
         }))
+        .pipe($.plumber())
         .pipe(gulp.dest(global.CONFIG.dist + '/views/'))
         .pipe($.touch())
         .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))
@@ -230,6 +228,7 @@ module.exports = function (gulp) {
         color: 'green',
         filesize: false
       }))
+      .pipe($.plumber())
       .pipe(gulp.dest(global.CONFIG.dist + '/'))
       .pipe($.touch())
       .pipe($.if(argv.deploy, $.rsync(global.CONFIG.deploy)))

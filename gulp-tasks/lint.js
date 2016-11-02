@@ -33,6 +33,7 @@ module.exports = function (gulp) {
       ], {
         base: 'src/'
       })
+        .pipe($.plumber())
         .pipe($.eslint())
         .pipe($.eslint.format())
     } else {
@@ -48,6 +49,7 @@ module.exports = function (gulp) {
       restore: true
     })
     return gulp.src('src/views/**/*.*')
+      .pipe($.plumber())
       .pipe(pugFilter)
       .pipe($.pugLinter())
       .pipe($.pugLinter.reporter())

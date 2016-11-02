@@ -13,6 +13,7 @@ module.exports = function (gulp) {
         color: 'yellow',
         filesize: false
       }))
+      .pipe($.plumber())
       .pipe($.jsbeautifier())
       .pipe($.eslint({
         fix: true
@@ -27,6 +28,7 @@ module.exports = function (gulp) {
         color: 'yellow',
         filesize: false
       }))
+      .pipe($.plumber())
       .pipe($.stylefmt())
       .pipe($.postcss([
         require('postcss-sorting')(
@@ -55,6 +57,7 @@ module.exports = function (gulp) {
           color: 'yellow',
           filesize: false
         }))
+        .pipe($.plumber())
         .pipe($.jsbeautifier())
         .pipe($.eslint({
           fix: true
@@ -75,6 +78,7 @@ module.exports = function (gulp) {
         color: 'yellow',
         filesize: false
       }))
+      .pipe($.plumber())
       .pipe(htmlFilter)
       .pipe($.jsbeautifier({
         indent_char: ' ',
