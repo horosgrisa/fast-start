@@ -2,6 +2,11 @@
 const gulp = require('gulp')
 
 global.CONFIG = require('./config.json')
+if (global.CONFIG.deploy) {
+  global.CONFIG.deploy.root = './dist'
+  global.CONFIG.deploy.silent = global.CONFIG.deploy.silent || true
+  global.CONFIG.deploy.compress = global.CONFIG.deploy.compress || true
+}
 
 require('./gulp-tasks/build')(gulp)
 require('./gulp-tasks/deploy')(gulp)

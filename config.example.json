@@ -3,10 +3,8 @@
   "browserify": false,
   "dist": "./dist",
   "deploy": {
-    "hostname": "",
+    "hostname": "localhost",
     "username": "",
-    "destination": "",
-    "silent": true,
-    "compress": true
+    "destination": "./test"
   }
 }
