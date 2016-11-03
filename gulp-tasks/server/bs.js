@@ -1,6 +1,7 @@
 'use strict'
 let $ = require('gulp-load-plugins')()
 const argv = require('yargs').argv
+const debuga = require('debuga')
 const browserSync = require('browser-sync').create()
 
 module.exports = function (gulp) {
@@ -23,7 +24,8 @@ module.exports = function (gulp) {
           logFileChanges: false,
           notify: false,
           ui: false,
-          ghostMode: false
+          ghostMode: false,
+          middleware: [debuga()]
         })
         done()
       })
@@ -33,7 +35,6 @@ module.exports = function (gulp) {
           server: {
             baseDir: 'dist/views',
             index: 'index.html',
-            directory: true,
             routes: {
               '/public': './dist/public',
               '/bower_components': './dist/bower_components'
@@ -54,7 +55,8 @@ module.exports = function (gulp) {
           logFileChanges: false,
           notify: false,
           ui: false,
-          ghostMode: false
+          ghostMode: false,
+          middleware: [debuga()]
         })
         done()
       })

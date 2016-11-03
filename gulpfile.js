@@ -4,6 +4,7 @@ const gulp = require('gulp')
 global.CONFIG = require('./config.json')
 
 require('./gulp-tasks/build')(gulp)
+require('./gulp-tasks/deploy')(gulp)
 require('./gulp-tasks/fix')(gulp)
 require('./gulp-tasks/lint')(gulp)
 require('./gulp-tasks/server')(gulp)
@@ -18,6 +19,9 @@ gulp.task('build', gulp.parallel(
   'build:img',
   'build:js',
   'build:views'
+))
+gulp.task('deploy', gulp.parallel(
+  'deploy:rsync'
 ))
 
 gulp.task('fix', gulp.parallel(

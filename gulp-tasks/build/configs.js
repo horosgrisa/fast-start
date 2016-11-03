@@ -4,7 +4,7 @@ const argv = require('yargs').argv
 
 module.exports = function (gulp) {
   gulp.task('build:configs', (done) => {
-    return gulp.src('src/{package.json,bower.json,config.json}', {
+    return gulp.src('src/{package.json,bower.json,config.json,robots.txt}', {
       base: 'src'
     })
       .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/')))
