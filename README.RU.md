@@ -3,7 +3,28 @@
 Шаблон для проекта для быстрого старта, он используется только для компиляции исходников,
 и никаким образом не влияет на получаемый результат.
 
-# Возможности
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Оглавление** 
+
+- [Возможности](#%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8)
+- [Структура проекта](#%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0)
+- [Описание](#%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5)
+  - [index.js, config.json, lib/ routes/](#indexjs-configjson-lib-routes)
+  - [package.json, bower.json, robots.txt](#packagejson-bowerjson-robotstxt)
+  - [views/](#views)
+  - [public/js/](#publicjs)
+  - [public/css/](#publiccss)
+  - [public/fonts, public/img](#publicfonts-publicimg)
+- [Конфигурация](#%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D1%8F)
+- [Использование](#%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)
+  - [Скомпилированные файлы](#%D1%81%D0%BA%D0%BE%D0%BC%D0%BF%D0%B8%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D1%8B)
+- [TODO](#todo)
+- [Лицензия](#%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Возможности
 
 * Запуск сервера Nodejs при помощи Nodemon
 * Живая перезагрузка файлов при помощи Browsersync
@@ -18,9 +39,7 @@
 * Код проверяется на ошибки (linting) при помощи Eslint для JavaScript, Stylelint для CSS, pug-lint для pug, htmllint для HTML
 * Так-же возможно автоматическое исправление ошибок JavaScript при помощи Eslint и js-beautify; и CSS при помощи stylefmt и postcss-sorting
 
-# Структура проекта
-
-## Файлы
+## Структура проекта
 
 ```
 src
@@ -85,7 +104,7 @@ src
 
 Эти файлы копируются в папку собраного сайта, но изображения дополнительно минифицируются
 
-# Конфигурация
+## Конфигурация
 
 В файле `config.json`
 ```json
@@ -110,7 +129,7 @@ Nodemon с параметром NODE_ENV=dev, и запустит Browsersync,
 Параметр `deploy` отвечает за параметры сервера для разворачивания приложения,
 Эти параметры напрямую будут переданны rsync.
 
-# Использование
+## Использование
 
 При запуске `gulp` последовательно запустится сборка, локальный сервер и 
 слежение за изменениями файлов. Так-же их можно запустить по отдельности: 
@@ -125,7 +144,7 @@ Nodemon с параметром NODE_ENV=dev, и запустит Browsersync,
 в этом случае gulp будет собирать минифицирование версии файлов, без Sourcemap
 и не будет запускать локальный сервер.
 
-### Результат в папке dist/
+### Скомпилированные файлы
 ```
 dist/
 ├── bower.json
@@ -168,14 +187,16 @@ dist/
 └── robots.txt
 ```
 
-# TODO
+## TODO
 
 - [ ] Линтинг JSON файлов
+- [ ] Поддержка LESS и SASS
+- [ ] Поддержка Webpack?
 - [ ] Поддержка SQL
 - [ ] Доработать примеры
 - [ ] Рефракторинг сборки JavaScript при помощи Browserify
-- [ ] Поддержка Webpack?
+- [ ] Тестирование при помощи tape?
 
-## License
+## Лицензия
 
 MIT © [Grigorii Horos](https://github.com/horosgrisa)
