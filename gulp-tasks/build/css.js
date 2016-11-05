@@ -25,6 +25,8 @@ module.exports = function (gulp) {
         .pipe($.plumber())
         .pipe($.if(!argv.production, $.sourcemaps.init()))
         .pipe($.postcss([
+          require('postcss-color-short'),
+          require('postcss-clearfix'),
           require('precss')(),
           require('postcss-cssnext')()
         ])
