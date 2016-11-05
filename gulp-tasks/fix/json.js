@@ -6,7 +6,7 @@ module.exports = function (gulp) {
     const isFixed = (file) => {
       return file.eslint != null && file.eslint.fixed
     }
-    return gulp.src(['src/**/*.js'])
+    return gulp.src(['src/**/*.json'])
     .pipe($.using({
       path: 'relative',
       color: 'yellow',

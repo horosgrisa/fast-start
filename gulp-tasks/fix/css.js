@@ -3,7 +3,7 @@ let $ = require('gulp-load-plugins')()
 
 module.exports = function (gulp) {
   gulp.task('fix:css', () => {
-    return gulp.src('src/public/css/**/*.css')
+    return gulp.src('src/**/*.css')
       .pipe($.using({
         path: 'relative',
         color: 'yellow',
@@ -16,6 +16,6 @@ module.exports = function (gulp) {
           require('../../.postcss-sorting.json')
         )
       ]))
-      .pipe(gulp.dest('src/public/css/'))
+      .pipe(gulp.dest('src/'))
   })
 }

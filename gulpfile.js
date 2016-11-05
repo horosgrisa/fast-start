@@ -7,6 +7,12 @@ if (global.CONFIG.deploy) {
   global.CONFIG.deploy.silent = global.CONFIG.deploy.silent || true
   global.CONFIG.deploy.compress = global.CONFIG.deploy.compress || true
 }
+global.CONFIG.using = global.CONFIG.using || {
+  path: 'relative',
+  color: 'green',
+  filesize: false
+}
+global.CONFIG.dist = './dist'
 
 require('./gulp-tasks/build')(gulp)
 require('./gulp-tasks/deploy')(gulp)
@@ -17,30 +23,29 @@ require('./gulp-tasks/update')(gulp)
 require('./gulp-tasks/watch')(gulp)
 
 gulp.task('build', gulp.parallel(
-  'build:backend',
-  'build:configs',
+  'build:base',
   'build:css',
   'build:fonts',
   'build:img',
   'build:js',
-  'build:views'
+  'build:pug',
+  'build:html'
 ))
 gulp.task('deploy', gulp.parallel(
   'deploy:rsync'
 ))
 
 gulp.task('fix', gulp.parallel(
-  'fix:backend',
   'fix:css',
   'fix:js',
-  'fix:views'
+  'fix:html'
 ))
 
 gulp.task('lint', gulp.series(
-  'lint:backend',
   'lint:css',
   'lint:js',
-  'lint:views'
+  'lint:pug',
+  'lint:html'
 ))
 
 gulp.task('server', gulp.series(

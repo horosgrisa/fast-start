@@ -53,11 +53,14 @@ module.exports = function (gulp) {
           logFileChanges: false,
           notify: false,
           ui: false,
-          ghostMode: false,
-          middleware: [debuga()]
+          ghostMode: false
         })
         done()
       })
     }
+  } else {
+    gulp.task('bs', (done) => {
+      done()
+    })
   }
 }
