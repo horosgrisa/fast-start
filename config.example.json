@@ -1,7 +1,6 @@
 {
   "server": false,
   "browserify": false,
-  "dist": "./dist",
   "deploy": {
     "hostname": "localhost",
     "username": "",
