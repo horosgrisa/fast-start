@@ -80,7 +80,7 @@ module.exports = function (gulp) {
           .pipe($.babel({
             presets: ['es2015']
           }))
-          .pipe($.uglify())
+          .pipe($.if(argv.production, $.uglify()))
           .pipe($.if(!argv.production, $.sourcemaps.write({
             mapSources: function (mapFilePath) {
               return '/public/js/' + mapFilePath
