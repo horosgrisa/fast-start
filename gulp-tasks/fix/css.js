@@ -1,5 +1,5 @@
 'use strict'
-let $ = require('gulp-load-plugins')()
+const $ = require('gulp-load-plugins')()
 
 module.exports = function (gulp) {
   gulp.task('fix:css', () => {

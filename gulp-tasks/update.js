@@ -1,3 +1,4 @@
+'use strict'
 const childProcess = require('child_process')
 
 module.exports = function (gulp) {
@@ -6,6 +7,7 @@ module.exports = function (gulp) {
       if (err) {
         throw err
       }
+      console.log(out)
       done()
     })
   })

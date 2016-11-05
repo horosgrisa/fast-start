@@ -31,6 +31,7 @@ gulp.task('build', gulp.parallel(
   'build:pug',
   'build:html'
 ))
+
 gulp.task('deploy', gulp.parallel(
   'deploy:rsync'
 ))

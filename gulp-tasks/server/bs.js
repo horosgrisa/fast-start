@@ -1,5 +1,4 @@
 'use strict'
-let $ = require('gulp-load-plugins')()
 const argv = require('yargs').argv
 const debuga = require('debuga')
 const browserSync = require('browser-sync').create()
