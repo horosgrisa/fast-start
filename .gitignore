@@ -1,4 +1,5 @@
 *
+.*
 
 !.generator/
 !example/
@@ -16,7 +17,6 @@
 !.pug-lint.json
 !.stylelintrc.json
 
-.selected
 node_modules
 bower_components
 npm-debug.log
