@@ -1,22 +1,13 @@
-*
-.*
+/*
+/*/
 
-!.generator/
-!example/
-!.gulp-tasks/
-!gulpfile.js
-!package.json
-!README.md
-!README.RU.md
-!.gitignore
-!.babelrc
-!.eslintrc.json
-!.htmlhintrc
-!.jsbeautifyrc
-!.postcss-sorting.json
-!.pug-lint.json
-!.stylelintrc.json
+!/.*
+!/example/
+!/gulpfile.js
+!/package.json
+!/README.md
+!/README.RU.md
 
 node_modules
 bower_components
-npm-debug.log
+/.selected
