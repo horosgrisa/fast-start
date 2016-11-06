@@ -1,5 +1,5 @@
 {
-  "server": false,
+  "server": "php",
   "browserify": false,
   "deploy": {
     "hostname": "localhost",

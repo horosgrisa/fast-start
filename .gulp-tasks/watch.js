@@ -17,10 +17,11 @@ module.exports = function (gulp) {
       ], gulp.parallel('build:base'))
       gulp.watch(global.CONFIG.src + '/assets/css/**', gulp.parallel('build:css'))
       gulp.watch(global.CONFIG.src + '/assets/fonts/**', gulp.parallel('build:fonts'))
-      gulp.watch(global.CONFIG.src + '/viewss/**/*.html', gulp.parallel('build:html'))
+      gulp.watch(global.CONFIG.src + '/views/**/*.html', gulp.parallel('build:html'))
       gulp.watch(global.CONFIG.src + '/assets/img/**', gulp.parallel('build:img'))
       gulp.watch(global.CONFIG.src + '/assets/js/**', gulp.parallel('build:js'))
-      gulp.watch(global.CONFIG.src + '/viewss/**/*.pug', gulp.parallel('build:pug'))
+      gulp.watch(global.CONFIG.src + '/views/**/*.pug', gulp.parallel('build:pug'))
+      gulp.watch(global.CONFIG.src + '/views/**/*.njk', gulp.parallel('build:njk'))
     }
     done()
   })

@@ -4,8 +4,8 @@ const argv = require('yargs').argv
 
 module.exports = function (gulp) {
   if (global.CONFIG.server) {
-    gulp.task('build:html', (done) => {
-      return gulp.src(global.CONFIG.src + '/views/**/*.html')
+    gulp.task('build:njk', (done) => {
+      return gulp.src(global.CONFIG.src + '/views/**/*.njk')
         .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/views/')))
         .pipe($.using({
           path: 'relative',
@@ -17,15 +17,15 @@ module.exports = function (gulp) {
         .pipe($.touch())
     })
   } else {
-    gulp.task('build:html', (done) => {
-      return gulp.src([global.CONFIG.src + '/views/*.html'], {
+    gulp.task('build:njk', (done) => {
+      return gulp.src([global.CONFIG.src + '/views/*.njk'], {
         base: global.CONFIG.src + '/views'
       })
         .pipe($.flatmap(function (stream, file) {
           return stream
             .pipe($.if(!argv.all, $.newer({
               extra: [
-                global.CONFIG.src + '/views/*/**/*.html'
+                global.CONFIG.src + '/views/*/**/*.njk'
               ],
               dest: global.CONFIG.dist,
               ext: '.html'
@@ -37,6 +37,9 @@ module.exports = function (gulp) {
             }))
             .pipe($.plumber())
              .pipe($.nunjucks.compile({}))
+             .pipe($.rename(function (path) {
+               path.extname = '.html'
+             }))
             .pipe(gulp.dest(global.CONFIG.dist))
             .pipe($.touch())
         }))

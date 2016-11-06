@@ -1,6 +1,6 @@
 # Fast Start 
 
-Шаблон для проекта для быстрого старта, он используется только для компиляции исходников.
+Набор настроек для сборки WEB проектов.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -13,6 +13,7 @@
 - [Конфигурация](#%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D1%8F)
 - [Использование](#%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)
 - [Скомпилированные файлы](#%D1%81%D0%BA%D0%BE%D0%BC%D0%BF%D0%B8%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D1%8B)
+- [Changelog](#changelog)
 - [TODO](#todo)
 - [Лицензия](#%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F)
 
@@ -59,6 +60,8 @@ src
    ├── partials/
    └── templates/
 ```
+
+** Не обязательно использовать `src/`, можно задать любое имя и создавать множество проектов. Выбор текущего проекта делается при помощи `gulp select` **
 
 ## Компиляция
 
@@ -166,9 +169,15 @@ dist/
 └── robots.txt
 ```
 
+## Changelog
+
+* 0.3.0
+  * Можно создавать мульти проекты, и поддерживается смена рабочего проекта при помощи `gulp select`
+
+
 ## TODO
 
-- [ ] Линтинг JSON файлов
+- [x] Линтинг JSON файлов
 - [ ] Поддержка LESS и SASS
 - [ ] Поддержка Webpack?
 - [ ] Поддержка SQL

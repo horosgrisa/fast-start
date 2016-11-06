@@ -9,5 +9,6 @@ module.exports = function (gulp) {
   require('./build/js')(gulp)
   require('./build/pug')(gulp)
   require('./build/html')(gulp)
+  require('./build/njk')(gulp)
 }
- 
+

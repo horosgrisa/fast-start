@@ -5,7 +5,7 @@ const browserSync = require('browser-sync').create()
 
 module.exports = function (gulp) {
   if (!argv.production) {
-    if (global.CONFIG.server) {
+    if (global.CONFIG.server !== false) {
       gulp.task('bs', (done) => {
         browserSync.init({
           proxy: 'http://localhost:10000',

@@ -19,7 +19,8 @@ gulp.task('build', gulp.parallel(
   'build:img',
   'build:js',
   'build:pug',
-  'build:html'
+  'build:html',
+  'build:njk'
 ))
 
 gulp.task('deploy', gulp.series(
@@ -42,7 +43,7 @@ gulp.task('lint', gulp.series(
 ))
 
 gulp.task('server', gulp.series(
-    'nodemon',
+    'run',
     'bs'
 ))
 
