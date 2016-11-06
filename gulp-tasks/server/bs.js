@@ -31,7 +31,7 @@ module.exports = function (gulp) {
       gulp.task('bs', (done) => {
         browserSync.init({
           server: {
-            baseDir: 'dist/views',
+            baseDir: 'dist/',
             index: 'index.html',
             routes: {
               '/public': './dist/public',

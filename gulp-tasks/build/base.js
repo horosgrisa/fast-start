@@ -5,17 +5,17 @@ const argv = require('yargs').argv
 module.exports = function (gulp) {
   gulp.task('build:base', (done) => {
     return gulp.src([
-      'src/**',
-      '!src/node_modules/**',
-      '!src/node_modules/',
-      '!src/bower_components/**',
-      '!src/bower_components/',
-      '!src/views/**',
-      '!src/views/',
-      '!src/assets/**',
-      '!src/assets/'
+      global.CONFIG.src + '/**',
+      '!' + global.CONFIG.src + '/node_modules/**',
+      '!' + global.CONFIG.src + '/node_modules/',
+      '!' + global.CONFIG.src + '/bower_components/**',
+      '!' + global.CONFIG.src + '/bower_components/',
+      '!' + global.CONFIG.src + '/views/**',
+      '!' + global.CONFIG.src + '/views/',
+      '!' + global.CONFIG.src + '/assets/**',
+      '!' + global.CONFIG.src + '/assets/'
     ], {
-      base: 'src'
+      base: global.CONFIG.src
     })
       .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/')))
       .pipe($.using(global.CONFIG.using))

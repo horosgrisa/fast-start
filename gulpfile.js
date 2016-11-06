@@ -1,18 +1,7 @@
 'use strict'
 const gulp = require('gulp')
 
-global.CONFIG = require('./config.json')
-if (global.CONFIG.deploy) {
-  global.CONFIG.deploy.root = './dist'
-  global.CONFIG.deploy.silent = global.CONFIG.deploy.silent || true
-  global.CONFIG.deploy.compress = global.CONFIG.deploy.compress || true
-}
-global.CONFIG.using = global.CONFIG.using || {
-  path: 'relative',
-  color: 'green',
-  filesize: false
-}
-global.CONFIG.dist = './dist'
+global.CONFIG = require('./gulp-tasks/_genConfig.js')
 
 require('./gulp-tasks/build')(gulp)
 require('./gulp-tasks/deploy')(gulp)
@@ -21,6 +10,7 @@ require('./gulp-tasks/lint')(gulp)
 require('./gulp-tasks/server')(gulp)
 require('./gulp-tasks/update')(gulp)
 require('./gulp-tasks/watch')(gulp)
+require('./gulp-tasks/select')(gulp)
 
 gulp.task('build', gulp.parallel(
   'build:base',

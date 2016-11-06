@@ -7,15 +7,15 @@ module.exports = function (gulp) {
     gulp.task('build:js', (done) => {
       const browserify = require('browserify')
       const sourcemapify = require('sourcemapify')
-      return gulp.src(['src/assets/js/*.js', 'src/assets/js/views/**/*.js'], {
-        base: 'src/assets/js'
+      return gulp.src([global.CONFIG.src + '/assets/js/*.js', global.CONFIG.src + '/assets/js/views/**/*.js'], {
+        base: global.CONFIG.src + '/assets/js'
       })
         .pipe($.flatmap((stream, file) => {
           return stream
             .pipe($.if(!argv.all, $.newer({
               extra: [
-                'src/assets/js/*/**/*.js',
-                '!src/assets/js/views/**/*.js'
+                global.CONFIG.src + '/assets/js/*/**/*.js',
+                '!' + global.CONFIG.src + '/assets/js/views/**/*.js'
               ],
               dest: global.CONFIG.dist + '/public/js/',
               ext: '.js'
@@ -44,7 +44,7 @@ module.exports = function (gulp) {
                     presets: ['es2015']
                   })
                   .plugin(sourcemapify, {
-                    base: 'src/assets/js',
+                    base: global.CONFIG.src + '/assets/js',
                     root: '/public/js'
                   })
                   .bundle()
@@ -56,15 +56,15 @@ module.exports = function (gulp) {
     })
   } else {
     gulp.task('build:js', (done) => {
-      return gulp.src(['src/assets/js/*.js', 'src/assets/js/views/**/*.js'], {
-        base: 'src/assets/js'
+      return gulp.src([global.CONFIG.src + '/assets/js/*.js', global.CONFIG.src + '/assets/js/views/**/*.js'], {
+        base: global.CONFIG.src + '/assets/js'
       })
       .pipe($.flatmap((stream, file) => {
         return stream
           .pipe($.if(!argv.all, $.newer({
             extra: [
-              'src/assets/js/*/**/*.js',
-              '!src/assets/js/views/**/*.js'
+              global.CONFIG.src + '/assets/js/*/**/*.js',
+              '!' + global.CONFIG.src + '/assets/js/views/**/*.js'
             ],
             dest: global.CONFIG.dist + '/public/js/',
             ext: '.js'

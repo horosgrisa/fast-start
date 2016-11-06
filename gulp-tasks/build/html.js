@@ -5,7 +5,7 @@ const argv = require('yargs').argv
 module.exports = function (gulp) {
   if (global.CONFIG.server) {
     gulp.task('build:html', (done) => {
-      return gulp.src('src/views/**/*.html')
+      return gulp.src(global.CONFIG.src + '/views/**/*.html')
         .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/views/')))
         .pipe($.using({
           path: 'relative',
@@ -18,14 +18,14 @@ module.exports = function (gulp) {
     })
   } else {
     gulp.task('build:html', (done) => {
-      return gulp.src(['src/views/*.html'], {
-        base: 'src/views'
+      return gulp.src([global.CONFIG.src + '/views/*.html'], {
+        base: global.CONFIG.src + '/views'
       })
         .pipe($.flatmap(function (stream, file) {
           return stream
             .pipe($.if(!argv.all, $.newer({
               extra: [
-                'src/views/*/**/*.html'
+                global.CONFIG.src + '/views/*/**/*.html'
               ],
               dest: global.CONFIG.dist,
               ext: '.html'

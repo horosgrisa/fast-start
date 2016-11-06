@@ -5,22 +5,22 @@ module.exports = function (gulp) {
   gulp.task('watch', (done) => {
     if (!argv.production) {
       gulp.watch([
-        'src/**',
-        '!src/node_modules/**',
-        '!src/node_modules/',
-        '!src/bower_components/**',
-        '!src/bower_components/',
-        '!src/views/**',
-        '!src/views/',
-        '!src/assets/**',
-        '!src/assets/'
+        global.CONFIG.src + '/**',
+        '!' + global.CONFIG.src + '/node_modules/**',
+        '!' + global.CONFIG.src + '/node_modules/',
+        '!' + global.CONFIG.src + '/bower_components/**',
+        '!' + global.CONFIG.src + '/bower_components/',
+        '!' + global.CONFIG.src + '/views/**',
+        '!' + global.CONFIG.src + '/views/',
+        '!' + global.CONFIG.src + '/assets/**',
+        '!' + global.CONFIG.src + '/assets/'
       ], gulp.parallel('build:base'))
-      gulp.watch('src/assets/css/**', gulp.parallel('build:css'))
-      gulp.watch('src/assets/fonts/**', gulp.parallel('build:fonts'))
-      gulp.watch('src/viewss/**/*.html', gulp.parallel('build:html'))
-      gulp.watch('src/assets/img/**', gulp.parallel('build:img'))
-      gulp.watch('src/assets/js/**', gulp.parallel('build:js'))
-      gulp.watch('src/viewss/**/*.pug', gulp.parallel('build:pug'))
+      gulp.watch(global.CONFIG.src + '/assets/css/**', gulp.parallel('build:css'))
+      gulp.watch(global.CONFIG.src + '/assets/fonts/**', gulp.parallel('build:fonts'))
+      gulp.watch(global.CONFIG.src + '/viewss/**/*.html', gulp.parallel('build:html'))
+      gulp.watch(global.CONFIG.src + '/assets/img/**', gulp.parallel('build:img'))
+      gulp.watch(global.CONFIG.src + '/assets/js/**', gulp.parallel('build:js'))
+      gulp.watch(global.CONFIG.src + '/viewss/**/*.pug', gulp.parallel('build:pug'))
     }
     done()
   })

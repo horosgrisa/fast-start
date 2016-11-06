@@ -3,7 +3,7 @@ let $ = require('gulp-load-plugins')()
 
 module.exports = function (gulp) {
   gulp.task('lint:css', () => {
-    return gulp.src('src/**/*.css')
+    return gulp.src(global.CONFIG.src + '/**/*.css')
       .pipe($.stylelint({
         failAfterError: false,
         reporters: [{

@@ -4,15 +4,15 @@ const argv = require('yargs').argv
 
 module.exports = function (gulp) {
   gulp.task('build:css', (done) => {
-    return gulp.src(['src/assets/css/*.css', 'src/assets/css/views/**/*.css'], {
-      base: 'src/assets/css'
+    return gulp.src([global.CONFIG.src + '/assets/css/*.css', global.CONFIG.src + '/assets/css/views/**/*.css'], {
+      base: global.CONFIG.src + '/assets/css'
     })
     .pipe($.flatmap(function (stream, file) {
       return stream
         .pipe($.if(!argv.all, $.newer({
           extra: [
-            'src/assets/css/*/**/*.css',
-            '!src/assets/css/views/**/*.css'
+            global.CONFIG.src + '/assets/css/*/**/*.css',
+            '!' + global.CONFIG.src + '/assets/css/views/**/*.css'
           ],
           dest: global.CONFIG.dist + '/public/css/',
           ext: '.css'
