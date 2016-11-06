@@ -1,7 +1,5 @@
 {
   "plugins": [
-    "pug",
-    "json",
     "standard",
     "promise"
   ],

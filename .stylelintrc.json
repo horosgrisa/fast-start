@@ -1,5 +1,4 @@
 {
-  "plugins": ["stylelint-selector-bem-pattern"],
   "extends": "stylelint-config-standard",
   "rules": {
     "comment-empty-line-before": "never",
