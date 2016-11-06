@@ -53,7 +53,7 @@ src
 │   │   ├── includes/
 │   │   ├── partials/
 │   │   └── views/
-│   ├── font/
+│   ├── fonts/
 │   └── img/
 └── views/
    ├── partials/
@@ -173,14 +173,12 @@ dist/
 - [ ] Поддержка Webpack?
 - [ ] Поддержка SQL
 - [ ] Доработать `examples`
-- [ ] Рефракторинг сборки JavaScript при помощи Browserify?
 - [x] Рефракторинг сборки Pug
 - [x] Рефракторинг сборки HTML
 - [x] Линтинг HTML htmlhint
 - [ ] Минификация HTML
-- [ ] Тестирование при помощи tape?
+- [ ] Тестирование при помощи tape или mocha?
 - [ ] **Сделать нормальный README**
-- [ ] posthtml?
 
 ## Лицензия
 

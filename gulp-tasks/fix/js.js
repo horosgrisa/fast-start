@@ -3,9 +3,6 @@ const $ = require('gulp-load-plugins')()
 
 module.exports = function (gulp) {
   gulp.task('fix:js', () => {
-    const isFixed = (file) => {
-      return file.eslint != null && file.eslint.fixed
-    }
     return gulp.src(['src/**/*.js'])
     .pipe($.using({
       path: 'relative',
@@ -17,6 +14,6 @@ module.exports = function (gulp) {
     .pipe($.eslint({
       fix: true
     }))
-    .pipe($.if(isFixed, gulp.dest('src/')))
+    .pipe(gulp.dest('src/'))
   })
 }

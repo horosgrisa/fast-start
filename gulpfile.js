@@ -39,12 +39,14 @@ gulp.task('deploy', gulp.parallel(
 gulp.task('fix', gulp.parallel(
   'fix:css',
   'fix:js',
+  'fix:json',
   'fix:html'
 ))
 
 gulp.task('lint', gulp.series(
   'lint:css',
   'lint:js',
+  'lint:json',
   'lint:pug',
   'lint:html'
 ))
