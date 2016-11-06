@@ -1,16 +1,16 @@
 'use strict'
 const gulp = require('gulp')
 
-global.CONFIG = require('./gulp-tasks/_genConfig.js')
+global.CONFIG = require('./.gulp-tasks/_genConfig.js')
 
-require('./gulp-tasks/build')(gulp)
-require('./gulp-tasks/deploy')(gulp)
-require('./gulp-tasks/fix')(gulp)
-require('./gulp-tasks/lint')(gulp)
-require('./gulp-tasks/server')(gulp)
-require('./gulp-tasks/update')(gulp)
-require('./gulp-tasks/watch')(gulp)
-require('./gulp-tasks/select')(gulp)
+require('./.gulp-tasks/build')(gulp)
+require('./.gulp-tasks/deploy')(gulp)
+require('./.gulp-tasks/fix')(gulp)
+require('./.gulp-tasks/lint')(gulp)
+require('./.gulp-tasks/server')(gulp)
+require('./.gulp-tasks/update')(gulp)
+require('./.gulp-tasks/watch')(gulp)
+require('./.gulp-tasks/select')(gulp)
 
 gulp.task('build', gulp.parallel(
   'build:base',

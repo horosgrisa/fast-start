@@ -3,7 +3,7 @@
 
 !.generator/
 !example/
-!gulp-tasks/
+!.gulp-tasks/
 !gulpfile.js
 !package.json
 !README.md
