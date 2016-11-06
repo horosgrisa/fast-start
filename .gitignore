@@ -8,6 +8,14 @@
 !README.md
 !README.RU.md
 !.gitignore
+!.babelrc
+!.eslintrc.json
+!.htmlhintrc
+!.jsbeautifyrc
+!.postcss-sorting.json
+!.pug-lint.json
+!.stylelintrc.json
+
 
 node_modules
 bower_components
