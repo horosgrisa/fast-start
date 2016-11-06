@@ -22,11 +22,11 @@ gulp.task('build', gulp.parallel(
   'build:html'
 ))
 
-gulp.task('deploy', gulp.parallel(
+gulp.task('deploy', gulp.series(
   'deploy:rsync'
 ))
 
-gulp.task('fix', gulp.parallel(
+gulp.task('fix', gulp.series(
   'fix:css',
   'fix:js',
   'fix:json',

@@ -22,8 +22,7 @@ module.exports = function (gulp) {
           logFileChanges: false,
           notify: false,
           ui: false,
-          ghostMode: false,
-          middleware: [debuga()]
+          ghostMode: false
         })
         done()
       })
@@ -52,7 +51,8 @@ module.exports = function (gulp) {
           logFileChanges: false,
           notify: false,
           ui: false,
-          ghostMode: false
+          ghostMode: false,
+          middleware: [debuga()]
         })
         done()
       })
