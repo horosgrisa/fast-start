@@ -1,6 +1,6 @@
 {
   "name": "fast-start",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "This is base stucture for simple site. It support Browserify (or JavaScript with gulp-include, as fallback), PostCSS (with precss and cssnext), Pug (or HTML with gulp-include as fallback).",
   "main": "gulpfile.js",
   "scripts": {

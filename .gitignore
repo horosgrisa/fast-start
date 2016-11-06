@@ -1,8 +1,14 @@
-src
-dist/
-config.json
+*
+
+!.generator/
+!example/
+!gulp-tasks/
+!gulpfile.js
+!package.json
+!README.md
+!README.RU.md
+!.gitignore
 
 node_modules
 bower_components
 npm-debug.log
-build/
