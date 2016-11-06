@@ -22,6 +22,7 @@
     "debuga": "*",
     "eslint-config-standard": "*",
     "eslint-plugin-html": "*",
+    "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-promise": "*",
     "eslint-plugin-standard": "*",
     "gulp": "gulpjs/gulp#4.0",

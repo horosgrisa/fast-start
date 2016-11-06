@@ -1,7 +1,8 @@
 {
   "plugins": [
     "standard",
-    "promise"
+    "promise",
+    "json"
   ],
   "extends": "standard",
   "rules": {
