@@ -31,11 +31,11 @@ module.exports = function (gulp) {
       gulp.task('bs', (done) => {
         browserSync.init({
           server: {
-            baseDir: 'dist/',
+            baseDir: global.CONFIG.dist,
             index: 'index.html',
             routes: {
-              '/public': './dist/public',
-              '/bower_components': './dist/bower_components'
+              '/public': global.CONFIG.dist + '/public',
+              '/bower_components': global.CONFIG.dist + '/bower_components'
             }
           },
           files: [

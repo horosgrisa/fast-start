@@ -50,6 +50,10 @@ gulp.task('self-update', gulp.series(
   'self-update:git'
 ))
 
+gulp.task('select', gulp.series(
+  'select:project'
+))
+
 gulp.task('default',
   gulp.series(
     'build',
