@@ -14,7 +14,7 @@ module.exports = function (gulp) {
       })
     let projects = []
     for (let dir in dirs) {
-      if (dirs[dir] !== '.git' && dirs[dir] !== '.generator' && dirs[dir] !== '.gulp-tasks' && dirs[dir] !== 'node_modules') {
+      if (dirs[dir] !== '.git' && dirs[dir] !== '.generator' && dirs[dir] !== '.gulp-tasks' && dirs[dir] !== 'node_modules' && dirs[dir] !== '.examples') {
         if (dirs[dir].indexOf('.dist', dirs[dir].length - '.dist'.length) === -1 && dirs[dir].indexOf('.build', dirs[dir].length - '.build'.length) === -1) {
           projects.push(dirs[dir])
         }
@@ -30,6 +30,10 @@ module.exports = function (gulp) {
     ]).then(function (answers) {
       fs.writeFileSync(path.join(__dirname, '..', '.selected'), answers.project)
       console.log('Project ' + answers.project + ' selected')
+      done()
+    })
+    process.on('SIGINT', () => {
+      console.log('bye!')
       done()
     })
   })
