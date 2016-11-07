@@ -2,7 +2,7 @@
 /*/
 
 !/.*
-!/example/
+!/.examples/
 !/gulpfile.js
 !/package.json
 !/README.md
