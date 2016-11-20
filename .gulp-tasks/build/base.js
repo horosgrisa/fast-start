@@ -25,7 +25,7 @@ module.exports = function (gulp) {
     ], {
       base: global.CONFIG.src + '/'
     })
-      .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/')))
+      .pipe($.if(!argv.all, $.changed(global.CONFIG.dist + '/')))
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
       .pipe(gulp.dest(global.CONFIG.dist))
