@@ -1,6 +1,5 @@
 'use strict'
 const gulp = require('gulp')
-const $ = require('gulp-load-plugins')()
 
 global.CONFIG = require('./.gulp-tasks/_genConfig.js')
 
@@ -13,7 +12,7 @@ require('./.gulp-tasks/update')(gulp)
 require('./.gulp-tasks/watch')(gulp)
 require('./.gulp-tasks/switch')(gulp)
 
-gulp.task('build', gulp.series(
+gulp.task('build', gulp.parallel(
   'build:base',
   'build:css',
   'build:fonts',
@@ -65,7 +64,6 @@ gulp.task('default',
 )
 
 var NyanReporter = require('faucet')
-
 var tape = require('gulp-tape')
 gulp.task('test', function () {
   return gulp.src(global.CONFIG.src + '/tests/**/*.js')

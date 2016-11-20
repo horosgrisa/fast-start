@@ -2,33 +2,9 @@
 const $ = require('gulp-load-plugins')()
 const argv = require('yargs').argv
 
-const postcssPlugins = [
-  require('postcss-color-short'),
-  require('postcss-clearfix'),
-  require('precss')(),
-  require('postcss-cssnext')()
-]
-argv.production && postcssPlugins.concat(require('cssnano')())
-
 const rollupPlugins = [
   require('rollup-plugin-json')(),
-  require('rollup-plugin-pug')({
-    compileDebug: !argv.production,
-    sourceMap: !argv.production
-  }),
-  require('rollup-plugin-postcss')({
-    plugins: postcssPlugins
-  }),
-  require('rollup-plugin-babel')(),
-  require('rollup-plugin-node-resolve')({
-    jsnext: true,
-    main: true,
-    browser: true,
-    module: true
-  }),
-  require('rollup-plugin-commonjs')(),
-  require('rollup-plugin-node-globals')()
-]
+  require('rollup-plugin-babel')()]
 if (argv.production) {
   rollupPlugins[rollupPlugins.length] = require('rollup-plugin-uglify')()
 }
