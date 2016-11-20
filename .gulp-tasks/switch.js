@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = function (gulp) {
-  gulp.task('select:project', (done) => {
+  gulp.task('switch:project', (done) => {
     let modules = {}
     const dirs = fs.readdirSync(path.join(__dirname, '..'))
       .filter(function (file) {
@@ -14,7 +14,7 @@ module.exports = function (gulp) {
       })
     let projects = []
     for (let dir in dirs) {
-      if (dirs[dir] !== '.git' && dirs[dir] !== '.generator' && dirs[dir] !== '.gulp-tasks' && dirs[dir] !== 'node_modules' && dirs[dir] !== '.examples') {
+      if (dirs[dir] !== '.bin' && dirs[dir] !== '.git' && dirs[dir] !== '.generator' && dirs[dir] !== '.gulp-tasks' && dirs[dir] !== 'node_modules' && dirs[dir] !== '.examples') {
         if (dirs[dir].indexOf('.dist', dirs[dir].length - '.dist'.length) === -1 && dirs[dir].indexOf('.build', dirs[dir].length - '.build'.length) === -1) {
           projects.push(dirs[dir])
         }

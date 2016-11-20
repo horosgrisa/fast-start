@@ -3,7 +3,7 @@ const $ = require('gulp-load-plugins')()
 
 module.exports = function (gulp) {
   gulp.task('fix:json', () => {
-    return gulp.src([global.CONFIG.src + '/**/*.json'])
+    return gulp.src([global.CONFIG.src + '/**/*.json'].concat(global.CONFIG.exclude))
     .pipe($.using({
       path: 'relative',
       color: 'yellow',

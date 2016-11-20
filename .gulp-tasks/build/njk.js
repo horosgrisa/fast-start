@@ -19,7 +19,7 @@ module.exports = function (gulp) {
   } else {
     gulp.task('build:njk', (done) => {
       return gulp.src([global.CONFIG.src + '/views/*.njk'], {
-        base: global.CONFIG.src + '/views'
+        base: global.CONFIG.src + '/views/'
       })
         .pipe($.flatmap(function (stream, file) {
           return stream

@@ -1,5 +1,6 @@
 'use strict'
 const gulp = require('gulp')
+const $ = require('gulp-load-plugins')()
 
 global.CONFIG = require('./.gulp-tasks/_genConfig.js')
 
@@ -10,9 +11,9 @@ require('./.gulp-tasks/lint')(gulp)
 require('./.gulp-tasks/server')(gulp)
 require('./.gulp-tasks/update')(gulp)
 require('./.gulp-tasks/watch')(gulp)
-require('./.gulp-tasks/select')(gulp)
+require('./.gulp-tasks/switch')(gulp)
 
-gulp.task('build', gulp.parallel(
+gulp.task('build', gulp.series(
   'build:base',
   'build:css',
   'build:fonts',
@@ -51,8 +52,8 @@ gulp.task('self-update', gulp.series(
   'self-update:git'
 ))
 
-gulp.task('select', gulp.series(
-  'select:project'
+gulp.task('switch', gulp.series(
+  'switch:project'
 ))
 
 gulp.task('default',
@@ -62,3 +63,14 @@ gulp.task('default',
     'watch'
   )
 )
+
+var NyanReporter = require('faucet')
+
+var tape = require('gulp-tape')
+gulp.task('test', function () {
+  return gulp.src(global.CONFIG.src + '/tests/**/*.js')
+    .pipe(tape({
+      reporter: NyanReporter()
+    }))
+})
+

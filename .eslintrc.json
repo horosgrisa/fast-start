@@ -1,14 +1,19 @@
 {
+  "extends": ["standard", "plugin:react/recommended"],
   "plugins": [
     "standard",
     "promise",
-    "json"
+    "json",
+    "react"
   ],
-  "extends": "standard",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
   "rules": {
     "spaced-comment": ["error", "always", {
       "markers": ["=require", "=include"]
-    }],
-    "no-unused-vars": ["off"]
+    }]
   }
 }

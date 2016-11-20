@@ -22,6 +22,7 @@ module.exports = function (gulp) {
           logFileChanges: false,
           notify: false,
           ui: false,
+          reloadDelay: 500,
           ghostMode: false
         })
         done()
@@ -51,6 +52,7 @@ module.exports = function (gulp) {
           logFileChanges: false,
           notify: false,
           ui: false,
+          reloadDelay: 500,
           ghostMode: false,
           middleware: [debuga()]
         })

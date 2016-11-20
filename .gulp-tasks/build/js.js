@@ -2,93 +2,81 @@
 const $ = require('gulp-load-plugins')()
 const argv = require('yargs').argv
 
-module.exports = function (gulp) {
-  if (global.CONFIG.browserify) {
-    gulp.task('build:js', (done) => {
-      const browserify = require('browserify')
-      const sourcemapify = require('sourcemapify')
-      return gulp.src([global.CONFIG.src + '/assets/js/*.js', global.CONFIG.src + '/assets/js/views/**/*.js'], {
-        base: global.CONFIG.src + '/assets/js'
-      })
-        .pipe($.flatmap((stream, file) => {
-          return stream
-            .pipe($.if(!argv.all, $.newer({
-              extra: [
-                global.CONFIG.src + '/assets/js/*/**/*.js',
-                '!' + global.CONFIG.src + '/assets/js/views/**/*.js'
-              ],
-              dest: global.CONFIG.dist + '/public/js/',
-              ext: '.js'
-            })))
-            .pipe($.using({
-              path: 'relative',
-              color: 'green',
-              filesize: false
-            }))
-            .pipe($.plumber())
-            .pipe($.tap(function (file) {
-              if (argv.production) {
-                file.contents = browserify(file.path, {
-                  debug: false
-                })
-                  .transform('babelify', {
-                    presets: ['es2015']
-                  })
-                  .transform('uglifyify')
-                  .bundle()
-              } else {
-                file.contents = browserify(file.path, {
-                  debug: true
-                })
-                  .transform('babelify', {
-                    presets: ['es2015']
-                  })
-                  .plugin(sourcemapify, {
-                    base: global.CONFIG.src + '/assets/js',
-                    root: '/public/js'
-                  })
-                  .bundle()
-              }
-            }))
-            .pipe(gulp.dest(global.CONFIG.dist + '/public/js/'))
-            .pipe($.touch())
-        }))
-    })
-  } else {
-    gulp.task('build:js', (done) => {
-      return gulp.src([global.CONFIG.src + '/assets/js/*.js', global.CONFIG.src + '/assets/js/views/**/*.js'], {
-        base: global.CONFIG.src + '/assets/js'
-      })
-      .pipe($.flatmap((stream, file) => {
-        return stream
-          .pipe($.if(!argv.all, $.newer({
-            extra: [
-              global.CONFIG.src + '/assets/js/*/**/*.js',
-              '!' + global.CONFIG.src + '/assets/js/views/**/*.js'
-            ],
-            dest: global.CONFIG.dist + '/public/js/',
-            ext: '.js'
-          })))
-          .pipe($.using({
-            path: 'relative',
-            color: 'green',
-            filesize: false
-          }))
-          .pipe($.plumber())
-          .pipe($.if(!argv.production, $.sourcemaps.init({})))
-          .pipe($.include())
-          .pipe($.babel({
-            presets: ['es2015']
-          }))
-          .pipe($.if(argv.production, $.uglify()))
-          .pipe($.if(!argv.production, $.sourcemaps.write({
-            mapSources: function (mapFilePath) {
-              return '/public/js/' + mapFilePath
-            }
-          })))
-          .pipe(gulp.dest(global.CONFIG.dist + '/public/js/'))
-          .pipe($.touch())
-      }))
-    })
-  }
+const postcssPlugins = [
+  require('postcss-color-short'),
+  require('postcss-clearfix'),
+  require('precss')(),
+  require('postcss-cssnext')()
+]
+argv.production && postcssPlugins.concat(require('cssnano')())
+
+const rollupPlugins = [
+  require('rollup-plugin-json')(),
+  require('rollup-plugin-pug')({
+    compileDebug: !argv.production,
+    sourceMap: !argv.production
+  }),
+  require('rollup-plugin-postcss')({
+    plugins: postcssPlugins
+  }),
+  require('rollup-plugin-babel')(),
+  require('rollup-plugin-node-resolve')({
+    jsnext: true,
+    main: true,
+    browser: true,
+    module: true
+  }),
+  require('rollup-plugin-commonjs')(),
+  require('rollup-plugin-node-globals')()
+]
+if (argv.production) {
+  rollupPlugins[rollupPlugins.length] = require('rollup-plugin-uglify')()
 }
+
+module.exports = function (gulp) {
+  gulp.task('build:js', (done) => {
+    return gulp.src([global.CONFIG.src + '/assets/js/*.*', global.CONFIG.src + '/assets/js/views/**/*.js'], {
+      base: global.CONFIG.src + '/assets/js/'
+    })
+      .pipe($.if(!argv.all, $.changed(global.CONFIG.dist + '/public/js/')))
+      .pipe($.using(global.CONFIG.using))
+      .pipe($.plumber())
+      .pipe($.if(!argv.production, $.sourcemaps.init({})))
+      .pipe($.betterRollup({
+        plugins: rollupPlugins
+      }, {
+        format: 'cjs',
+        useStrict: true
+      }))
+      .pipe($.if(!argv.production, $.sourcemaps.write('.', {
+        mapSources: (mapFilePath) => {
+          return mapFilePath.replace(global.CONFIG.src, '').replace('node_modules/', '/node_modules/')
+        }
+      })))
+      .pipe(gulp.dest(global.CONFIG.dist + '/public/js/'))
+      .pipe($.touch())
+  })
+
+  gulp.task('build:js:all', (done) => {
+    return gulp.src([global.CONFIG.src + '/assets/js/*.js', global.CONFIG.src + '/assets/js/views/**/*.js'], {
+      base: global.CONFIG.src + '/assets/js/'
+    })
+      .pipe($.using(global.CONFIG.using))
+      .pipe($.plumber())
+      .pipe($.if(!argv.production, $.sourcemaps.init({})))
+      .pipe($.betterRollup({
+        plugins: rollupPlugins
+      }, {
+        format: 'cjs',
+        useStrict: true
+      }))
+      .pipe($.if(!argv.production, $.sourcemaps.write('.', {
+        mapSources: (mapFilePath) => {
+          return mapFilePath.replace(global.CONFIG.src, '').replace('node_modules/', '/node_modules/')
+        }
+      })))
+      .pipe(gulp.dest(global.CONFIG.dist + '/public/js/'))
+      .pipe($.touch())
+  })
+}
+

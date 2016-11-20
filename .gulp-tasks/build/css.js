@@ -1,46 +1,47 @@
 'use strict'
 const $ = require('gulp-load-plugins')()
 const argv = require('yargs').argv
+let postcssPlugins = [
+  require('postcss-color-short'),
+  require('postcss-clearfix'),
+  require('precss')(),
+  require('postcss-cssnext')()
+]
+argv.production && postcssPlugins.concat(require('cssnano')())
 
 module.exports = function (gulp) {
   gulp.task('build:css', (done) => {
     return gulp.src([global.CONFIG.src + '/assets/css/*.css', global.CONFIG.src + '/assets/css/views/**/*.css'], {
-      base: global.CONFIG.src + '/assets/css'
+      base: global.CONFIG.src + '/assets/css/'
     })
-    .pipe($.flatmap(function (stream, file) {
-      return stream
-        .pipe($.if(!argv.all, $.newer({
-          extra: [
-            global.CONFIG.src + '/assets/css/*/**/*.css',
-            '!' + global.CONFIG.src + '/assets/css/views/**/*.css'
-          ],
-          dest: global.CONFIG.dist + '/public/css/',
-          ext: '.css'
-        })))
-        .pipe($.using({
-          path: 'relative',
-          color: 'green',
-          filesize: false
-        }))
-        .pipe($.plumber())
-        .pipe($.if(!argv.production, $.sourcemaps.init()))
-        .pipe($.postcss([
-          require('postcss-color-short'),
-          require('postcss-clearfix'),
-          require('precss')(),
-          require('postcss-cssnext')()
-        ])
-          )
-        .pipe($.if(argv.production, $.postcss([
-          require('cssnano')()
-        ])))
-        .pipe($.if(!argv.production, $.sourcemaps.write({
-          mapSources: function (mapFilePath) {
-            return '/public/css/' + mapFilePath
-          }
-        })))
-        .pipe(gulp.dest(global.CONFIG.dist + '/public/css/'))
-        .pipe($.touch())
-    }))
+      .pipe($.if(!argv.all, $.changed(global.CONFIG.dist + '/public/css/')))
+      .pipe($.using(global.CONFIG.using))
+      .pipe($.plumber())
+      .pipe($.if(!argv.production, $.sourcemaps.init()))
+      .pipe($.postcss(postcssPlugins))
+      .pipe($.if(!argv.production, $.sourcemaps.write('.', {
+        mapSources: function (mapFilePath) {
+          return '/assets/css/' + mapFilePath
+        }
+      })))
+      .pipe(gulp.dest(global.CONFIG.dist + '/public/css/'))
+      .pipe($.touch())
+  })
+  gulp.task('build:css:all', (done) => {
+    argv.production && postcssPlugins.concat(require('cssnano')())
+    return gulp.src([global.CONFIG.src + '/assets/css/*.css', global.CONFIG.src + '/assets/css/views/**/*.css'], {
+      base: global.CONFIG.src + '/assets/css/'
+    })
+      .pipe($.using(global.CONFIG.using))
+      .pipe($.plumber())
+      .pipe($.if(!argv.production, $.sourcemaps.init()))
+      .pipe($.postcss(postcssPlugins))
+      .pipe($.if(!argv.production, $.sourcemaps.write('.', {
+        mapSources: function (mapFilePath) {
+          return '/assets/css/' + mapFilePath
+        }
+      })))
+      .pipe(gulp.dest(global.CONFIG.dist + '/public/css/'))
+      .pipe($.touch())
   })
 }

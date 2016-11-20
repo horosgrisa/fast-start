@@ -6,6 +6,14 @@ module.exports = function (gulp) {
   gulp.task('build:base', (done) => {
     return gulp.src([
       global.CONFIG.src + '/**',
+      '!' + global.CONFIG.src + '/.git/**',
+      '!' + global.CONFIG.src + '/.git/',
+      '!' + global.CONFIG.src + '/dist/**',
+      '!' + global.CONFIG.src + '/dist/',
+      '!' + global.CONFIG.src + '/build/**',
+      '!' + global.CONFIG.src + '/build/',
+      '!' + global.CONFIG.src + '/tests/**',
+      '!' + global.CONFIG.src + '/tests/',
       '!' + global.CONFIG.src + '/node_modules/**',
       '!' + global.CONFIG.src + '/node_modules/',
       '!' + global.CONFIG.src + '/bower_components/**',
@@ -15,7 +23,7 @@ module.exports = function (gulp) {
       '!' + global.CONFIG.src + '/assets/**',
       '!' + global.CONFIG.src + '/assets/'
     ], {
-      base: global.CONFIG.src
+      base: global.CONFIG.src + '/'
     })
       .pipe($.if(!argv.all, $.newer(global.CONFIG.dist + '/')))
       .pipe($.using(global.CONFIG.using))
