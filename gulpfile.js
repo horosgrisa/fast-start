@@ -12,7 +12,7 @@ require('./.gulp-tasks/update')(gulp)
 require('./.gulp-tasks/watch')(gulp)
 require('./.gulp-tasks/switch')(gulp)
 
-gulp.task('build', gulp.parallel(
+gulp.task('build', gulp.series(
   'build:base',
   'build:css',
   'build:fonts',

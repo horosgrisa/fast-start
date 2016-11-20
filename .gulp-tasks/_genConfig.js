@@ -39,17 +39,17 @@ CONFIG.dist = !argv.production ? CONFIG.src + '/dist' : CONFIG.src + '/build'
 
 CONFIG.exclude = [
   '!' + CONFIG.src + '/.git/**',
-  '!' + CONFIG.src + '/.git/',
+  '!' + CONFIG.src + '/.git',
   '!' + CONFIG.src + '/dist/**',
-  '!' + CONFIG.src + '/dist/',
+  '!' + CONFIG.src + '/dist',
   '!' + CONFIG.src + '/build/**',
-  '!' + CONFIG.src + '/build/',
+  '!' + CONFIG.src + '/build',
   '!' + CONFIG.src + '/tests/**',
-  '!' + CONFIG.src + '/tests/',
+  '!' + CONFIG.src + '/tests',
   '!' + CONFIG.src + '/node_modules/**',
-  '!' + CONFIG.src + '/node_modules/',
+  '!' + CONFIG.src + '/node_modules',
   '!' + CONFIG.src + '/bower_components/**',
-  '!' + CONFIG.src + '/bower_components/'
+  '!' + CONFIG.src + '/bower_components'
 ]
 
 module.exports = CONFIG
