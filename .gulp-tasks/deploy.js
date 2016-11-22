@@ -1,11 +1,11 @@
 'use strict'
-const $ = require('gulp-load-plugins')()
 
-module.exports = function (gulp) {
+module.exports = function (gulp, plumber, using, gIf, touch) {
   gulp.task('deploy:rsync', () => {
+    const rsync = require('gulp-rsync')
     return gulp.src([
-      global.CONFIG.src + '/build/**'
+      `${global.CONFIG.src}/build/**`
     ])
-      .pipe($.rsync(global.CONFIG.deploy))
+      .pipe(rsync(global.CONFIG.deploy))
   })
 }

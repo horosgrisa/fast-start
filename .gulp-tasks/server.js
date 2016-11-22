@@ -1,7 +1,6 @@
 'use strict'
-let $ = require('gulp-load-plugins')()
 
-module.exports = function (gulp) {
-  require('./server/run')(gulp)
-  require('./server/bs')(gulp)
+module.exports = function (gulp, plumber, using, gIf, touch) {
+  require('./server/run')(gulp, plumber, using, gIf, touch)
+  require('./server/bs')(gulp, plumber, using, gIf, touch)
 }

@@ -1,10 +1,10 @@
 {
-  "extends": ["standard", "plugin:react/recommended"],
+  "extends": ["standard", "standard-react", "plugin:unicorn/recommended"],
   "plugins": [
-    "standard",
-    "promise",
     "json",
-    "react"
+    "no-loops",
+    "unicorn",
+    "jsdoc"
   ],
   "env": {
     "browser": true,
@@ -12,8 +12,18 @@
     "es6": true
   },
   "rules": {
-    "spaced-comment": ["error", "always", {
-      "markers": ["=require", "=include"]
-    }]
+    "no-loops/no-loops": 2,
+    "prefer-template": 2,
+    "jsdoc/check-param-names": 1,
+    "jsdoc/check-tag-names": 1,
+    "jsdoc/check-types": 1,
+    "jsdoc/newline-after-description": 1,
+    "jsdoc/require-description-complete-sentence": 1,
+    "jsdoc/require-hyphen-before-param-description": 1,
+    "jsdoc/require-param": 1,
+    "jsdoc/require-param-description": 1,
+    "jsdoc/require-param-type": 1,
+    "jsdoc/require-returns-description": 1,
+    "jsdoc/require-returns-type": 1
   }
 }

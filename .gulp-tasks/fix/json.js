@@ -1,19 +1,18 @@
 'use strict'
-const $ = require('gulp-load-plugins')()
 
-module.exports = function (gulp) {
+module.exports = function (gulp, plumber, using, gIf, touch) {
   gulp.task('fix:json', () => {
-    return gulp.src([global.CONFIG.src + '/**/*.json'].concat(global.CONFIG.exclude))
-    .pipe($.using({
+    const eslint = require('gulp-eslint')
+    return gulp.src([`${global.CONFIG.src}/**/*.json`].concat(global.CONFIG.exclude))
+    .pipe(using({
       path: 'relative',
       color: 'yellow',
       filesize: false
     }))
-    .pipe($.plumber())
-    .pipe($.jsbeautifier())
-    .pipe($.eslint({
+    .pipe(plumber())
+    .pipe(eslint({
       fix: true
     }))
-    .pipe(gulp.dest(global.CONFIG.src + '/'))
+    .pipe(gulp.dest(`${global.CONFIG.src}/`))
   })
 }

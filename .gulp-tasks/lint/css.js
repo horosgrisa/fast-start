@@ -1,10 +1,10 @@
 'use strict'
-let $ = require('gulp-load-plugins')()
 
-module.exports = function (gulp) {
+module.exports = function (gulp, plumber, using, gIf, touch) {
   gulp.task('lint:css', () => {
-    return gulp.src([global.CONFIG.src + '/**/*.css'].concat(global.CONFIG.exclude))
-      .pipe($.stylelint({
+    const stylelint = require('gulp-stylelint')
+    return gulp.src([`${global.CONFIG.src}/**/*.css`].concat(global.CONFIG.exclude))
+      .pipe(stylelint({
         failAfterError: false,
         reporters: [{
           formatter: 'string',

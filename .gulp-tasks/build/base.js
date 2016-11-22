@@ -1,22 +1,22 @@
 'use strict'
-const $ = require('gulp-load-plugins')()
-const argv = require('yargs').argv
 
-module.exports = function (gulp) {
+module.exports = function (gulp, plumber, using, gIf, touch) {
   gulp.task('build:base', (done) => {
+    const argv = require('yargs').argv
+    const changed = require('gulp-changed')
     return gulp.src([
-      global.CONFIG.src + '/**',
-      '!' + global.CONFIG.src + '/views/**',
-      '!' + global.CONFIG.src + '/views',
-      '!' + global.CONFIG.src + '/assets/**',
-      '!' + global.CONFIG.src + '/assets'
+      `${global.CONFIG.src}/**`,
+      `!${global.CONFIG.src}/views/**`,
+      `!${global.CONFIG.src}/views`,
+      `!${global.CONFIG.src}/assets/**`,
+      `!${global.CONFIG.src}/assets`
     ].concat(global.CONFIG.exclude), {
-      base: global.CONFIG.src + '/'
+      base: `${global.CONFIG.src}/`
     })
-      .pipe($.if(!argv.all, $.changed(global.CONFIG.dist + '/')))
-      .pipe($.using(global.CONFIG.using))
-      .pipe($.plumber())
+      .pipe(gIf(!argv.all, changed(`${global.CONFIG.dist}/`)))
+      .pipe(using(global.CONFIG.using))
+      .pipe(plumber())
       .pipe(gulp.dest(global.CONFIG.dist))
-      .pipe($.touch())
+      .pipe(touch())
   })
 }

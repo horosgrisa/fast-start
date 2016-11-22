@@ -1,16 +1,17 @@
 'use strict'
-let $ = require('gulp-load-plugins')()
-const argv = require('yargs').argv
 
-module.exports = function (gulp) {
+module.exports = function (gulp, plumber, using, gIf, touch) {
   gulp.task('run', (done) => {
+    const argv = require('yargs').argv
+    const nodemon = require('gulp-nodemon')
+    const connectPhp = require('gulp-connect-php')
     if (!argv.production) {
       if (global.CONFIG.server === 'node') {
         let started = false
-        $.nodemon({
-          script: global.CONFIG.dist + '/index.js',
+        nodemon({
+          script: `${global.CONFIG.dist}/index.js`,
           ext: 'js',
-          watch: [global.CONFIG.dist + '/lib/*', global.CONFIG.dist + '/index.js'],
+          watch: [`${global.CONFIG.dist}/lib/*`, `${global.CONFIG.dist}/index.js`],
           env: {
             'NODE_ENV': 'dev'
           },
@@ -24,7 +25,7 @@ module.exports = function (gulp) {
         })
       } else {
         if (global.CONFIG.server === 'php') {
-          $.connectPhp.server({
+          connectPhp.server({
             port: 10000,
             hostname: '0.0.0.0',
             base: global.CONFIG.dist

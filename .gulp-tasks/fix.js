@@ -1,9 +1,8 @@
 'use strict'
-const $ = require('gulp-load-plugins')()
 
-module.exports = function (gulp) {
-  require('./fix/css')(gulp)
-  require('./fix/js')(gulp)
-  require('./fix/json')(gulp)
-  require('./fix/html')(gulp)
+module.exports = function (gulp, plumber, using, gIf, touch) {
+  require('./fix/css')(gulp, plumber, using, gIf, touch)
+  require('./fix/js')(gulp, plumber, using, gIf, touch)
+  require('./fix/json')(gulp, plumber, using, gIf, touch)
+  require('./fix/html')(gulp, plumber, using, gIf, touch)
 }

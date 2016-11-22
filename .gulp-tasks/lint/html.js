@@ -1,11 +1,11 @@
 'use strict'
-let $ = require('gulp-load-plugins')()
 
-module.exports = function (gulp) {
+module.exports = function (gulp, plumber, using, gIf, touch) {
   gulp.task('lint:html', () => {
-    return gulp.src([global.CONFIG.src + '/**/*.html'].concat(global.CONFIG.exclude))
-      .pipe($.plumber())
-      .pipe($.htmlhint('.htmlhintrc'))
-      .pipe($.htmlhint.reporter('htmlhint-stylish'))
+    const htmlhint = require('gulp-htmlhint')
+    return gulp.src([`${global.CONFIG.src}/**/*.html`].concat(global.CONFIG.exclude))
+      .pipe(plumber())
+      .pipe(htmlhint('.htmlhintrc'))
+      .pipe(htmlhint.reporter('htmlhint-stylish'))
   })
 }

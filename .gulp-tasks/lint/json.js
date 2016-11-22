@@ -1,10 +1,10 @@
 'use strict'
-let $ = require('gulp-load-plugins')()
 
-module.exports = function (gulp) {
+module.exports = function (gulp, plumber, using, gIf, touch) {
   gulp.task('lint:json', () => {
-    return gulp.src([global.CONFIG.src + '/**/*.json'].concat(global.CONFIG.exclude))
-      .pipe($.eslint())
-      .pipe($.eslint.format())
+    const eslint = require('gulp-eslint')
+    return gulp.src([`${global.CONFIG.src}/**/*.json`].concat(global.CONFIG.exclude))
+      .pipe(eslint())
+      .pipe(eslint.format())
   })
 }

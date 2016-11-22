@@ -1,33 +1,35 @@
 'use strict'
-const $ = require('gulp-load-plugins')()
-const argv = require('yargs').argv
 
-module.exports = function (gulp) {
+module.exports = function (gulp, plumber, using, gIf, touch) {
   if (global.CONFIG.server) {
+    const argv = require('yargs').argv
+    const changed = require('gulp-changed')
     gulp.task('build:pug', (done) => {
-      return gulp.src(global.CONFIG.src + '/views/**/*.pug', {
-        base: global.CONFIG.src + '/views/'
+      return gulp.src(`${global.CONFIG.src}/views/**/*.pug`, {
+        base: `${global.CONFIG.src}/views/`
       })
-        .pipe($.if(!argv.all, $.changed(global.CONFIG.dist + '/views/')))
-        .pipe($.using(global.CONFIG.using))
-        .pipe($.plumber())
-        .pipe(gulp.dest(global.CONFIG.dist + '/views/'))
-        .pipe($.touch())
+        .pipe(gIf(!argv.all, changed(`${global.CONFIG.dist}/views/`)))
+        .pipe(using(global.CONFIG.using))
+        .pipe(plumber())
+        .pipe(gulp.dest(`${global.CONFIG.dist}/views/`))
+        .pipe(touch())
     })
   } else {
     gulp.task('build:pug', (done) => {
-      return gulp.src([global.CONFIG.src + '/views/*.pug'], {
-        base: global.CONFIG.src + '/views'
+      const argv = require('yargs').argv
+      const pug = require('gulp-pug')
+      return gulp.src([`${global.CONFIG.src}/views/*.pug`], {
+        base: `${global.CONFIG.src}/views`
       })
-          .pipe($.using(global.CONFIG.using))
-          .pipe($.plumber())
-          .pipe($.if(!argv.production, $.pug({
+          .pipe(using(global.CONFIG.using))
+          .pipe(plumber())
+          .pipe(gIf(!argv.production, pug({
             pretty: true
           })
         ))
-        .pipe($.if(argv.production, $.pug()))
+        .pipe(gIf(argv.production, pug()))
         .pipe(gulp.dest(global.CONFIG.dist))
-        .pipe($.touch())
+        .pipe(touch())
     })
   }
 }

@@ -1,19 +1,17 @@
 'use strict'
-const argv = require('yargs').argv
-const debuga = require('debuga')
 const browserSync = require('browser-sync').create()
-
-module.exports = function (gulp) {
+const argv = require('yargs').argv
+module.exports = function (gulp, plumber, using, gIf, touch) {
   if (!argv.production) {
     if (global.CONFIG.server !== false) {
       gulp.task('bs', (done) => {
         browserSync.init({
           proxy: 'http://localhost:10000',
           files: [
-            global.CONFIG.dist + '/public/css/**/*.css',
-            global.CONFIG.dist + '/public/js/**/*.js',
-            global.CONFIG.dist + '/public/img/**/*.*',
-            global.CONFIG.dist + '/public/font/**/*.*'
+            `${global.CONFIG.dist}/public/css/**/*.css`,
+            `${global.CONFIG.dist}/public/js/**/*.js`,
+            `${global.CONFIG.dist}/public/img/**/*.*`,
+            `${global.CONFIG.dist}/public/font/**/*.*`
           ],
           port: 8000,
           using: true,
@@ -34,16 +32,16 @@ module.exports = function (gulp) {
             baseDir: global.CONFIG.dist,
             index: 'index.html',
             routes: {
-              '/public': global.CONFIG.dist + '/public',
-              '/bower_components': global.CONFIG.dist + '/bower_components'
+              '/public': `${global.CONFIG.dist}/public`,
+              '/bower_components': `${global.CONFIG.dist}/bower_components`
             }
           },
           files: [
-            global.CONFIG.dist + '/views/**/*.html',
-            global.CONFIG.dist + '/public/css/**/*.css',
-            global.CONFIG.dist + '/public/js/**/*.js',
-            global.CONFIG.dist + '/public/img/**/*.*',
-            global.CONFIG.dist + '/public/font/**/*.*'
+            `${global.CONFIG.dist}/views/**/*.html`,
+            `${global.CONFIG.dist}/public/css/**/*.css`,
+            `${global.CONFIG.dist}/public/js/**/*.js`,
+            `${global.CONFIG.dist}/public/img/**/*.*`,
+            `${global.CONFIG.dist}/public/font/**/*.*`
           ],
           port: 8000,
           using: true,
@@ -53,8 +51,7 @@ module.exports = function (gulp) {
           notify: false,
           ui: false,
           reloadDelay: 500,
-          ghostMode: false,
-          middleware: [debuga()]
+          ghostMode: false
         })
         done()
       })

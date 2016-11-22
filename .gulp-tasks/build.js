@@ -1,14 +1,13 @@
 'use strict'
-const $ = require('gulp-load-plugins')()
 
-module.exports = function (gulp) {
-  require('./build/base')(gulp)
-  require('./build/css')(gulp)
-  require('./build/fonts')(gulp)
-  require('./build/img')(gulp)
-  require('./build/js')(gulp)
-  require('./build/pug')(gulp)
-  require('./build/html')(gulp)
-  require('./build/njk')(gulp)
+module.exports = function (gulp, plumber, using, gIf, touch) {
+  require('./build/base')(gulp, plumber, using, gIf, touch)
+  require('./build/css')(gulp, plumber, using, gIf, touch)
+  require('./build/fonts')(gulp, plumber, using, gIf, touch)
+  require('./build/img')(gulp, plumber, using, gIf, touch)
+  require('./build/js')(gulp, plumber, using, gIf, touch)
+  require('./build/pug')(gulp, plumber, using, gIf, touch)
+  require('./build/html')(gulp, plumber, using, gIf, touch)
+  require('./build/njk')(gulp, plumber, using, gIf, touch)
 }
 
