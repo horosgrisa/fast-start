@@ -45,7 +45,8 @@ gulp.task('lint', gulp.series(
 
 require('./.gulp-tasks/docs')(gulp, plumber, using, gIf, touch)
 gulp.task('docs', gulp.series(
-  'docs:todo'
+  'docs:todo',
+  'docs:jsdoc'
 ))
 
 require('./.gulp-tasks/server')(gulp, plumber, using, gIf, touch)
