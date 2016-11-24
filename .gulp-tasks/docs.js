@@ -1,7 +1,7 @@
 'use strict'
 
-module.exports = function (gulp, plumber, using, gIf, touch) {
-  require('./docs/todo')(gulp, plumber, using, gIf, touch)
-  require('./docs/jsdoc')(gulp, plumber, using, gIf, touch)
+module.exports = function (gulp, $, argv) {
+  require('./docs/todo')(gulp, $, argv)
+  require('./docs/jsdoc')(gulp, $, argv)
 }
 

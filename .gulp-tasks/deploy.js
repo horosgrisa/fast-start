@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, plumber, using, gIf, touch) {
+module.exports = function (gulp, $, argv) {
   gulp.task('deploy:rsync', () => {
     const rsync = require('gulp-rsync')
     return gulp.src([

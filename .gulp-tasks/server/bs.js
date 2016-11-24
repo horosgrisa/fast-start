@@ -1,7 +1,7 @@
 'use strict'
 const browserSync = require('browser-sync').create()
 const argv = require('yargs').argv
-module.exports = function (gulp, plumber, using, gIf, touch) {
+module.exports = function (gulp, $, argv) {
   if (!argv.production) {
     if (global.CONFIG.server !== false) {
       gulp.task('bs', (done) => {

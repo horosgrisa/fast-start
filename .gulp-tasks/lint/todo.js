@@ -1,5 +1,5 @@
 'use strict'
-module.exports = function (gulp, plumber, using, gIf, touch) {
+module.exports = function (gulp, $, argv) {
   gulp.task('lint:todo', () => {
     const todo = require('gulp-todo')
     let todos = ''

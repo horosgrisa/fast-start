@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, plumber, using, gIf, touch) {
+module.exports = function (gulp, $, argv) {
   gulp.task('docs:jsdoc', (cb) => {
     const jsdoc = require('gulp-jsdoc3')
 

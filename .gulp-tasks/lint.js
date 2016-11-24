@@ -1,10 +1,10 @@
 'use strict'
 
-module.exports = function (gulp, plumber, using, gIf, touch) {
-  require('./lint/css')(gulp, plumber, using, gIf, touch)
-  require('./lint/js')(gulp, plumber, using, gIf, touch)
-  require('./lint/json')(gulp, plumber, using, gIf, touch)
-  require('./lint/pug')(gulp, plumber, using, gIf, touch)
-  require('./lint/html')(gulp, plumber, using, gIf, touch)
-  require('./lint/todo')(gulp, plumber, using, gIf, touch)
+module.exports = function (gulp, $, argv) {
+  require('./lint/css')(gulp, $, argv)
+  require('./lint/js')(gulp, $, argv)
+  require('./lint/json')(gulp, $, argv)
+  require('./lint/pug')(gulp, $, argv)
+  require('./lint/html')(gulp, $, argv)
+  require('./lint/todo')(gulp, $, argv)
 }

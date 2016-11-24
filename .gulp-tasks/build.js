@@ -1,13 +1,13 @@
 'use strict'
 
-module.exports = function (gulp, plumber, using, gIf, touch) {
-  require('./build/base')(gulp, plumber, using, gIf, touch)
-  require('./build/css')(gulp, plumber, using, gIf, touch)
-  require('./build/fonts')(gulp, plumber, using, gIf, touch)
-  require('./build/img')(gulp, plumber, using, gIf, touch)
-  require('./build/js')(gulp, plumber, using, gIf, touch)
-  require('./build/pug')(gulp, plumber, using, gIf, touch)
-  require('./build/html')(gulp, plumber, using, gIf, touch)
-  require('./build/njk')(gulp, plumber, using, gIf, touch)
+module.exports = function (gulp, $, argv) {
+  require('./build/base')(gulp, $, argv)
+  require('./build/css')(gulp, $, argv)
+  require('./build/fonts')(gulp, $, argv)
+  require('./build/img')(gulp, $, argv)
+  require('./build/js')(gulp, $, argv)
+  require('./build/pug')(gulp, $, argv)
+  require('./build/html')(gulp, $, argv)
+  require('./build/njk')(gulp, $, argv)
 }
 

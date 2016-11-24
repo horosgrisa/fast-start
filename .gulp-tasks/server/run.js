@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, plumber, using, gIf, touch) {
+module.exports = function (gulp, $, argv) {
   gulp.task('run', (done) => {
     const argv = require('yargs').argv
     const nodemon = require('gulp-nodemon')

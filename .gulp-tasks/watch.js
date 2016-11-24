@@ -1,7 +1,5 @@
 'use strict'
-const argv = require('yargs').argv
-
-module.exports = function (gulp, plumber, using, gIf, touch) {
+module.exports = function (gulp, $, argv) {
   gulp.task('watch', (done) => {
     if (!argv.production) {
       gulp.watch([

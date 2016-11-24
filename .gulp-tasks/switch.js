@@ -3,7 +3,7 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const path = require('path')
 
-module.exports = function (gulp, plumber, using, gIf, touch) {
+module.exports = function (gulp, $, argv) {
   gulp.task('switch:project', (done) => {
     const dirs = fs.readdirSync(path.join(__dirname, '..'))
       .filter(function (file) {
