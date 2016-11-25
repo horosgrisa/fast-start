@@ -1,14 +1,13 @@
 'use strict'
 
 module.exports = function (gulp, $, argv) {
+  let postcssPlugins = [
+    require('postcss-color-short'),
+    require('postcss-clearfix'),
+    require('precss')(),
+    require('postcss-cssnext')()
+  ]
   gulp.task('build:css', (done) => {
-    let postcssPlugins = [
-      require('postcss-color-short'),
-      require('postcss-clearfix'),
-      require('precss')(),
-      require('postcss-cssnext')()
-    ]
-    argv.production && postcssPlugins.concat(require('cssnano')())
     return gulp.src([`${global.CONFIG.src}/assets/css/*.css`, `${global.CONFIG.src}/assets/css/views/**/*.css`], {
       base: `${global.CONFIG.src}/assets/css/`
     })
@@ -17,6 +16,9 @@ module.exports = function (gulp, $, argv) {
       .pipe($.plumber())
       .pipe($.if(!argv.production, $.sourcemaps.init()))
       .pipe($.postcss(postcssPlugins))
+      .pipe($.if(argv.production, $.postcss([
+        require('cssnano')()
+      ])))
       .pipe($.if(!argv.production, $.sourcemaps.write('.', {
         mapSources: function (mapFilePath) {
           return `/assets/css/${mapFilePath}`
@@ -26,14 +28,6 @@ module.exports = function (gulp, $, argv) {
       .pipe($.touch())
   })
   gulp.task('build:css:all', (done) => {
-    let postcssPlugins = [
-      require('postcss-color-short'),
-      require('postcss-clearfix'),
-      require('precss')(),
-      require('postcss-cssnext')()
-    ]
-    argv.production && postcssPlugins.concat(require('cssnano')())
-    argv.production && postcssPlugins.concat(require('cssnano')())
     return gulp.src([`${global.CONFIG.src}/assets/css/*.css`, `${global.CONFIG.src}/assets/css/views/**/*.css`], {
       base: `${global.CONFIG.src}/assets/css/`
     })
@@ -41,6 +35,9 @@ module.exports = function (gulp, $, argv) {
       .pipe($.plumber())
       .pipe($.if(!argv.production, $.sourcemaps.init()))
       .pipe($.postcss(postcssPlugins))
+      .pipe($.if(argv.production, $.postcss([
+        require('cssnano')()
+      ])))
       .pipe($.if(!argv.production, $.sourcemaps.write('.', {
         mapSources: function (mapFilePath) {
           return `/assets/css/${mapFilePath}`

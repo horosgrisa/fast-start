@@ -1,6 +1,5 @@
 {
-  "server": "php",
-  "browserify": false,
+  "server": false,
   "deploy": {
     "hostname": "localhost",
     "username": "",

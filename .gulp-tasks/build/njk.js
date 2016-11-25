@@ -14,12 +14,16 @@ module.exports = function (gulp, $, argv) {
     })
   } else {
     gulp.task('build:njk', (done) => {
-      return gulp.src([`${global.CONFIG.src}/views/*.njk`], {
+      return gulp.src([`${global.CONFIG.src}/views/**/*.njk`], {
         base: `${global.CONFIG.src}/views`
       })
         .pipe($.using(global.CONFIG.using))
         .pipe($.plumber())
         .pipe($.nunjucks.compile({}))
+        .pipe($.rename(function (path) {
+          path.extname = '.html'
+        }))
+
         .pipe(gulp.dest(global.CONFIG.dist))
         .pipe($.touch())
     })
