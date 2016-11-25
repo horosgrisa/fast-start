@@ -5,10 +5,9 @@ const path = require('path')
 
 module.exports = function (gulp, $, argv) {
   gulp.task('switch:project', (done) => {
+    const sysDirs = ['.bin', '.git', '.generator', '.gulp-tasks', 'node_modules', '.examples']
     const dirs = fs.readdirSync(path.join(__dirname, '..')).filter(function (file) {
-      if (file !== '.bin' && file !== '.git' && file !== '.generator' && file !== '.gulp-tasks' && file !== 'node_modules' && file !== '.examples') {
-        return fs.statSync(path.join(__dirname, '..', file)).isDirectory()
-      }
+      return fs.statSync(path.join(__dirname, '..', file)).isDirectory() && sysDirs.indexOf(file) === -1
     })
     inquirer.prompt([
       {

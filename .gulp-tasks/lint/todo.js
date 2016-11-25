@@ -3,7 +3,7 @@ module.exports = function (gulp, $, argv) {
   gulp.task('lint:todo', () => {
     const todo = require('gulp-todo')
     let todos = ''
-    return gulp.src([`${global.CONFIG.src}/**/*.{css,js,pug,html,njk}`].concat(global.CONFIG.exclude), {
+    return gulp.src([`${global.CONFIG.src}/**/*.{css,js,pug,html}`].concat(global.CONFIG.exclude), {
       base: `${global.CONFIG.src}/../`
     })
       .pipe(todo({

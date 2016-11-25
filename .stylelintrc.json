@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
-    "comment-empty-line-before": "never"
+    "comment-empty-line-before": "never",
+    "at-rule-empty-line-before": "never"
   }
 }
