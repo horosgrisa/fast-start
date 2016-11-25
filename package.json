@@ -57,7 +57,7 @@
     "gulp-touch": "*",
     "gulp-using": "*",
     "htmlhint-stylish": "*",
-    "inquirer": "^1.3.0",
+    "inquirer": "^1.2.3",
     "js-beautify": "*",
     "minami": "^1.1.1",
     "postcss-clearfix": "*",
