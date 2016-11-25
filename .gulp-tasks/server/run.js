@@ -10,7 +10,7 @@ module.exports = function (gulp, $, argv) {
         let started = false
         nodemon({
           script: `${global.CONFIG.dist}/index.js`,
-          ext: 'js',
+          ext: 'js json pug hjs html',
           watch: [`${global.CONFIG.dist}/`, `!${global.CONFIG.dist}/public`],
           env: {
             'NODE_ENV': 'dev'
