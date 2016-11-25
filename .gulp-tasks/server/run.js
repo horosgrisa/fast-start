@@ -11,7 +11,7 @@ module.exports = function (gulp, $, argv) {
         nodemon({
           script: `${global.CONFIG.dist}/index.js`,
           ext: 'js',
-          watch: [`${global.CONFIG.dist}/lib/*`, `${global.CONFIG.dist}/index.js`],
+          watch: [`${global.CONFIG.dist}/`, `!${global.CONFIG.dist}/public`],
           env: {
             'NODE_ENV': 'dev'
           },
