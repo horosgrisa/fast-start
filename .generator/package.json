@@ -30,9 +30,5 @@
   },
   "devDependencies": {},
   "repository": "horosgrisa/fast-start",
-  "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp"
-  },
   "license": "MIT"
 }
