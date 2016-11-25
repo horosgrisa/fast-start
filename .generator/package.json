@@ -1,7 +1,7 @@
 {
   "name": "generator-fast-start",
-  "version": "0.4.0",
-  "description": "This generator create base stucture for simple site. It support Browserify (or JavaScript with gulp-include, as fallback), PostCSS (with precss and cssnext), Pug (or HTML with gulp-include as fallback).",
+  "version": "0.5.0",
+    "description": "This generator create base stucture for simple site. It support ES6 with Rollup, PostCSS (with precss and cssnext), Pug, HTML with Nunjucks.",
   "homepage": "https://github.com/horosgrisa/fast-start",
   "author": {
     "name": "Grigorii Horos",
@@ -15,38 +15,20 @@
   "keywords": [
     "fast start",
     "base",
-    "browserify",
+    "rollup",
     "postcss",
     "pug",
+    "nunjucks",
     "express",
     "browsersync",
     "yeoman-generator"
   ],
   "dependencies": {
-    "chalk": "^1.1.3",
+    "fs-extra": "^1.0.0",
     "yeoman-generator": "^0.24.1",
     "yosay": "^1.2.1"
   },
-  "devDependencies": {
-    "eslint": "^3.9.1",
-    "eslint-config-xo-space": "^0.15.0",
-    "gulp": "^3.9.0",
-    "gulp-eslint": "^3.0.1",
-    "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-istanbul": "^1.0.0",
-    "gulp-line-ending-corrector": "^1.0.1",
-    "gulp-mocha": "^3.0.1",
-    "gulp-nsp": "^2.1.0",
-    "gulp-plumber": "^1.0.0",
-    "yeoman-assert": "^2.0.0",
-    "yeoman-test": "^1.0.0"
-  },
-  "eslintConfig": {
-    "extends": "xo-space",
-    "env": {
-      "mocha": true
-    }
-  },
+  "devDependencies": {},
   "repository": "horosgrisa/fast-start",
   "scripts": {
     "prepublish": "gulp prepublish",

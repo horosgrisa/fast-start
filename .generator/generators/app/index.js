@@ -2,29 +2,28 @@
 var yeoman = require('yeoman-generator')
 var chalk = require('chalk')
 var yosay = require('yosay')
-var fs = require('fs')
+var fs = require('fs-extra')
+var mkdirp = require('mkdirp')
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
     this.log(yosay(
-      'Install ' + chalk.red('fast-start') + '!'
+      `Install ${chalk.red('fast-start')}!`
     ))
 
     var prompts = [{
-      type: 'confirm',
-      name: 'server',
-      message: 'Enable server (if disabled then will be used static site)',
-      default: true
-    }, {
-      type: 'confirm',
-      name: 'browserify',
-      message: 'Enable browserify (if disabled then will be used `gulp-include`)',
-      default: true
+      type: 'input',
+      name: 'project',
+      message: 'What is project name',
+      default: 'Example'
     }, {
       type: 'input',
-      name: 'dist',
-      message: 'Dist path',
-      default: './dist'
+      name: 'server',
+      message: 'What is type of site (node, php or static)',
+      default: 'static',
+      validate: (server) => {
+        return (server === 'node' || server === 'php' || server === 'static')
+      }
     }, {
       type: 'confirm',
       name: 'deploy',
@@ -50,10 +49,15 @@ module.exports = yeoman.Base.extend({
       type: 'input',
       name: 'destination',
       message: 'SSH path',
-      default: '~/dist/',
+      default: '/var/www/project',
       when: function (props) {
         return props.deploy
       }
+    }, {
+      type: 'confirm',
+      name: 'skeleton',
+      message: 'Create scaffolding for project?',
+      default: true
     }]
 
     return this.prompt(prompts).then(function (props) {
@@ -66,19 +70,23 @@ module.exports = yeoman.Base.extend({
     var done = this.async()
     var that = this
     this.spawnCommand('git', ['clone', 'https://github.com/horosgrisa/fast-start.git', '.']).on('close', function () {
-      that.config = JSON.parse(fs.readFileSync(that.destinationPath('config.example.json')))
-      that.config.server = that.props.server || true
-      that.config.browserify = that.props.browserify || true
-      that.config.dist = that.props.dist || './dist'
-      if (that.props.deploy) {
-        that.config.deploy = that.config.deploy || {}
-        that.config.deploy.hostname = that.props.hostname || true
-        that.config.deploy.username = that.props.username || true
-        that.config.deploy.destination = that.props.destination || true
+      console.log(that.destinationPath(that.props.project))
+      if (that.props.skeleton) {
+        try {
+          fs.copySync(that.destinationPath('.examples/base'), that.destinationPath(that.props.project))
+        } catch (err) {
+          console.error(err)
+        }
       } else {
-        that.config.deploy = false
+        mkdirp(that.destinationPath(that.props.project))
       }
-      fs.writeFileSync(that.destinationPath('config.json'), JSON.stringify(that.config, null, 2))
+      var project = that.props.project
+      delete that.props.skeleton
+      delete that.props.project
+      if (that.props.server === 'static') {
+        that.props.server = false
+      }
+      fs.writeFileSync(that.destinationPath(`${project}/gulp.json`), JSON.stringify(that.props, null, 2))
       done()
     })
   },
@@ -88,8 +96,8 @@ module.exports = yeoman.Base.extend({
   },
 
   end: function () {
-    this.log('Now you can run `' + chalk.green('gulp') + '` for compiling, `' + chalk.green('gulp lint') + '` for linting and `' + chalk.green('gulp fix') + '` for fixing and beautifing of your code')
-    this.log('Use ' + chalk.green('--production') + ' for production build, ' + chalk.green('--all') + ' for build all files, ' + chalk.green('--deploy') + ' for deploy')
+    this.log(`Now you can run \`${chalk.green('gulp')}\` for compiling, \`${chalk.green('gulp lint')}\` for linting and \`${chalk.green('gulp fix')}\` for fixing and beautifing of your code`)
+    this.log(`Use ${chalk.green('--production')} for production build, ${chalk.green('--all')} for build all files, ${chalk.green('gulp deploy')} for deploy`)
     process.exit()
   }
 })
