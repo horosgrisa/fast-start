@@ -37,6 +37,7 @@ CONFIG.using = CONFIG.using || {
 CONFIG.dist = !argv.production ? `${CONFIG.src}/dist` : `${CONFIG.src}/build`
 
 CONFIG.exclude = [
+  `!${CONFIG.src}/gulp.json`,
   `!${CONFIG.src}/.git/**`,
   `!${CONFIG.src}/.git`,
   `!${CONFIG.src}/dist/**`,
