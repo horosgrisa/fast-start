@@ -21,6 +21,7 @@ module.exports = function (gulp, $, argv) {
         .pipe($.using(global.CONFIG.using))
         .pipe($.plumber())
         .pipe(nunjucks.compile({}))
+        .pipe($.if(argv.production, $.htmlmin({collapseWhitespace: true})))
         .pipe(gulp.dest(global.CONFIG.dist))
         .pipe($.touch())
     })

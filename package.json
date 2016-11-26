@@ -35,6 +35,7 @@
     "gulp-eslint": "*",
     "gulp-html-prettify": "*",
     "gulp-htmlhint": "*",
+    "gulp-htmlmin": "^3.0.0",
     "gulp-if": "*",
     "gulp-imagemin": "*",
     "gulp-jsbeautifier": "^2.0.3",
