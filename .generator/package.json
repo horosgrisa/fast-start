@@ -1,7 +1,7 @@
 {
   "name": "generator-fast-start",
-  "version": "0.5.0",
-    "description": "This generator create base stucture for simple site. It support ES6 with Rollup, PostCSS (with precss and cssnext), Pug, HTML with Nunjucks.",
+  "version": "0.5.2",
+  "description": "This generator create base stucture for simple site. It support static sites, Nodejs or PHP,a ES6 with Rollup, PostCSS (with precss and cssnext), Pug, Nunjucks, HTML(will be processed with Nunjucks).",
   "homepage": "https://github.com/horosgrisa/fast-start",
   "author": {
     "name": "Grigorii Horos",

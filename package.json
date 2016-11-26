@@ -1,7 +1,7 @@
 {
   "name": "fast-start",
-  "version": "0.5.0",
-  "description": "This is base stucture for simple site. It support ES6 with Rollup, PostCSS (with precss and cssnext), Pug, HTML with Nunjucks.",
+  "version": "0.5.2",
+  "description": "This is base stucture for simple site. It support static sites, Nodejs or PHP,a ES6 with Rollup, PostCSS (with precss and cssnext), Pug, Nunjucks, HTML(will be processed with Nunjucks).",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,7 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "browser-sync": "*",
-    "cssnano": "*",
+    "cssnano": "^3.8.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-config-standard-jsdoc": "^0.2.0",
     "eslint-config-standard-react": "^4.2.0",
