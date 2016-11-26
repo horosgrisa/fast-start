@@ -31,6 +31,7 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-better-rollup": "*",
     "gulp-changed": "^1.3.2",
+    "gulp-cli": "^1.2.2",
     "gulp-connect-php": "*",
     "gulp-eslint": "*",
     "gulp-html-prettify": "*",
@@ -72,7 +73,7 @@
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-json": "*",
     "rollup-plugin-uglify": "*",
-    "stylefmt": "github:morishitter/stylefmt",
+    "stylefmt": "^5.0.0",
     "stylelint": "^7.6.0",
     "stylelint-config-standard": "^15.0.0",
     "yargs": "^6.4.0"
