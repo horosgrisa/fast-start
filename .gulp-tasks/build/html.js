@@ -15,7 +15,7 @@ module.exports = function (gulp, $, argv) {
   } else {
     gulp.task('build:html', (done) => {
       const nunjucks = require('gulp-nunjucks')
-      return gulp.src([`${global.CONFIG.src}/views/*.html`], {
+      return gulp.src([`${global.CONFIG.src}/views/**/*.html`, `!${global.CONFIG.src}/views/**/_*.html`], {
         base: `${global.CONFIG.src}/views`
       })
         .pipe($.using(global.CONFIG.using))

@@ -14,7 +14,7 @@ try {
 
 try {
   require('fs').accessSync(path.join(__dirname, '..', CONFIG.src, 'gulp.json'), fs.R_OK)
-  let srcConfig = require(path.join(__dirname, '..', CONFIG.src, 'gulp.json'))
+  const srcConfig = require(path.join(__dirname, '..', CONFIG.src, 'gulp.json'))
   CONFIG = Object.assign(CONFIG, srcConfig)
 } catch (err) {
   throw err
@@ -53,5 +53,38 @@ CONFIG.exclude = [
   `!${CONFIG.src}/bower_components/**`,
   `!${CONFIG.src}/bower_components`
 ]
+
+CONFIG.postcssPlugins = [
+  require('postcss-partial-import')(),
+  require('postcss-mixins')(),
+  require('postcss-nested-ancestors')(),
+  require('postcss-nested')(),
+  require('postcss-property-lookup')(),
+  require('postcss-cssnext')({
+    features: {
+    }
+  })
+]
+if (argv.production) {
+  CONFIG.postcssPlugins[CONFIG.postcssPlugins.length] = require('cssnano')()
+}
+
+CONFIG.rollupPlugins = [
+  require('rollup-plugin-json')(),
+  require('rollup-plugin-postcss')({
+    plugins: CONFIG.postcssPlugins
+  }),
+  require('rollup-plugin-buble')(),
+  require('rollup-plugin-commonjs')(),
+  require('rollup-plugin-node-globals')(),
+  require('rollup-plugin-node-resolve')({
+    browser: true,
+    main: true
+  })
+]
+
+if (argv.production) {
+  CONFIG.rollupPlugins[CONFIG.rollupPlugins.length] = require('rollup-plugin-uglify')()
+}
 
 module.exports = CONFIG

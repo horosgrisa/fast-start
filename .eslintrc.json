@@ -3,6 +3,7 @@
     "standard",
     "standard-react",
     "standard-jsdoc",
+    "standard-latest",
     "plugin:unicorn/recommended"
   ],
   "plugins": [
@@ -17,7 +18,6 @@
     "es6": true
   },
   "rules": {
-    "no-loops/no-loops": 2,
-    "prefer-template": 2
+    "no-loops/no-loops": 2
   }
 }

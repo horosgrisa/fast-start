@@ -1,7 +1,7 @@
 'use strict'
 const gulp = require('gulp')
 
-var $ = require('gulp-load-plugins')()
+const $ = require('gulp-load-plugins')()
 
 const argv = require('yargs').argv
 global.CONFIG = require('./.gulp-tasks/_gen-config.js')
