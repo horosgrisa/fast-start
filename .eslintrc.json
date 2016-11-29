@@ -2,15 +2,13 @@
   "extends": [
     "standard",
     "standard-react",
-    "standard-jsdoc",
     "standard-latest",
     "plugin:unicorn/recommended"
   ],
   "plugins": [
     "json",
     "no-loops",
-    "unicorn",
-    "jsdoc"
+    "unicorn"
   ],
   "env": {
     "browser": true,
