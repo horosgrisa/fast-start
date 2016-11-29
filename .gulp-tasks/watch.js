@@ -19,10 +19,10 @@ module.exports = function (gulp, $, argv) {
         `!${global.CONFIG.src}/assets/**`,
         `!${global.CONFIG.src}/assets/`
       ], gulp.parallel('build:base'))
-      gulp.watch([`${global.CONFIG.src}/assets/css/*.css`, `${global.CONFIG.src}/assets/css/views/**/*.css`], gulp.parallel('build:css'))
-      gulp.watch([`${global.CONFIG.src}/assets/css/**`, `!${global.CONFIG.src}/assets/css/*.css`, `!${global.CONFIG.src}/assets/css/views/**/*.css`], gulp.parallel('build:css:all'))
-      gulp.watch([`${global.CONFIG.src}/assets/js/*.js`, `${global.CONFIG.src}/assets/js/views/**/*.js`], gulp.parallel('build:js'))
-      gulp.watch([`${global.CONFIG.src}/assets/js/**`, `!${global.CONFIG.src}/assets/js/*.js`, `!${global.CONFIG.src}/assets/js/views/**/*.js`], gulp.parallel('build:js:all'))
+      gulp.watch([`${global.CONFIG.src}/assets/*.css`, `${global.CONFIG.src}/assets/views/**/*.css`], gulp.parallel('build:css'))
+      gulp.watch([`${global.CONFIG.src}/assets/**`, `!${global.CONFIG.src}/assets/*.css`, `!${global.CONFIG.src}/assets/views/**/*.css`], gulp.parallel('build:css:all'))
+      gulp.watch([`${global.CONFIG.src}/assets/*.js`, `${global.CONFIG.src}/assets/views/**/*.js`], gulp.parallel('build:js'))
+      gulp.watch([`${global.CONFIG.src}/assets/**`, `!${global.CONFIG.src}/assets/*.js`, `!${global.CONFIG.src}/assets/views/**/*.js`], gulp.parallel('build:js:all'))
 
       gulp.watch(`${global.CONFIG.src}/assets/fonts/**`, gulp.parallel('build:fonts'))
       gulp.watch(`${global.CONFIG.src}/assets/img/**`, gulp.parallel('build:img'))

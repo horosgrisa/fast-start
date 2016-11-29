@@ -60,8 +60,8 @@ CONFIG.postcssPlugins = [
   require('postcss-nested-ancestors')(),
   require('postcss-nested')(),
   require('postcss-property-lookup')(),
-  require('postcss-randomcolor')(),
-  require('rucksack-css'),
+  // require('postcss-randomcolor')(),
+  require('rucksack-css')(),
   require('postcss-cssnext')()
 ]
 if (argv.production) {
