@@ -1,14 +1,10 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('fix:html', () => {
     const jsbeautifier = require('gulp-jsbeautifier')
     return gulp.src([`${global.CONFIG.src}/**/*.html`].concat(global.CONFIG.exclude))
-      .pipe($.using({
-        path: 'relative',
-        color: 'yellow',
-        filesize: false
-      }))
+      .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
       .pipe(jsbeautifier({
         indent_char: ' ',

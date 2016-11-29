@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('clean:files', (done) => {
     return gulp.src([
       `${global.CONFIG.dist}/**`

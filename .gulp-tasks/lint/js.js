@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('lint:js', () => {
     return gulp.src([`${global.CONFIG.src}/**/*.js`].concat(global.CONFIG.exclude), {
       base: global.CONFIG.src

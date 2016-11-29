@@ -1,5 +1,5 @@
 'use strict'
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   if (!argv.production) {
     const browserSync = require('browser-sync').create()
     if (global.CONFIG.server !== false) {

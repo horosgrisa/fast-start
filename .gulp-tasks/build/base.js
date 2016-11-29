@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('build:base', (done) => {
     return gulp.src([
       `${global.CONFIG.src}/**`,

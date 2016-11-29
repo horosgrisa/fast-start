@@ -1,5 +1,5 @@
 'use strict'
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('lint:todo', () => {
     let todos = ''
     return gulp.src([`${global.CONFIG.src}/**/*.{css,js,pug,html}`].concat(global.CONFIG.exclude), {
@@ -11,7 +11,7 @@ module.exports = function (gulp, $, argv) {
       .on('data', (data) => {
         todos += data._contents.toString()
       })
-      .on('end', function () {
+      .on('end', () => {
         todos.indexOf('No todos/fixmes found') === -1 && console.log(todos)
       })
   })

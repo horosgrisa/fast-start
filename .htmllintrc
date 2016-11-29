@@ -1,0 +1,13 @@
+{
+  "attr-bans": ["align", "background", "bgcolor", "border", "frameborder", "longdesc", "marginwidth", "marginheight", "scrolling", "style", "width"],
+  "attr-no-dup":true,
+  "doctype-first":"smart",
+  "doctype-html5":true,
+  "head-req-title":true,
+  "html-req-lang":true,
+  "img-req-alt":true,
+  "indent-style":"spaces",
+  "indent-width":2,
+  "label-req-for":true,
+  "tag-self-close":"never"
+}

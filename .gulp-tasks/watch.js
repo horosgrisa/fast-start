@@ -1,5 +1,5 @@
 'use strict'
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('watch', (done) => {
     if (!argv.production) {
       gulp.watch([

@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('lint:json', () => {
     return gulp.src([`${global.CONFIG.src}/**/*.json`].concat(global.CONFIG.exclude))
       .pipe($.eslint())

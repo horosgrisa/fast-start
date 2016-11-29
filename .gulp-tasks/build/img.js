@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('build:img', (done) => {
     return gulp.src(`${global.CONFIG.src}/assets/**/*.{jpg,jpeg,png,gif}`)
       .pipe($.if(!argv.all, $.changed(`${global.CONFIG.dist}/public/`)))

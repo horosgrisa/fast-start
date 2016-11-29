@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('build:asserts', (done) => {
     return gulp.src(`${global.CONFIG.src}/assets/**/*.{eot,svg,ttf,woff,woff2}`)
       .pipe($.if(!argv.all, $.changed(`${global.CONFIG.dist}/public/`)))

@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('docs:readme', () => {
     const fs = require('fs')
     return gulp.src(`${global.CONFIG.src}/README.md`)

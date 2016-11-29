@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('fix:css', () => {
     const postcss = require('gulp-postcss')
     const stylefmt = require('gulp-stylefmt')

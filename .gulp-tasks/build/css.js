@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('build:css', (done) => {
     return gulp.src([`${global.CONFIG.src}/assets/**/*.css`, `!${global.CONFIG.src}/assets/**/_*.css`], {
       base: `${global.CONFIG.src}/assets/`

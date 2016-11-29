@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   gulp.task('run', (done) => {
     if (!argv.production) {
       if (global.CONFIG.server === 'node') {

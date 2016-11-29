@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function (gulp, $, argv) {
+module.exports = (gulp, $, argv) => {
   if (global.CONFIG.server) {
     gulp.task('build:html', (done) => {
       return gulp.src(`${global.CONFIG.src}/views/**/*.html`, {
