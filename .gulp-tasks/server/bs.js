@@ -1,8 +1,7 @@
 'use strict'
-const browserSync = require('browser-sync').create()
-const argv = require('yargs').argv
 module.exports = function (gulp, $, argv) {
   if (!argv.production) {
+    const browserSync = require('browser-sync').create()
     if (global.CONFIG.server !== false) {
       gulp.task('bs', (done) => {
         browserSync.init({

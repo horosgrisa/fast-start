@@ -1,12 +1,11 @@
 'use strict'
 
 module.exports = function (gulp, $, argv) {
-  gulp.task('build:img', (done) => {
-    return gulp.src(`${global.CONFIG.src}/assets/**/*.{jpg,jpeg,png,gif}`)
+  gulp.task('build:asserts', (done) => {
+    return gulp.src(`${global.CONFIG.src}/assets/**/*.{eot,svg,ttf,woff,woff2}`)
       .pipe($.if(!argv.all, $.changed(`${global.CONFIG.dist}/public/`)))
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
-      .pipe($.imagemin())
       .pipe(gulp.dest(`${global.CONFIG.dist}/public/`))
       .pipe($.touch())
   })

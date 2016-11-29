@@ -14,13 +14,12 @@ module.exports = function (gulp, $, argv) {
     })
   } else {
     gulp.task('build:html', (done) => {
-      const nunjucks = require('gulp-nunjucks')
       return gulp.src([`${global.CONFIG.src}/views/**/*.html`, `!${global.CONFIG.src}/views/**/_*.html`], {
         base: `${global.CONFIG.src}/views`
       })
         .pipe($.using(global.CONFIG.using))
         .pipe($.plumber())
-        .pipe(nunjucks.compile({}))
+        .pipe($.nunjucks.compile({}))
         .pipe($.if(argv.production, $.htmlmin({collapseWhitespace: true})))
         .pipe(gulp.dest(global.CONFIG.dist))
         .pipe($.touch())

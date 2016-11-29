@@ -6,7 +6,6 @@ module.exports = function (gulp, $, argv) {
       `${global.CONFIG.dist}/**`
     ], { read: false }) // much faster
     .pipe($.ignore('node_modules/**'))
-
       .pipe($.rimraf())
   })
 }

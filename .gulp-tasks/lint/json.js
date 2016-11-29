@@ -2,9 +2,8 @@
 
 module.exports = function (gulp, $, argv) {
   gulp.task('lint:json', () => {
-    const eslint = require('gulp-eslint')
     return gulp.src([`${global.CONFIG.src}/**/*.json`].concat(global.CONFIG.exclude))
-      .pipe(eslint())
-      .pipe(eslint.format())
+      .pipe($.eslint())
+      .pipe($.eslint.format())
   })
 }

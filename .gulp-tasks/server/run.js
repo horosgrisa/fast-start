@@ -2,16 +2,18 @@
 
 module.exports = function (gulp, $, argv) {
   gulp.task('run', (done) => {
-    const argv = require('yargs').argv
-    const nodemon = require('gulp-nodemon')
-    const connectPhp = require('gulp-connect-php')
     if (!argv.production) {
       if (global.CONFIG.server === 'node') {
         let started = false
-        nodemon({
+        $.nodemon({
           script: `${global.CONFIG.dist}/index.js`,
           ext: 'js json pug hjs html',
-          watch: [`${global.CONFIG.dist}/`, `!${global.CONFIG.dist}/public`],
+          watch: [
+            `${global.CONFIG.dist}/`,
+            `!${global.CONFIG.dist}/node_modules`,
+            `!${global.CONFIG.dist}/bower_components`,
+            `!${global.CONFIG.dist}/public`
+          ],
           env: {
             'NODE_ENV': 'dev'
           },
@@ -25,7 +27,7 @@ module.exports = function (gulp, $, argv) {
         })
       } else {
         if (global.CONFIG.server === 'php') {
-          connectPhp.server({
+          $.connectPhp.server({
             port: 10000,
             hostname: '0.0.0.0',
             base: global.CONFIG.dist
