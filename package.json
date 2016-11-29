@@ -31,7 +31,6 @@
     "gulp-changed": "^1.3.2",
     "gulp-cli": "^1.2.2",
     "gulp-connect-php": "*",
-    "gulp-dependencies": "github:horosgrisa/gulp-dependencies",
     "gulp-doctoc": "^0.1.4",
     "gulp-eslint": "*",
     "gulp-html-lint": "0.0.1",
