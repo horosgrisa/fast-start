@@ -3,9 +3,7 @@
 module.exports = (gulp, $, argv) => {
   if (global.CONFIG.server) {
     gulp.task('build:html', (done) => {
-      return gulp.src(`${global.CONFIG.src}/views/**/*.html`, {
-        base: `${global.CONFIG.src}/views/`
-      })
+      return gulp.src(`${global.CONFIG.src}/views/**/*.html`)
         .pipe($.if(!argv.all, $.changed(`${global.CONFIG.dist}/views/`)))
         .pipe($.using(global.CONFIG.using))
         .pipe($.plumber())
@@ -14,9 +12,7 @@ module.exports = (gulp, $, argv) => {
     })
   } else {
     gulp.task('build:html', (done) => {
-      return gulp.src([`${global.CONFIG.src}/views/**/*.html`, `!${global.CONFIG.src}/views/**/_*.html`], {
-        base: `${global.CONFIG.src}/views`
-      })
+      return gulp.src([`${global.CONFIG.src}/views/**/*.html`, `!${global.CONFIG.src}/views/**/_*.html`])
         .pipe($.using(global.CONFIG.using))
         .pipe($.plumber())
         .pipe($.nunjucks.compile({}))

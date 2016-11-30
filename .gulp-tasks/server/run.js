@@ -25,16 +25,14 @@ module.exports = (gulp, $, argv) => {
             started = true
           }
         })
-      } else {
-        if (global.CONFIG.server === 'php') {
-          $.connectPhp.server({
-            port: 10000,
-            hostname: '0.0.0.0',
-            base: global.CONFIG.dist
-          })
-          done()
-        } else { done() }
-      }
+      } else if (global.CONFIG.server === 'php') {
+        $.connectPhp.server({
+          port: 10000,
+          hostname: '0.0.0.0',
+          base: global.CONFIG.dist
+        })
+        done()
+      } else { done() }
     } else {
       done()
     }
