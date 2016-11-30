@@ -17,7 +17,6 @@ try {
   const srcConfig = require(path.join(__dirname, '..', CONFIG.src, 'gulp.json'))
   CONFIG = Object.assign(CONFIG, srcConfig)
 } catch (err) {
-  throw err
 }
 
 CONFIG.server = CONFIG.server || false
@@ -55,7 +54,7 @@ CONFIG.exclude = [
 ]
 
 CONFIG.postcssPlugins = [
-  require('postcss-partial-import')(),
+  require('postcss-import')(),
   require('postcss-mixins')(),
   require('postcss-nested-ancestors')(),
   require('postcss-nested')(),
@@ -69,9 +68,6 @@ if (argv.production) {
 
 CONFIG.rollupPlugins = [
   require('rollup-plugin-json')(),
-  require('rollup-plugin-postcss')({
-    plugins: CONFIG.postcssPlugins
-  }),
   require('rollup-plugin-buble')(),
   require('rollup-plugin-commonjs')(),
   require('rollup-plugin-node-globals')(),

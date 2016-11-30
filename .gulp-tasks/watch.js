@@ -20,13 +20,13 @@ module.exports = (gulp, $, argv) => {
         `!${global.CONFIG.src}/assets/`
       ], gulp.parallel('build:base'))
 
-      gulp.watch(`${global.CONFIG.src}/assets/**/*.{eot,svg,ttf,woff,woff2}`, gulp.parallel('build:asserts'))
+      gulp.watch(`${global.CONFIG.src}/assets/**/*.{eot,svg,ttf,woff,woff2,ico}`, gulp.parallel('build:asserts'))
       gulp.watch(`${global.CONFIG.src}/assets/**/*.{jpg,jpeg,png,gif}`, gulp.parallel('build:img'))
 
       gulp.watch([`${global.CONFIG.src}/assets/**/*.css`], gulp.parallel('build:css'))
-      gulp.watch([`${global.CONFIG.src}/assets/**/_*.css`], gulp.parallel('build:css:all'))
+      gulp.watch([`${global.CONFIG.src}/assets/*/**/*.css`], gulp.parallel('build:css:all'))
       gulp.watch([`${global.CONFIG.src}/assets/**/*.js`], gulp.parallel('build:js'))
-      gulp.watch([`${global.CONFIG.src}/assets/**/_*.js`], gulp.parallel('build:js:all'))
+      gulp.watch([`${global.CONFIG.src}/assets/*/**/*.js`], gulp.parallel('build:js:all'))
 
       gulp.watch(`${global.CONFIG.src}/views/**/*.html`, gulp.parallel('build:html'))
       gulp.watch(`${global.CONFIG.src}/views/**/*.pug`, gulp.parallel('build:pug'))

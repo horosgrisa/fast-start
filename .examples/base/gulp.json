@@ -1,8 +1,0 @@
-{
-  "server": false,
-  "deploy": {
-    "hostname": "localhost",
-    "username": "",
-    "destination": "./test"
-  }
-}

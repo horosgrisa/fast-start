@@ -2,9 +2,7 @@
 
 module.exports = (gulp, $, argv) => {
   gulp.task('build:css', (done) => {
-    return gulp.src([`${global.CONFIG.src}/assets/**/*.css`, `!${global.CONFIG.src}/assets/**/_*.css`], {
-      base: `${global.CONFIG.src}/assets/`
-    })
+    return gulp.src(`${global.CONFIG.src}/assets/*.css`)
       .pipe($.if(!argv.all, $.changed(`${global.CONFIG.dist}/public/`)))
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
@@ -19,9 +17,7 @@ module.exports = (gulp, $, argv) => {
       .pipe($.touch())
   })
   gulp.task('build:css:all', (done) => {
-    return gulp.src([`${global.CONFIG.src}/assets/**/*.css`], {
-      base: `${global.CONFIG.src}/assets/`
-    })
+    return gulp.src(`${global.CONFIG.src}/assets/*.css`)
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
       .pipe($.if(!argv.production, $.sourcemaps.init()))
