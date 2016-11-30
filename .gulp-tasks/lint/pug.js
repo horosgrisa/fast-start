@@ -5,6 +5,6 @@ module.exports = (gulp, $, argv) => {
     return gulp.src([`${global.CONFIG.src}/**/*.pug`].concat(global.CONFIG.exclude))
       .pipe($.plumber())
       .pipe($.pugLinter())
-      .pipe($.pugLinter.reporter(require('puglint-stylish')({silent: true})))
+      .pipe($.pugLinter.reporter('puglint-stylish'))
   })
 }

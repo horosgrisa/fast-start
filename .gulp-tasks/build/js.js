@@ -10,7 +10,7 @@ module.exports = (gulp, $, argv) => {
       .pipe($.betterRollup({
         plugins: global.CONFIG.rollupPlugins
       }, {
-        format: 'cjs',
+        format: 'iife',
         useStrict: true
       }))
       .pipe($.if(!argv.production, $.sourcemaps.write('.', {
