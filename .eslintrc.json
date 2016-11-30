@@ -10,10 +10,22 @@
     "no-loops",
     "unicorn"
   ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
   "env": {
     "browser": true,
     "node": true,
     "es6": true
+  },
+  "globals": {
+    "$": true,
+    "React": true,
+    "ReactDOM": true
   },
   "rules": {
     "no-loops/no-loops": 2
