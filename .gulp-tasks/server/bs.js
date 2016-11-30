@@ -7,10 +7,7 @@ module.exports = (gulp, $, argv) => {
         browserSync.init({
           proxy: 'http://localhost:10000',
           files: [
-            `${global.CONFIG.dist}/public/css/**/*.css`,
-            `${global.CONFIG.dist}/public/js/**/*.js`,
-            `${global.CONFIG.dist}/public/img/**/*.*`,
-            `${global.CONFIG.dist}/public/font/**/*.*`
+            `${global.CONFIG.dist}/public/*.{css,js,png,jpg,jpeg,gif,ico,eot,ttf,woff,woff2,svg}`
           ],
           port: 8000,
           using: true,
@@ -36,11 +33,7 @@ module.exports = (gulp, $, argv) => {
             }
           },
           files: [
-            `${global.CONFIG.dist}/views/**/*.html`,
-            `${global.CONFIG.dist}/public/css/**/*.css`,
-            `${global.CONFIG.dist}/public/js/**/*.js`,
-            `${global.CONFIG.dist}/public/img/**/*.*`,
-            `${global.CONFIG.dist}/public/font/**/*.*`
+            `${global.CONFIG.dist}/public/*.{css,js,png,jpg,jpeg,gif,ico,eot,ttf,woff,woff2,svg}`
           ],
           port: 8000,
           using: true,
