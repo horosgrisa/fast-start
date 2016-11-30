@@ -60,7 +60,9 @@ CONFIG.postcssPlugins = [
   require('postcss-nested')(),
   require('postcss-property-lookup')(),
   require('rucksack-css')(),
-  require('postcss-cssnext')()
+  require('postcss-cssnext')({
+    warnForDuplicates: false
+  })
 ]
 if (argv.production) {
   CONFIG.postcssPlugins[CONFIG.postcssPlugins.length] = require('cssnano')()
