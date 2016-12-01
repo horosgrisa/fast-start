@@ -2,8 +2,8 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "comment-empty-line-before": "never",
-    "declaration-empty-line-before":["never",{
-      "except": [],
+    "declaration-empty-line-before":["always",{
+      "except": ["first-nested","after-comment"],
       "ignore": [ "after-declaration"]
       }]
   }
