@@ -82,6 +82,11 @@ CONFIG.rollupPlugins = [
   })
 ]
 if (argv.production) {
+  CONFIG.rollupPlugins[CONFIG.rollupPlugins.length] = require('rollup-plugin-strip')({
+    functions: ['console.*', 'assert.*', 'debug']
+  })
+}
+if (argv.production) {
   CONFIG.rollupPlugins[CONFIG.rollupPlugins.length] = require('rollup-plugin-uglify')()
 }
 

@@ -76,6 +76,7 @@
     "rollup-plugin-json": "*",
     "rollup-plugin-node-globals": "^1.1.0",
     "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-strip": "^1.1.1",
     "rollup-plugin-uglify": "*",
     "rucksack-css": "^0.9.1",
     "stylefmt": "^5.0.1",
