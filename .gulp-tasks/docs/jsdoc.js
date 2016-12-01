@@ -2,10 +2,8 @@
 
 module.exports = (gulp, $, argv) => {
   gulp.task('docs:jsdoc', (cb) => {
-    const jsdoc = require('gulp-jsdoc3')
-
     return gulp.src([`${global.CONFIG.src}/**/*.js`].concat(global.CONFIG.exclude))
-    .pipe(jsdoc({
+    .pipe($.jsdoc3({
       'tags': {
         'allowUnknownTags': true,
         'dictionaries': ['jsdoc']
