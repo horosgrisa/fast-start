@@ -10,8 +10,8 @@ require('./.gulp-tasks/build')(gulp, $, argv)
 gulp.task('build', gulp.parallel(
   'build:base',
   'build:asserts',
-  'build:js:all',
-  'build:css:all',
+  'build:js',
+  'build:css',
   'build:img',
   'build:pug',
   'build:html',

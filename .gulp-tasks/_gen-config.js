@@ -54,7 +54,7 @@ CONFIG.exclude = [
 ]
 
 CONFIG.postcssPlugins = [
-  require('postcss-import')(),
+  require('postcss-smart-import')(),
   require('postcss-mixins')(),
   require('postcss-nested-ancestors')(),
   require('postcss-nested')(),
@@ -74,8 +74,11 @@ CONFIG.rollupPlugins = [
   require('rollup-plugin-commonjs')(),
   require('rollup-plugin-node-globals')(),
   require('rollup-plugin-node-resolve')({
+    module: true,
     browser: true,
-    main: true
+    jsnext: true,
+    main: true,
+    extensions: ['.js', '.json', '.jsx']
   })
 ]
 if (argv.production) {

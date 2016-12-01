@@ -65,6 +65,7 @@
     "postcss-nested-ancestors": "^0.1.0",
     "postcss-property-lookup": "^1.2.1",
     "postcss-randomcolor": "^1.0.0",
+    "postcss-smart-import": "^0.6.0",
     "postcss-sorting": "*",
     "pug-lint": "*",
     "puglint-stylish": "github:horosgrisa/puglint-stylish",
