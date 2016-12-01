@@ -56,9 +56,13 @@ CONFIG.exclude = [
 CONFIG.postcssPlugins = [
   require('postcss-smart-import')(),
   require('postcss-mixins')(),
+  require('postcss-each')(),
+  require('postcss-for')(),
+  require('postcss-simple-vars')(),
   require('postcss-nested-ancestors')(),
   require('postcss-nested')(),
   require('postcss-property-lookup')(),
+  require('postcss-extend')(),
   require('rucksack-css')(),
   require('postcss-cssnext')({
     warnForDuplicates: false
