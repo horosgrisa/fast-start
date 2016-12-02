@@ -18,6 +18,7 @@ module.exports = (gulp, $, argv) => {
   })
   gulp.task('build:css:all', (done) => {
     return gulp.src(`${global.CONFIG.src}/assets/*.css`)
+      .pipe($.sassMultiInheritance({dir: `${global.CONFIG.src}/assets/`}))
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
       .pipe($.if(!argv.production, $.sourcemaps.init()))

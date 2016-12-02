@@ -43,7 +43,8 @@
     "gulp-nunjucks": "*",
     "gulp-plumber": "*",
     "gulp-postcss": "*",
-    "gulp-pug": "*",
+    "gulp-pug": "^3.2.0",
+    "gulp-pug-inheritance": "^0.2.1",
     "gulp-pug-linter": "^0.4.1",
     "gulp-remark": "^3.0.0",
     "gulp-rename": "*",
@@ -66,13 +67,11 @@
     "postcss-nested": "^1.0.0",
     "postcss-nested-ancestors": "^0.1.0",
     "postcss-property-lookup": "^1.2.1",
-    "postcss-randomcolor": "^1.0.0",
     "postcss-simple-vars": "^3.0.0",
     "postcss-smart-import": "^0.6.0",
     "postcss-sorting": "*",
     "pug-lint": "*",
     "puglint-stylish": "github:horosgrisa/puglint-stylish",
-    "remark-github": "^6.0.1",
     "remark-html": "^5.1.0",
     "rollup-plugin-buble": "^0.14.0",
     "rollup-plugin-commonjs": "^5.0.5",
@@ -85,6 +84,6 @@
     "stylefmt": "^5.0.2",
     "stylelint": "^7.6.0",
     "stylelint-config-standard": "^15.0.0",
-    "yargs": "^6.4.0"
+    "yargs": "^6.5.0"
   }
 }
