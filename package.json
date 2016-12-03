@@ -55,6 +55,7 @@
     "gulp-todo": "^5.1.0",
     "gulp-touch": "*",
     "gulp-using": "*",
+    "gulp-changed-enhancements": "*",
     "htmlhint-stylish": "*",
     "inquirer": "^1.2.3",
     "js-beautify": "*",

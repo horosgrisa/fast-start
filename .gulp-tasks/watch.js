@@ -14,9 +14,7 @@ module.exports = (gulp, $, argv) => {
       gulp.watch(`${global.CONFIG.src}/assets/**/*.{jpg,jpeg,png,gif}`, gulp.parallel('build:img'))
 
       gulp.watch([`${global.CONFIG.src}/assets/**/*.css`], gulp.parallel('build:css'))
-      gulp.watch([`${global.CONFIG.src}/assets/*/**/*.css`], gulp.parallel('build:css:all'))
-      gulp.watch([`${global.CONFIG.src}/assets/**/*.{js,jsx}`], gulp.parallel('build:js'))
-      gulp.watch([`${global.CONFIG.src}/assets/*/**/*.{js,jsx}`], gulp.parallel('build:js:all'))
+      gulp.watch([`${global.CONFIG.src}/assets/**/*.{js,jsx,es6,babel}`], gulp.parallel('build:js'))
 
       gulp.watch(`${global.CONFIG.src}/views/**/*.html`, gulp.parallel('build:html'))
       gulp.watch(`${global.CONFIG.src}/views/**/*.pug`, gulp.parallel('build:pug'))
