@@ -28,7 +28,7 @@ if (CONFIG.deploy) {
 }
 
 CONFIG.using = CONFIG.using || {
-  path: 'relative',
+  path: 'cwd',
   color: 'green',
   filesize: false
 }

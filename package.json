@@ -20,6 +20,7 @@
     "eslint-config-standard-react": "^4.2.0",
     "eslint-find-rules": "^1.14.3",
     "eslint-formatter-pretty": "^1.1.0",
+    "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-json": "*",
     "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-promise": "*",

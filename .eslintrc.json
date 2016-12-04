@@ -4,12 +4,15 @@
     "standard",
     "standard-react",
     "standard-latest",
-    "plugin:unicorn/recommended"
+    "plugin:unicorn/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
   "plugins": [
     "json",
     "no-loops",
-    "unicorn"
+    "unicorn",
+    "import"
   ],
   "parserOptions": {
     "sourceType": "module",

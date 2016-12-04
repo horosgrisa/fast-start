@@ -12,9 +12,7 @@ module.exports = (gulp, $, argv) => {
     })
   } else {
     gulp.task('build:pug', (done) => {
-      return gulp.src([`${global.CONFIG.src}/views/**/*.pug`, `!${global.CONFIG.src}/views/**/_*.pug`], {
-        base: `${global.CONFIG.src}/views`
-      })
+      return gulp.src([`${global.CONFIG.src}/views/**/*.pug`, `!${global.CONFIG.src}/views/**/_*.pug`])
         .pipe($.if(!argv.all, $.changed(global.CONFIG.dist, {
           hasChanged: $.changedEnhancements.compareLastModifiedTimePugDeps,
           extension: '.html'
