@@ -24,7 +24,7 @@
     "eslint-plugin-json": "*",
     "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-promise": "*",
-    "eslint-plugin-react": "^6.7.1",
+    "eslint-plugin-react": "^6.8.0",
     "eslint-plugin-standard": "*",
     "eslint-plugin-unicorn": "^1.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
