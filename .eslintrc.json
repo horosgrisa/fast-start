@@ -5,8 +5,7 @@
     "standard-react",
     "standard-latest",
     "plugin:unicorn/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:import/recommended"
   ],
   "plugins": [
     "json",
@@ -15,10 +14,12 @@
     "import"
   ],
   "parserOptions": {
-    "sourceType": "module",
+    "sourceType": "script",
+    "ecmaVersion":7,
     "ecmaFeatures": {
       "jsx": true,
-      "experimentalObjectRestSpread": true
+      "experimentalObjectRestSpread": true,
+      "impliedStrict":true
     }
   },
   "env": {
@@ -33,5 +34,13 @@
   },
   "rules": {
     "no-loops/no-loops": 2
+  },
+  "settings": {
+    "import/extensions": [".js", ".jsx"],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx",".es6",".babel"]
+      }
+    }
   }
 }
