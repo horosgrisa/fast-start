@@ -3,11 +3,10 @@
 module.exports = (gulp, $, argv) => {
   gulp.task('fix:js', () => {
     return gulp.src([`${global.CONFIG.src}/**/*.js`].concat(global.CONFIG.exclude))
-    .pipe($.using({
-      path: 'relative',
+    .pipe($.using(Object.assign(global.CONFIG.using, {
       color: 'yellow',
-      filesize: false
-    }))
+      prefix: 'Fixed'
+    })))
     .pipe($.plumber())
       .pipe($.eslint({
         fix: true

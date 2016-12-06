@@ -3,11 +3,10 @@
 module.exports = (gulp, $, argv) => {
   gulp.task('fix:css', () => {
     return gulp.src([`${global.CONFIG.src}/**/*.css`].concat(global.CONFIG.exclude))
-      .pipe($.using({
-        path: 'relative',
+      .pipe($.using(Object.assign(global.CONFIG.using, {
         color: 'yellow',
-        filesize: false
-      }))
+        prefix: 'Fixed'
+      })))
       .pipe($.plumber())
       .pipe($.postcss([
         require('stylefmt')(),

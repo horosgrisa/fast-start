@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-gulp --cwd $(dirname $(pwd)/../) $(basename $0)
+gulp --silent $(basename $0)

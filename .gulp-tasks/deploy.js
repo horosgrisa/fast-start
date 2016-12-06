@@ -5,6 +5,7 @@ module.exports = (gulp, $, argv) => {
     return gulp.src([
       `${global.CONFIG.src}/build/**`
     ])
+    .pipe($.using())
       .pipe($.rsync(global.CONFIG.deploy))
   })
 }
