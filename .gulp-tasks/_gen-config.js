@@ -22,7 +22,7 @@ try {
 CONFIG.server = CONFIG.server || false
 
 if (CONFIG.deploy) {
-  CONFIG.deploy.root = `${CONFIG.src}/build`
+  CONFIG.deploy.root = `${CONFIG.src}.build`
   CONFIG.deploy.silent = CONFIG.deploy.silent || true
   CONFIG.deploy.compress = CONFIG.deploy.compress || true
 }
@@ -33,16 +33,12 @@ CONFIG.using = CONFIG.using || {
   filesize: false
 }
 
-CONFIG.dist = !argv.production ? `${CONFIG.src}/dist` : `${CONFIG.src}/build`
+CONFIG.dist = !argv.production ? `${CONFIG.src}.dist` : `${CONFIG.src}.build`
 
 CONFIG.exclude = [
   `!${CONFIG.src}/gulp.json`,
   `!${CONFIG.src}/.git/**`,
   `!${CONFIG.src}/.git`,
-  `!${CONFIG.src}/dist/**`,
-  `!${CONFIG.src}/dist`,
-  `!${CONFIG.src}/build/**`,
-  `!${CONFIG.src}/build`,
   `!${CONFIG.src}/tests/**`,
   `!${CONFIG.src}/tests`,
   `!${CONFIG.src}/docs/**`,

@@ -56,7 +56,7 @@
     "gulp-touch": "*",
     "gulp-using": "*",
     "htmlhint-stylish": "*",
-    "inquirer": "^1.2.3",
+    "inquirer": "^2.0.0",
     "js-beautify": "*",
     "postcss-bem-linter": "^2.6.0",
     "postcss-cssnext": "^2.9.0",
