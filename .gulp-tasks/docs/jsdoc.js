@@ -1,8 +1,5 @@
-'use strict'
-
 module.exports = (gulp, $, argv) => {
-  gulp.task('docs:jsdoc', (cb) => {
-    return gulp.src([`${global.CONFIG.src}/**/*.js`].concat(global.CONFIG.exclude))
+  gulp.task('docs:jsdoc', (cb) => gulp.src([`${global.CONFIG.src}/**/*.js`].concat(global.CONFIG.exclude))
     .pipe($.jsdoc3({
       'tags': {
         'allowUnknownTags': true,
@@ -36,6 +33,5 @@ module.exports = (gulp, $, argv) => {
         'parser': 'gfm',
         'hardwrap': true
       }
-    }, cb))
-  })
+    }, cb)))
 }

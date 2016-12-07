@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = (gulp, $, argv) => {
   require('./lint/css')(gulp, $, argv)
   require('./lint/js')(gulp, $, argv)

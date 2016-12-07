@@ -1,4 +1,3 @@
-'use strict'
 const argv = require('yargs').argv
 const path = require('path')
 const fs = require('fs')
@@ -6,17 +5,18 @@ const fs = require('fs')
 let CONFIG = {}
 
 try {
-  require('fs').accessSync(path.join(__dirname, '..', '.selected'), fs.R_OK)
+  fs.accessSync(path.join(__dirname, '..', '.selected'), fs.R_OK)
   CONFIG.src = fs.readFileSync(path.join(__dirname, '..', '.selected'), 'utf8').replace(/\n$/, '')
 } catch (err) {
   CONFIG.src = 'example'
 }
 
 try {
-  require('fs').accessSync(path.join(__dirname, '..', CONFIG.src, 'gulp.json'), fs.R_OK)
-  const srcConfig = require(path.join(__dirname, '..', CONFIG.src, 'gulp.json'))
+  fs.accessSync(path.join(__dirname, '..', CONFIG.src, 'gulp.json'), fs.R_OK)
+  const srcConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '..', CONFIG.src, 'gulp.json')))
   CONFIG = Object.assign(CONFIG, srcConfig)
 } catch (err) {
+  CONFIG = Object.assign(CONFIG, {})
 }
 
 CONFIG.server = CONFIG.server || false
@@ -33,7 +33,7 @@ CONFIG.using = CONFIG.using || {
   filesize: false
 }
 
-CONFIG.dist = !argv.production ? `${CONFIG.src}.dist` : `${CONFIG.src}.build`
+CONFIG.dist = argv.production ? `${CONFIG.src}.build` : `${CONFIG.src}.dist`
 
 CONFIG.exclude = [
   `!${CONFIG.src}/gulp.json`,

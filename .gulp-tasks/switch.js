@@ -1,4 +1,3 @@
-'use strict'
 const inquirer = require('inquirer')
 const fs = require('fs')
 const path = require('path')
@@ -14,9 +13,14 @@ module.exports = (gulp, $, argv) => {
     }
 
     const sysDirs = ['.bin', '.git', '.generator', '.gulp-tasks', 'node_modules', '.examples']
-    const dirs = fs.readdirSync(path.join(__dirname, '..')).filter(function (file) {
-      return fs.statSync(path.join(__dirname, '..', file)).isDirectory() && sysDirs.indexOf(file) === -1 && !file.endsWith('.build') && !file.endsWith('.dist')
-    })
+    const dirs = fs.readdirSync(path.join(
+      __dirname,
+      '..'
+    )).filter((file) => fs.statSync(path.join(
+      __dirname,
+      '..',
+      file
+    )).isDirectory() && sysDirs.indexOf(file) < 0 && !file.endsWith('.build') && !file.endsWith('.dist'))
     inquirer.prompt([
       {
         type: 'list',
@@ -25,7 +29,7 @@ module.exports = (gulp, $, argv) => {
         choices: dirs,
         default: project
       }
-    ]).then(function (answers) {
+    ]).then((answers) => {
       fs.writeFileSync(path.join(__dirname, '..', '.selected'), answers.project)
       console.log(`Project ${answers.project} selected`)
       done()

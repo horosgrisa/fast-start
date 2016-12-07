@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = (gulp, $, argv) => {
   require('./docs/todo')(gulp, $, argv)
   require('./docs/readme')(gulp, $, argv)

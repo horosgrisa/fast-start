@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = (gulp, $, argv) => {
   gulp.task('docs:todo', () => {
     const fs = require('fs')

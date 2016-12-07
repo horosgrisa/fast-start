@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = (gulp, $, argv) => {
   require('./build/base')(gulp, $, argv)
   require('./build/css')(gulp, $, argv)

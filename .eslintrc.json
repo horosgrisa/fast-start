@@ -1,9 +1,9 @@
 {
   "root": true,
   "extends": [
+    "strict",
     "standard",
     "standard-react",
-    "standard-latest",
     "plugin:unicorn/recommended",
     "plugin:import/errors",
     "plugin:import/warnings"
@@ -16,11 +16,11 @@
   ],
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion":7,
+    "ecmaVersion": 7,
     "ecmaFeatures": {
       "jsx": true,
       "experimentalObjectRestSpread": true,
-      "impliedStrict":true
+      "impliedStrict": true
     }
   },
   "env": {
@@ -34,13 +34,24 @@
     "ReactDOM": true
   },
   "rules": {
-    "no-loops/no-loops": 1
+    "no-loops/no-loops": 1,
+    "id-blacklist": 0,
+    "no-sync": 0,
+    "id-match": 0,
+    "no-process-env": 0,
+    "id-length": 0,
+    "filenames/match-regex": 0,
+    "global-require":0,
+    "array-bracket-spacing":[2,"never"],
+    "no-console":1,
+    "no-underscore-dangle":0,
+    "func-style":[2,"declaration", { "allowArrowFunctions": true }]
   },
   "settings": {
     "import/extensions": [".js", ".jsx"],
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx",".es6",".babel"]
+        "extensions": [".js", ".jsx"]
       }
     }
   }

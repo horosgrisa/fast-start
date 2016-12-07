@@ -1,8 +1,11 @@
-'use strict'
 module.exports = (gulp, $, argv) => {
-  if (!argv.production) {
+  if (argv.production) {
+    gulp.task('bs', (done) => {
+      done()
+    })
+  } else {
     const browserSync = require('browser-sync').create()
-    if (global.CONFIG.server !== false) {
+    if (global.CONFIG.server) {
       gulp.task('bs', (done) => {
         browserSync.init({
           proxy: 'http://localhost:10000',
@@ -48,9 +51,5 @@ module.exports = (gulp, $, argv) => {
         done()
       })
     }
-  } else {
-    gulp.task('bs', (done) => {
-      done()
-    })
   }
 }

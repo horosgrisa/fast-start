@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = (gulp, $, argv) => {
   gulp.task('run', (done) => {
     if (!argv.production) {
@@ -21,9 +19,9 @@ module.exports = (gulp, $, argv) => {
         })
         .on('start', () => {
           if (!started) {
-            done()
             started = true
           }
+          return done()
         })
       } else if (global.CONFIG.server === 'php') {
         $.connectPhp.server({
@@ -31,10 +29,9 @@ module.exports = (gulp, $, argv) => {
           hostname: '0.0.0.0',
           base: global.CONFIG.dist
         })
-        done()
-      } else { done() }
-    } else {
-      done()
+        return done()
+      } else { return done() }
     }
+    return done()
   })
 }

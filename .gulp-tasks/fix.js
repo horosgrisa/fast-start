@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = (gulp, $, argv) => {
   require('./fix/css')(gulp, $, argv)
   require('./fix/js')(gulp, $, argv)

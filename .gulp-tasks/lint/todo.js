@@ -1,4 +1,3 @@
-'use strict'
 module.exports = (gulp, $, argv) => {
   gulp.task('lint:todo', () => {
     let todos = ''
@@ -9,10 +8,9 @@ module.exports = (gulp, $, argv) => {
         reporter: 'table'
       }))
       .on('data', (data) => {
+        console.dir(data)
         todos += data._contents.toString()
       })
-      .on('end', () => {
-        todos.indexOf('No todos/fixmes found') === -1 && console.log(todos)
-      })
+      .on('end', () => todos.indexOf('No todos/fixmes found') < 0 && console.log(todos))
   })
 }
