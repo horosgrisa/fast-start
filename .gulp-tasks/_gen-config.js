@@ -66,7 +66,6 @@ CONFIG.postcssPlugins = [
 ]
 if (argv.production) {
   CONFIG.postcssPlugins.push(require('cssnano')())
-  // CONFIG.postcssPlugins[CONFIG.postcssPlugins.length] = require('cssnano')()
 }
 
 CONFIG.rollupPlugins = [
@@ -88,11 +87,7 @@ if (argv.production) {
   CONFIG.rollupPlugins.push(require('rollup-plugin-strip')({
     functions: ['console.*', 'assert.*', 'debug']
   }))
-  // CONFIG.rollupPlugins[CONFIG.rollupPlugins.length] = require('rollup-plugin-strip')({
-  //   functions: ['console.*', 'assert.*', 'debug']
-  // })
   CONFIG.rollupPlugins.push(require('rollup-plugin-uglify')())
-  // CONFIG.rollupPlugins[CONFIG.rollupPlugins.length] = require('rollup-plugin-uglify')()
 }
 
 module.exports = CONFIG
