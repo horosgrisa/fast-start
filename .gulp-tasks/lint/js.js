@@ -1,5 +1,5 @@
 module.exports = (gulp, $, argv) => {
-  gulp.task('lint:js', () => gulp.src([`${global.CONFIG.src}/**/*.js`].concat(global.CONFIG.exclude), {
+  gulp.task('lint:js', () => gulp.src([`${global.CONFIG.src}/**/*.{js,jsx}`].concat(global.CONFIG.exclude), {
     base: global.CONFIG.src
   })
     .pipe($.eslint())

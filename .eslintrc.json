@@ -4,6 +4,7 @@
     "eslint:recommended",
     "standard",
     "standard-latest",
+	"plugin:react/recommended",
     "standard-react",
     "plugin:unicorn/recommended"
   ],
@@ -12,12 +13,17 @@
     "no-loops",
     "unicorn"
   ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "globals": {
     "$": true,
     "React": true,
     "ReactDOM": true
   },
   "rules": {
-    "no-loops/no-loops": 1
+    "no-loops/no-loops": 1,
+    "unicorn/filename-case": 0
   }
 }
