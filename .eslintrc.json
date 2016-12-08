@@ -6,12 +6,14 @@
     "standard-latest",
 	"plugin:react/recommended",
     "standard-react",
+	"plugin:jsx-a11y/recommended",
     "plugin:unicorn/recommended"
   ],
   "plugins": [
     "json",
     "no-loops",
-    "unicorn"
+    "unicorn",
+	"jsx-a11y"
   ],
   "env": {
     "browser": true,
@@ -24,6 +26,7 @@
   },
   "rules": {
     "no-loops/no-loops": 1,
-    "unicorn/filename-case": 0
+    "unicorn/filename-case": 0,
+	"jsx-quotes":[2,"prefer-double"]
   }
 }
