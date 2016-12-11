@@ -13,8 +13,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "*",
-    "cssnano": "^3.8.1",
+    "browser-sync": "^2.18.5",
+    "cssnano": "^3.8.2",
     "doiuse": "^2.5.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-config-standard-latest": "^0.2.5",
