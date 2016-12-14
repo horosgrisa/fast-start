@@ -2,6 +2,7 @@
 const gulp = require('gulp')
 
 const $ = require('gulp-load-plugins')()
+global.browserSync = require('browser-sync').create()
 
 const argv = require('yargs').argv
 global.CONFIG = require('./.gulp-tasks/_gen-config.js')
