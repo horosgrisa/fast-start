@@ -25,7 +25,7 @@
     "eslint-plugin-immutable": "^1.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-json": "*",
-    "eslint-plugin-jsx-a11y": "^3.0.1",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-promise": "*",
     "eslint-plugin-react": "^6.8.0",
