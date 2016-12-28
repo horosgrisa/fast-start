@@ -60,7 +60,7 @@
     "gulp-using": "*",
     "htmlhint-stylish": "*",
     "inquirer": "^2.0.0",
-    "js-beautify": "^1.6.6",
+    "js-beautify": "^1.6.7",
     "postcss-bem-linter": "^2.6.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-each": "^0.9.3",
