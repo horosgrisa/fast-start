@@ -1,1 +1,4 @@
-default
+#!/bin/bash
+
+
+gulp --silent $(basename $0)
