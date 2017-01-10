@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "^2.18.5",
+    "browser-sync": "^2.18.6",
     "cssnano": "^3.9.1",
     "doiuse": "^2.5.0",
     "eslint-config-standard": "^6.2.1",
@@ -46,7 +46,7 @@
     "gulp-jsbeautifier": "^2.0.3",
     "gulp-load-plugins": "^1.4.0",
     "gulp-nodemon": "*",
-    "gulp-nunjucks": "*",
+    "gulp-nunjucks": "^3.0.0",
     "gulp-plumber": "*",
     "gulp-postcss": "*",
     "gulp-pug": "^3.2.0",
