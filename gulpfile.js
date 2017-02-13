@@ -37,9 +37,7 @@ gulp.task('lint', gulp.series(
   'lint:css',
   'lint:js',
   'lint:json',
-  'lint:pug',
-  'lint:html',
-  'lint:todo'
+  'lint:html'
 ))
 
 require('./.gulp-tasks/server')(gulp, $, argv)

@@ -35,9 +35,6 @@ CONFIG.using = CONFIG.using || {
 
 CONFIG.dist = argv.production ? `${CONFIG.src}/../dist` : `${CONFIG.src}/../build`
 
-CONFIG.exclude = [
-]
-
 CONFIG.postcssPlugins = [
   require('postcss-smart-import')(),
   require('postcss-mixins')(),
@@ -81,5 +78,3 @@ if (argv.production) {
 }
 
 module.exports = CONFIG
-
-console.log(CONFIG)

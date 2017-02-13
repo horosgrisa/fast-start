@@ -6,7 +6,7 @@ module.exports = (gulp, $, argv) => {
     `!${global.CONFIG.src}/views`,
     `!${global.CONFIG.src}/assets/**`,
     `!${global.CONFIG.src}/assets`
-  ].concat(global.CONFIG.exclude))
+  ])
     .pipe($.if(!argv.all, $.changed(`${global.CONFIG.dist}/`)))
     .pipe($.using(global.CONFIG.using))
     .pipe($.plumber())

@@ -1,5 +1,5 @@
 module.exports = (gulp, $, argv) => {
-  gulp.task('fix:json', () => gulp.src([`${global.CONFIG.src}/**/*.json`].concat(global.CONFIG.exclude))
+  gulp.task('fix:json', () => gulp.src([`${global.CONFIG.src}/**/*.json`])
     .pipe($.using(Object.assign(global.CONFIG.using, {
       color: 'yellow',
       prefix: 'Fixed'

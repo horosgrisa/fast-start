@@ -4,16 +4,14 @@
     "eslint:recommended",
     "standard",
     "standard-latest",
-	"plugin:react/recommended",
+    "plugin:react/recommended",
     "standard-react",
-	"plugin:jsx-a11y/recommended",
     "plugin:unicorn/recommended"
   ],
   "plugins": [
     "json",
     "no-loops",
-    "unicorn",
-	"jsx-a11y"
+    "unicorn"
   ],
   "env": {
     "browser": true,
@@ -21,13 +19,13 @@
   },
   "globals": {
     "$": true,
-	"jQuery":true,
+    "jQuery":true,
     "React": true,
     "ReactDOM": true
   },
   "rules": {
     "no-loops/no-loops": 1,
     "unicorn/filename-case": 0,
-	"jsx-quotes":[2,"prefer-double"]
+    "jsx-quotes":[2,"prefer-double"]
   }
 }

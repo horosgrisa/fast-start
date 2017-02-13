@@ -7,7 +7,7 @@ module.exports = (gulp, $, argv) => {
         `!${global.CONFIG.src}/views/`,
         `!${global.CONFIG.src}/assets/**`,
         `!${global.CONFIG.src}/assets/`
-      ].concat(global.CONFIG.exclude), gulp.parallel('build:base'))
+      ], gulp.parallel('build:base'))
 
       gulp.watch(`${global.CONFIG.src}/assets/**/*.{eot,svg,ttf,woff,woff2,ico}`, gulp.parallel('build:asserts'))
       gulp.watch(`${global.CONFIG.src}/assets/**/*.{jpg,jpeg,png,gif}`, gulp.parallel('build:img'))

@@ -1,5 +1,5 @@
 module.exports = (gulp, $, argv) => {
-  gulp.task('fix:css', () => gulp.src([`${global.CONFIG.src}/**/*.css`].concat(global.CONFIG.exclude))
+  gulp.task('fix:css', () => gulp.src([`${global.CONFIG.src}/**/*.css`])
     .pipe($.using(Object.assign(global.CONFIG.using, {
       color: 'yellow',
       prefix: 'Fixed'
