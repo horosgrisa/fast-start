@@ -36,7 +36,9 @@ CONFIG.using = CONFIG.using || {
 CONFIG.dist = argv.production ? `${CONFIG.src}/../dist` : `${CONFIG.src}/../build`
 
 CONFIG.postcssPlugins = [
-  require('postcss-use')(),
+  require('postcss-use')({
+    modules: []
+  }),
   require('postcss-smart-import')(),
   require('postcss-nested')(),
   require('postcss-cssnext')({
