@@ -12,7 +12,7 @@ module.exports = (gulp, $, argv) => {
       project = 'example'
     }
 
-    const sysDirs = ['.bin', '.git', '.generator', '.gulp-tasks', 'node_modules', '.examples']
+    const sysDirs = ['.git', '.generator', '.gulp-tasks', 'node_modules', '.examples']
     const dirs = fs.readdirSync(path.join(
       __dirname,
       '..'
@@ -20,7 +20,7 @@ module.exports = (gulp, $, argv) => {
       __dirname,
       '..',
       file
-    )).isDirectory() && sysDirs.indexOf(file) < 0 && !file.endsWith('.build') && !file.endsWith('.dist'))
+    )).isDirectory() && sysDirs.indexOf(file) < 0)
     inquirer.prompt([
       {
         type: 'list',

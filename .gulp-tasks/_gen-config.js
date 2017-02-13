@@ -6,14 +6,14 @@ let CONFIG = {}
 
 try {
   fs.accessSync(path.join(__dirname, '..', '.selected'), fs.R_OK)
-  CONFIG.src = fs.readFileSync(path.join(__dirname, '..', '.selected'), 'utf8').replace(/\n$/, '')
+  CONFIG.src = path.join(fs.readFileSync(path.join(__dirname, '..', '.selected'), 'utf8').replace(/\n$/, ''), 'src')
 } catch (err) {
-  CONFIG.src = 'example'
+  CONFIG.src = 'example/src'
 }
 
 try {
-  fs.accessSync(path.join(__dirname, '..', CONFIG.src, 'gulp.json'), fs.R_OK)
-  const srcConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '..', CONFIG.src, 'gulp.json')))
+  fs.accessSync(path.join(__dirname, '..', CONFIG.src, '..', 'gulp.json'), fs.R_OK)
+  const srcConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '..', CONFIG.src, '..', 'gulp.json')))
   CONFIG = Object.assign(CONFIG, srcConfig)
 } catch (err) {
   CONFIG = Object.assign(CONFIG, {})
@@ -22,7 +22,7 @@ try {
 CONFIG.server = CONFIG.server || false
 
 if (CONFIG.deploy) {
-  CONFIG.deploy.root = `${CONFIG.src}.build`
+  CONFIG.deploy.root = path.join(CONFIG.src, '..', 'dist')
   CONFIG.deploy.silent = CONFIG.deploy.silent || true
   CONFIG.deploy.compress = CONFIG.deploy.compress || true
 }
@@ -33,20 +33,9 @@ CONFIG.using = CONFIG.using || {
   filesize: false
 }
 
-CONFIG.dist = argv.production ? `${CONFIG.src}.build` : `${CONFIG.src}.dist`
+CONFIG.dist = argv.production ? `${CONFIG.src}/../dist` : `${CONFIG.src}/../build`
 
 CONFIG.exclude = [
-  `!${CONFIG.src}/gulp.json`,
-  `!${CONFIG.src}/.git/**`,
-  `!${CONFIG.src}/.git`,
-  `!${CONFIG.src}/tests/**`,
-  `!${CONFIG.src}/tests`,
-  `!${CONFIG.src}/docs/**`,
-  `!${CONFIG.src}/docs`,
-  `!${CONFIG.src}/node_modules/**`,
-  `!${CONFIG.src}/node_modules`,
-  `!${CONFIG.src}/bower_components/**`,
-  `!${CONFIG.src}/bower_components`
 ]
 
 CONFIG.postcssPlugins = [
@@ -92,3 +81,5 @@ if (argv.production) {
 }
 
 module.exports = CONFIG
+
+console.log(CONFIG)

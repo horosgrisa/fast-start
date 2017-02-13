@@ -1,6 +1,7 @@
 module.exports = (gulp, $, argv) => {
   gulp.task('build:base', (done) => gulp.src([
     `${global.CONFIG.src}/**`,
+    `${global.CONFIG.src}/../package.json`,
     `!${global.CONFIG.src}/views/**`,
     `!${global.CONFIG.src}/views`,
     `!${global.CONFIG.src}/assets/**`,
