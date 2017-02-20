@@ -51,12 +51,7 @@ if (argv.production) {
 
 CONFIG.rollupPlugins = [
   require('rollup-plugin-json')(),
-  require('rollup-plugin-buble')({
-    jsx: CONFIG.jsxPragma,
-    objectAssign: 'Object.assign'
-  }),
-  require('rollup-plugin-commonjs')(),
-  require('rollup-plugin-node-globals')(),
+  require('rollup-plugin-babel')({runtimeHelpers: true}),
   require('rollup-plugin-node-resolve')({
     module: true,
     browser: true,
