@@ -4,5 +4,6 @@ module.exports = (gulp, $, argv) => {
     .pipe($.using(global.CONFIG.using))
     .pipe($.plumber())
     .pipe(gulp.dest(`${global.CONFIG.dist}/public/`))
-    .pipe($.touch()))
+    .pipe($.touchCmd())
+  )
 }

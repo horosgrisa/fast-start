@@ -59,7 +59,7 @@
     "gulp-rename": "*",
     "gulp-rsync": "*",
     "gulp-sourcemaps": "^2.4.1",
-    "gulp-touch": "*",
+    "gulp-touch-cmd": "0.0.1",
     "gulp-using": "*",
     "htmlhint-stylish": "*",
     "inquirer": "^3.0.0",

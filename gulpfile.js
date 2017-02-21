@@ -10,6 +10,7 @@ global.CONFIG = require('./.gulp-tasks/_gen-config.js')
 require('./.gulp-tasks/build')(gulp, $, argv)
 gulp.task('build', gulp.parallel(
   'build:base',
+  'build:config',
   'build:asserts',
   'build:js',
   'build:css',

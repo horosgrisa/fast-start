@@ -6,7 +6,8 @@ module.exports = (gulp, $, argv) => {
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
       .pipe(gulp.dest(`${global.CONFIG.dist}/views/`))
-      .pipe($.touch()))
+      .pipe($.touchCmd())
+    )
   } else {
     gulp.task('build:njk', (done) => gulp.src([
       `${global.CONFIG.src}/views/**/*.njk`,
@@ -20,6 +21,7 @@ module.exports = (gulp, $, argv) => {
       }))
       .pipe($.if(argv.production, $.htmlmin({ collapseWhitespace: true })))
       .pipe(gulp.dest(global.CONFIG.dist))
-      .pipe($.touch()))
+      .pipe($.touchCmd())
+    )
   }
 }

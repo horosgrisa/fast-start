@@ -20,6 +20,7 @@ module.exports = (gulp, $, argv) => {
          ).replace('node_modules/', '/node_modules/')
       })))
       .pipe(gulp.dest(`${global.CONFIG.dist}/public/`))
-      .pipe($.touch()))
+      .pipe($.touchCmd())
+    )
 }
 

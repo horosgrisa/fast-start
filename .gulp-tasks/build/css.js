@@ -13,5 +13,6 @@ module.exports = (gulp, $, argv) => {
       }
     })))
     .pipe(gulp.dest(`${global.CONFIG.dist}/public/`))
-    .pipe($.touch()))
+    .pipe($.touchCmd())
+  )
 }

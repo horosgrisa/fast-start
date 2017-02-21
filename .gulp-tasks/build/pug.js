@@ -5,7 +5,8 @@ module.exports = (gulp, $, argv) => {
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
       .pipe(gulp.dest(`${global.CONFIG.dist}/views/`))
-      .pipe($.touch()))
+      .pipe($.touchCmd())
+    )
   } else {
     gulp.task('build:pug', (done) => gulp.src([
       `${global.CONFIG.src}/views/**/*.pug`,
@@ -22,6 +23,7 @@ module.exports = (gulp, $, argv) => {
       })))
       .pipe($.if(argv.production, $.pug()))
       .pipe(gulp.dest(global.CONFIG.dist))
-      .pipe($.touch()))
+      .pipe($.touchCmd())
+    )
   }
 }

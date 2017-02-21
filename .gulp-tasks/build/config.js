@@ -1,10 +1,7 @@
 module.exports = (gulp, $, argv) => {
-  gulp.task('build:base', (done) => gulp.src([
-    `${global.CONFIG.src}/**`,
-    `!${global.CONFIG.src}/views/**`,
-    `!${global.CONFIG.src}/views`,
-    `!${global.CONFIG.src}/assets/**`,
-    `!${global.CONFIG.src}/assets`
+  gulp.task('build:config', (done) => gulp.src([
+    `${global.CONFIG.src}/../package.json`,
+    `${global.CONFIG.src}/../bower.json`
   ])
     .pipe($.if(!argv.all, $.changed(`${global.CONFIG.dist}/`)))
     .pipe($.using(global.CONFIG.using))
@@ -13,4 +10,3 @@ module.exports = (gulp, $, argv) => {
     .pipe($.touchCmd())
   )
 }
-
