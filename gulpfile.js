@@ -15,9 +15,7 @@ gulp.task('build', gulp.parallel(
   'build:js',
   'build:css',
   'build:img',
-  'build:pug',
-  'build:html',
-  'build:njk'
+  'build:html'
 ))
 
 require('./.gulp-tasks/deploy')(gulp, $, argv)
