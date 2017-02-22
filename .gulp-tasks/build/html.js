@@ -9,7 +9,7 @@ module.exports = (gulp, $, argv) => {
       .pipe($.touchCmd())
     )
   } else {
-    gulp.task('build:njk', (done) => gulp.src([
+    gulp.task('build:html', (done) => gulp.src([
       `${global.CONFIG.src}/views/**/*.{html,njk}`,
       `${global.CONFIG.src}/views/**/_*.{html,njk}`
     ])
