@@ -28,6 +28,7 @@
   "rules": {
     "no-loops/no-loops": 1,
     "unicorn/filename-case": 0,
-    "jsx-quotes":[2,"prefer-double"]
+    "jsx-quotes":[2,"prefer-double"],
+    "no-console": [1]
   }
 }
