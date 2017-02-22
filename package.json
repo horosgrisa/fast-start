@@ -43,7 +43,7 @@
     "gulp-htmlhint": "*",
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "*",
-    "gulp-imagemin": "^3.1.1",
+    "gulp-imagemin": "github:horosgrisa/gulp-imagemin",
     "gulp-jsbeautifier": "^2.0.3",
     "gulp-load-plugins": "^1.4.0",
     "gulp-nodemon": "*",
