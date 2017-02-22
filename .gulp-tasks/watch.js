@@ -9,8 +9,8 @@ module.exports = (gulp, $, argv) => {
         `!${global.CONFIG.src}/assets/`
       ], gulp.parallel('build:base'))
       gulp.watch([
-        `${global.CONFIG.src}/../package.json`,
-        `${global.CONFIG.src}/../bower.json`
+        `${global.CONFIG.src}/../package.{json,js}`,
+        `${global.CONFIG.src}/../bower.{json,js}`
       ], gulp.parallel('build:config'))
 
       gulp.watch(`${global.CONFIG.src}/assets/**/*.{eot,svg,ttf,woff,woff2,ico}`, gulp.parallel('build:asserts'))
