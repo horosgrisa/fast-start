@@ -57,7 +57,7 @@
     "gulp-touch-cmd": "0.0.1",
     "gulp-using": "*",
     "htmlhint-stylish": "*",
-    "inquirer": "^3.0.0",
+    "inquirer": "^3.0.2",
     "js-beautify": "^1.6.10",
     "postcss-cssnext": "^2.9.0",
     "postcss-nested": "^1.0.0",
