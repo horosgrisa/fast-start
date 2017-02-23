@@ -5,9 +5,11 @@ module.exports = (gulp, $, argv) => {
       prefix: 'Fixed'
     })))
     .pipe($.plumber())
-    .pipe($.jsbeautifier({
-      indent_char: ' ',
-      indent_size: 2
-    }))
+    .pipe($.posthtml([require('posthtml-tidy')({
+      indent: 'auto',
+      'indent-spaces': 2,
+      quiet: 'yes',
+      'tidy-mark': 'no'
+    })]))
     .pipe(gulp.dest(`${global.CONFIG.src}/`)))
 }
