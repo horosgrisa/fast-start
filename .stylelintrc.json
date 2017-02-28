@@ -3,7 +3,7 @@
     "comment-empty-line-before": "never",
     "declaration-empty-line-before":["always",{
       "except": ["first-nested","after-comment"],
-      "ignore": ["before-declaration", "after-declaration"]
+      "ignore": [ "after-declaration"]
       }]
   }
 }
