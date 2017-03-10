@@ -24,9 +24,9 @@
     "babel-preset-stage-1": "^6.22.0",
     "browser-sync": "^2.18.8",
     "cssnano": "^3.9.1",
-    "eslint-config-standard": "^7.0.0",
+    "eslint-config-standard": "^7.0.1",
     "eslint-config-standard-latest": "^0.2.5",
-    "eslint-config-standard-react": "^4.2.0",
+    "eslint-config-standard-react": "^4.3.0",
     "eslint-config-strict": "^13.0.0",
     "eslint-formatter-pretty": "^1.1.0",
     "eslint-plugin-import": "^2.2.0",
@@ -35,7 +35,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.0",
     "eslint-plugin-standard": "^2.1.1",
-    "eslint-plugin-unicorn": "^2.0.0",
+    "eslint-plugin-unicorn": "^2.1.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-better-rollup": "^1.0.2",
     "gulp-changed": "^2.0.0",
@@ -47,7 +47,7 @@
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "*",
     "gulp-imagemin": "github:horosgrisa/gulp-imagemin",
-    "gulp-jsbeautifier": "^2.0.3",
+    "gulp-jsbeautifier": "^2.1.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-nodemon": "*",
     "gulp-nunjucks": "^3.0.0",
@@ -74,9 +74,9 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-strip": "^1.1.1",
     "rollup-plugin-uglify": "*",
-    "stylefmt": "^5.1.2",
+    "stylefmt": "^5.2.0",
     "stylelint": "^7.9.0",
     "stylelint-config-standard": "^16.0.0",
-    "yargs": "^7.0.1"
+    "yargs": "^7.0.2"
   }
 }
