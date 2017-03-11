@@ -53,7 +53,7 @@
     "gulp-nunjucks": "^3.0.0",
     "gulp-plumber": "*",
     "gulp-postcss": "^6.3.0",
-    "gulp-posthtml": "^2.0.0",
+    "gulp-posthtml": "^3.0.0",
     "gulp-rename": "*",
     "gulp-rsync": "*",
     "gulp-sourcemaps": "^2.4.1",
