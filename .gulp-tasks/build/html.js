@@ -11,7 +11,7 @@ module.exports = (gulp, $, argv) => {
   } else {
     gulp.task('build:html', (done) => gulp.src([
       `${global.CONFIG.src}/views/**/*.{html,njk}`,
-      `${global.CONFIG.src}/views/**/_*.{html,njk}`
+      `!${global.CONFIG.src}/views/**/_*.{html,njk}`
     ])
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())

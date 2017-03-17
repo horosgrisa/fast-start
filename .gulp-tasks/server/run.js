@@ -13,7 +13,7 @@ module.exports = (gulp, $, argv) => {
             `!${global.CONFIG.dist}/public`
           ],
           env: {
-            'NODE_ENV': 'dev'
+            NODE_ENV: 'dev'
           },
           quiet: false
         })
@@ -23,13 +23,6 @@ module.exports = (gulp, $, argv) => {
           }
           return done()
         })
-      } else if (global.CONFIG.server === 'php') {
-        $.connectPhp.server({
-          port: 10000,
-          hostname: '0.0.0.0',
-          base: global.CONFIG.dist
-        })
-        return done()
       } else { return done() }
     }
     return done()

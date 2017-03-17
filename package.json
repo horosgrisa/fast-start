@@ -1,7 +1,7 @@
 {
   "name": "fast-start",
   "version": "0.5.4",
-  "description": "This is base stucture for simple site. It support static sites, Nodejs or PHP,a ES6 with Rollup, PostCSS (with precss and cssnext), Pug, Nunjucks, HTML(will be processed with Nunjucks).",
+  "description": "This is base stucture for simple site. It support static sites, Nodejs,a ES6 with Rollup, PostCSS (with precss and cssnext), Pug, Nunjucks, HTML(will be processed with Nunjucks).",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -46,7 +46,6 @@
     "gulp-changed": "^2.0.0",
     "gulp-changed-enhancements": "^1.0.2",
     "gulp-cli": "^1.2.2",
-    "gulp-connect-php": "*",
     "gulp-eslint": "*",
     "gulp-htmlhint": "*",
     "gulp-htmlmin": "^3.0.0",

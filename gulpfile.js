@@ -29,7 +29,6 @@ require('./.gulp-tasks/fix')(gulp, $, argv)
 gulp.task('fix', gulp.series(
   'fix:css',
   'fix:js',
-  'fix:json',
   'fix:html'
 ))
 
@@ -37,7 +36,6 @@ require('./.gulp-tasks/lint')(gulp, $, argv)
 gulp.task('lint', gulp.series(
   'lint:css',
   'lint:js',
-  'lint:json',
   'lint:html'
 ))
 

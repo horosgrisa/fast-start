@@ -9,7 +9,7 @@ module.exports = (gulp, $, argv) => {
         proxy: 'http://localhost:10000',
         files: [
           `${global.CONFIG.dist}/public/**/*.{css,js,png,jpg,jpeg,gif,ico,eot,ttf,woff,woff2,svg}`,
-          `{global.CONFIG.dist}/views/**`
+          '{global.CONFIG.dist}/views/**'
         ],
         port: 8000,
         using: true,
@@ -35,7 +35,7 @@ module.exports = (gulp, $, argv) => {
         },
         files: [
           `${global.CONFIG.dist}/public/*.{css,js,png,jpg,jpeg,gif,ico,eot,ttf,woff,woff2,svg}`,
-          `{global.CONFIG.dist}/views/**`
+          '{global.CONFIG.dist}/views/**'
         ],
         port: 8000,
         using: true,
