@@ -1,4 +1,6 @@
 'use strict'
+/* @flow */
+
 const gulp = require('gulp')
 
 const $ = require('gulp-load-plugins')()
@@ -64,5 +66,3 @@ gulp.task('default',
     'watch'
   )
 )
-
- 

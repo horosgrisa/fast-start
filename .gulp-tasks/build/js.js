@@ -10,7 +10,7 @@ module.exports = (gulp, $, argv) => {
       .pipe($.betterRollup({
         plugins: global.CONFIG.rollupPlugins
       }, {
-        format: 'iife',
+        format: 'es',
         useStrict: true
       }))
       .pipe($.rename((path) => { path.extname = '.js' }))
@@ -23,4 +23,3 @@ module.exports = (gulp, $, argv) => {
       .pipe($.touchCmd())
     )
 }
-

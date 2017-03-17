@@ -50,6 +50,7 @@ if (argv.production) {
 }
 
 CONFIG.rollupPlugins = [
+  require('rollup-plugin-node-globals')(),
   require('rollup-plugin-json')(),
   require('rollup-plugin-babel')({runtimeHelpers: true}),
   require('rollup-plugin-node-resolve')({
