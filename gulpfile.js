@@ -45,11 +45,6 @@ gulp.task('server', gulp.series(
     'bs'
 ))
 
-require('./.gulp-tasks/update')(gulp, $, argv)
-gulp.task('self-update', gulp.series(
-  'self-update:git'
-))
-
 require('./.gulp-tasks/watch')(gulp, $, argv)
 
 require('./.gulp-tasks/switch')(gulp, $, argv)

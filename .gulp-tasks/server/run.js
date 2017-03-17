@@ -1,6 +1,6 @@
 module.exports = (gulp, $, argv) => {
   gulp.task('run', (done) => {
-    if (!argv.production) {
+    if (!process.env.NODE_ENV==='production') {
       if (global.CONFIG.server === 'node') {
         let started = false
         $.nodemon({

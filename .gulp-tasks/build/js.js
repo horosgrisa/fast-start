@@ -6,7 +6,7 @@ module.exports = (gulp, $, argv) => {
       })))
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
-      .pipe($.if(!argv.production, $.sourcemaps.init({})))
+      .pipe($.if(!process.env.NODE_ENV==='production', $.sourcemaps.init({})))
       .pipe($.betterRollup({
         plugins: global.CONFIG.rollupPlugins
       }, {
@@ -14,7 +14,7 @@ module.exports = (gulp, $, argv) => {
         useStrict: true
       }))
       .pipe($.rename((path) => { path.extname = '.js' }))
-      .pipe($.if(!argv.production, $.sourcemaps.write('.', {
+      .pipe($.if(!process.env.NODE_ENV==='production', $.sourcemaps.write('.', {
         mapSources: (mapFilePath) => mapFilePath.replace(
           global.CONFIG.src, ''
          ).replace('node_modules/', '/node_modules/')

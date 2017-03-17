@@ -1,6 +1,6 @@
 module.exports = (gulp, $, argv) => {
   gulp.task('watch', (done) => {
-    if (!argv.production) {
+    if (!process.env.NODE_ENV==='production') {
       gulp.watch([
         `${global.CONFIG.src}/**`,
         `!${global.CONFIG.src}/views/**`,

@@ -33,7 +33,7 @@ CONFIG.using = CONFIG.using || {
   filesize: false
 }
 
-CONFIG.dist = argv.production ? `${CONFIG.src}/../dist` : `${CONFIG.src}/../build`
+CONFIG.dist = process.env.NODE_ENV==='production' ? `${CONFIG.src}/../dist` : `${CONFIG.src}/../build`
 
 CONFIG.postcssPlugins = [
   require('postcss-use')({
@@ -45,7 +45,7 @@ CONFIG.postcssPlugins = [
     warnForDuplicates: false
   })
 ]
-if (argv.production) {
+if (process.env.NODE_ENV==='production') {
   CONFIG.postcssPlugins.push(require('cssnano')())
 }
 
@@ -61,7 +61,7 @@ CONFIG.rollupPlugins = [
     extensions: ['.js', '.json', '.jsx']
   })
 ]
-if (argv.production) {
+if (process.env.NODE_ENV==='production') {
   CONFIG.rollupPlugins.push(require('rollup-plugin-strip')({
     functions: ['console.*', 'assert.*', 'debug']
   }))

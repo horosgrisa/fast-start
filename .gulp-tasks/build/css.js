@@ -5,9 +5,9 @@ module.exports = (gulp, $, argv) => {
     })))
     .pipe($.using(global.CONFIG.using))
     .pipe($.plumber())
-    .pipe($.if(!argv.production, $.sourcemaps.init()))
+    .pipe($.if(!process.env.NODE_ENV==='production', $.sourcemaps.init()))
     .pipe($.postcss(global.CONFIG.postcssPlugins))
-    .pipe($.if(!argv.production, $.sourcemaps.write('.', {
+    .pipe($.if(!process.env.NODE_ENV==='production', $.sourcemaps.write('.', {
       mapSources (mapFilePath) {
         return `/assets/${mapFilePath}`
       }
