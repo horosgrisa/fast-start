@@ -1,5 +1,5 @@
-module.exports = (gulp, $, argv) => {
-  require('./lint/css')(gulp, $, argv)
-  require('./lint/js')(gulp, $, argv)
-  require('./lint/html')(gulp, $, argv)
+module.exports = () => {
+  require('./lint/css')()
+  require('./lint/js')()
+  require('./lint/html')()
 }

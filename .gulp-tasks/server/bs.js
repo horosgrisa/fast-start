@@ -1,4 +1,4 @@
-module.exports = (gulp, $, argv) => {
+module.exports = () => {
   if (process.env.NODE_ENV==='production') {
     gulp.task('bs', (done) => {
       done()

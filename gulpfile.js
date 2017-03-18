@@ -1,16 +1,16 @@
 'use strict'
 /* @flow */
 
-const gulp = require('gulp')
+global.gulp = require('gulp')
 
-const $ = require('gulp-load-plugins')()
+global.$ = require('gulp-load-plugins')()
 global.browserSync = require('browser-sync').create()
 
-const argv = require('yargs').argv
+global.argv = require('yargs').argv
 global.CONFIG = require('./.gulp-tasks/_gen-config.js')
 
-require('./.gulp-tasks/build')(gulp, $, argv)
-gulp.task('build', gulp.parallel(
+require('./.gulp-tasks/build')()
+global.gulp.task('build', global.gulp.parallel(
   'build:base',
   'build:config',
   'build:asserts',
@@ -20,40 +20,40 @@ gulp.task('build', gulp.parallel(
   'build:html'
 ))
 
-require('./.gulp-tasks/deploy')(gulp, $, argv)
-gulp.task('deploy', gulp.series(
+require('./.gulp-tasks/deploy')()
+global.gulp.task('deploy', global.gulp.series(
   'deploy:rsync'
 ))
 
-require('./.gulp-tasks/fix')(gulp, $, argv)
-gulp.task('fix', gulp.series(
+require('./.gulp-tasks/fix')()
+global.gulp.task('fix', global.gulp.series(
   'fix:css',
   'fix:js',
   'fix:html'
 ))
 
-require('./.gulp-tasks/lint')(gulp, $, argv)
-gulp.task('lint', gulp.series(
+require('./.gulp-tasks/lint')()
+global.gulp.task('lint', global.gulp.series(
   'lint:css',
   'lint:js',
   'lint:html'
 ))
 
-require('./.gulp-tasks/server')(gulp, $, argv)
-gulp.task('server', gulp.series(
+require('./.gulp-tasks/server')()
+global.gulp.task('server', global.gulp.series(
     'run',
     'bs'
 ))
 
-require('./.gulp-tasks/watch')(gulp, $, argv)
+require('./.gulp-tasks/watch')()
 
-require('./.gulp-tasks/switch')(gulp, $, argv)
-gulp.task('switch', gulp.series(
+require('./.gulp-tasks/switch')()
+global.gulp.task('switch', global.gulp.series(
   'switch:project'
 ))
 
-gulp.task('default',
-  gulp.series(
+global.gulp.task('default',
+  global.gulp.series(
     'build',
     'server',
     'watch'

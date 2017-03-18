@@ -1,6 +1,6 @@
-module.exports = (gulp, $, argv) => {
+module.exports = () => {
   gulp.task('build:css', (done) => gulp.src(`${global.CONFIG.src}/assets/*.css`)
-    .pipe($.if(!argv.all, $.changed(`${global.CONFIG.dist}/public/`, {
+    .pipe($.if(!global.argv.all, $.changed(`${global.CONFIG.dist}/public/`, {
       hasChanged: $.changedEnhancements.compareLastModifiedTimeCSSDeps
     })))
     .pipe($.using(global.CONFIG.using))

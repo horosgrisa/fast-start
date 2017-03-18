@@ -1,4 +1,4 @@
-module.exports = (gulp, $, argv) => {
+module.exports = () => {
   gulp.task('run', (done) => {
     if (!process.env.NODE_ENV==='production') {
       if (global.CONFIG.server === 'node') {

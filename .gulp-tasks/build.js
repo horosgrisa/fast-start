@@ -1,10 +1,10 @@
-module.exports = (gulp, $, argv) => {
-  require('./build/base')(gulp, $, argv)
-  require('./build/config')(gulp, $, argv)
-  require('./build/asserts')(gulp, $, argv)
-  require('./build/css')(gulp, $, argv)
-  require('./build/img')(gulp, $, argv)
-  require('./build/js')(gulp, $, argv)
-  require('./build/html')(gulp, $, argv)
+module.exports = () => {
+  require('./build/base')()
+  require('./build/config')()
+  require('./build/asserts')()
+  require('./build/css')()
+  require('./build/img')()
+  require('./build/js')()
+  require('./build/html')()
 }
 

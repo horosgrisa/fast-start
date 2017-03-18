@@ -1,4 +1,4 @@
-module.exports = (gulp, $, argv) => {
+module.exports = () => {
   gulp.task('fix:html', () => gulp.src([`${global.CONFIG.src}/**/*.{html,njk}`])
     .pipe($.using(Object.assign(global.CONFIG.using, {
       color: 'yellow',

@@ -20,6 +20,7 @@
     "node": true
   },
   "globals": {
+    "gulp":true,
     "$": true,
     "jQuery":true,
     "React": true,

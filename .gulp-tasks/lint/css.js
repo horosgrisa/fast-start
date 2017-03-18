@@ -1,4 +1,4 @@
-module.exports = (gulp, $, argv) => {
+module.exports = () => {
   gulp.task('lint:css', () => gulp.src([`${global.CONFIG.src}/**/*.css`])
     .pipe($.postcss([
       require('stylelint')(),

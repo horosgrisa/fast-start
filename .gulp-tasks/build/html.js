@@ -1,8 +1,8 @@
 
-module.exports = (gulp, $, argv) => {
+module.exports = () => {
   if (global.CONFIG.server) {
     gulp.task('build:html', (done) => gulp.src(`${global.CONFIG.src}/views/**/*.{html,njk}`)
-      .pipe($.if(!argv.all, $.changed(`${global.CONFIG.dist}/views/`)))
+      .pipe($.if(!global.argv.all, $.changed(`${global.CONFIG.dist}/views/`)))
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
       .pipe(gulp.dest(`${global.CONFIG.dist}/views/`))

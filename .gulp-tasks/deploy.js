@@ -1,4 +1,4 @@
-module.exports = (gulp, $, argv) => {
+module.exports = () => {
   gulp.task('deploy:rsync', () => gulp.src([
     `${global.CONFIG.src}/../dist/**`
   ])

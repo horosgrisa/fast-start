@@ -1,5 +1,5 @@
-module.exports = (gulp, $, argv) => {
-  require('./fix/css')(gulp, $, argv)
-  require('./fix/js')(gulp, $, argv)
-  require('./fix/html')(gulp, $, argv)
+module.exports = () => {
+  require('./fix/css')()
+  require('./fix/js')()
+  require('./fix/html')()
 }

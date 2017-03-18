@@ -1,4 +1,4 @@
-module.exports = (gulp, $, argv) => {
+module.exports = () => {
   gulp.task('lint:html', () => gulp.src([`${global.CONFIG.src}/**/*.{html,njk}`])
     .pipe($.plumber())
     .pipe($.htmlhint('.htmlhint.json'))

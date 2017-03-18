@@ -2,7 +2,7 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const path = require('path')
 
-module.exports = (gulp, $, argv) => {
+module.exports = () => {
   gulp.task('switch:project', (done) => {
     let project = ''
     try {

@@ -1,4 +1,4 @@
-module.exports = (gulp, $, argv) => {
+module.exports = () => {
   gulp.task('fix:js', () => {
     const isFixed = (file) => file.eslint !== null && file.eslint.fixed
     return gulp.src([`${global.CONFIG.src}/**/*.{js,jsx,json}`])
