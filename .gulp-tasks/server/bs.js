@@ -1,10 +1,10 @@
 module.exports = () => {
   if (process.env.NODE_ENV==='production') {
-    gulp.task('bs', (done) => {
+    global.gulp.task('bs', (done) => {
       done()
     })
   } else if (global.CONFIG.server) {
-    gulp.task('bs', (done) => {
+    global.gulp.task('bs', (done) => {
       global.browserSync.init({
         proxy: 'http://localhost:10000',
         files: [
@@ -23,7 +23,7 @@ module.exports = () => {
       done()
     })
   } else {
-    gulp.task('bs', (done) => {
+    global.gulp.task('bs', (done) => {
       global.browserSync.init({
         server: {
           baseDir: global.CONFIG.dist,

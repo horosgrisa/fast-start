@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 
 module.exports = () => {
-  gulp.task('switch:project', (done) => {
+  global.gulp.task('switch:project', (done) => {
     let project = ''
     try {
       fs.accessSync(path.join(__dirname, '..', '.selected'), fs.R_OK)

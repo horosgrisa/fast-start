@@ -1,5 +1,5 @@
 module.exports = () => {
-  gulp.task('run', (done) => {
+  global.gulp.task('run', (done) => {
     if (!process.env.NODE_ENV==='production') {
       if (global.CONFIG.server === 'node') {
         let started = false

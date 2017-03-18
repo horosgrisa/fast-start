@@ -1,7 +1,7 @@
 
 module.exports = () => {
   if (global.CONFIG.server) {
-    gulp.task('build:html', (done) => gulp.src(`${global.CONFIG.src}/views/**/*.{html,njk}`)
+    global.gulp.task('build:html', (done) => gulp.src(`${global.CONFIG.src}/views/**/*.{html,njk}`)
       .pipe($.if(!global.argv.all, $.changed(`${global.CONFIG.dist}/views/`)))
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
@@ -9,7 +9,7 @@ module.exports = () => {
       .pipe($.touchCmd())
     )
   } else {
-    gulp.task('build:html', (done) => gulp.src([
+    global.gulp.task('build:html', (done) => gulp.src([
       `${global.CONFIG.src}/views/**/*.{html,njk}`,
       `!${global.CONFIG.src}/views/**/_*.{html,njk}`
     ])

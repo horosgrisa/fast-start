@@ -1,5 +1,5 @@
 module.exports = () => {
-  gulp.task('build:base', (done) => gulp.src([
+  global.gulp.task('build:base', (done) => gulp.src([
     `${global.CONFIG.src}/**`,
     `!${global.CONFIG.src}/views/**`,
     `!${global.CONFIG.src}/views`,

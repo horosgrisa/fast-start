@@ -1,5 +1,5 @@
 module.exports = () => {
-  gulp.task('fix:html', () => gulp.src([`${global.CONFIG.src}/**/*.{html,njk}`])
+  global.gulp.task('fix:html', () => gulp.src([`${global.CONFIG.src}/**/*.{html,njk}`])
     .pipe($.using(Object.assign(global.CONFIG.using, {
       color: 'yellow',
       prefix: 'Fixed'

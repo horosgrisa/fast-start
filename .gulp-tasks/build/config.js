@@ -1,5 +1,5 @@
 module.exports = () => {
-  gulp.task('build:config', (done) => gulp.src([
+  global.gulp.task('build:config', (done) => gulp.src([
     `${global.CONFIG.src}/../package.{json,js}`,
     `${global.CONFIG.src}/../bower.{json,js}`
   ])

@@ -1,5 +1,5 @@
 module.exports = () => {
-  gulp.task('deploy:rsync', () => gulp.src([
+  global.gulp.task('deploy:rsync', () => gulp.src([
     `${global.CONFIG.src}/../dist/**`
   ])
     .pipe($.using((Object.assign(global.CONFIG.using, {
