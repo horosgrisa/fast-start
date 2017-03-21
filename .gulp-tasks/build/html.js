@@ -1,4 +1,3 @@
-
 module.exports = () => {
   if (global.CONFIG.server) {
     global.gulp.task('build:html', (done) => gulp.src(`${global.CONFIG.src}/views/**/*.{html,njk}`)

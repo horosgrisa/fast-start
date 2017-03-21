@@ -49,23 +49,34 @@ if (process.env.NODE_ENV==='production') {
   CONFIG.postcssPlugins.push(require('cssnano')())
 }
 
-CONFIG.rollupPlugins = [
-  require('rollup-plugin-node-globals')(),
-  require('rollup-plugin-json')(),
-  require('rollup-plugin-babel')({runtimeHelpers: true}),
-  require('rollup-plugin-node-resolve')({
-    module: true,
-    browser: true,
-    jsnext: true,
-    main: true,
-    extensions: ['.js', '.json', '.jsx']
-  })
-]
-if (process.env.NODE_ENV==='production') {
-  CONFIG.rollupPlugins.push(require('rollup-plugin-strip')({
-    functions: ['console.*', 'assert.*', 'debug']
-  }))
-  CONFIG.rollupPlugins.push(require('rollup-plugin-uglify')())
-}
+// CONFIG.rollupPlugins = [
+//   require('rollup-plugin-babel')({
+//     exclude: 'node_modules/**',
+//     runtimeHelpers: true
+//   }),
+
+//   require('rollup-plugin-commonjs')({
+//     exclude: '**',
+//     include: [
+//       'node_modules/**'
+//     ]
+//   }),
+//   require('rollup-plugin-node-globals')(),
+//   require('rollup-plugin-replace')({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+//   require('rollup-plugin-node-resolve')({
+//     module: true,
+//     browser: true,
+//     jsnext: true,
+//     main: true,
+//     extensions: ['.js', '.json', '.jsx']
+//   }),
+//   require('rollup-plugin-json')()
+// ]
+// if (process.env.NODE_ENV==='production') {
+//   CONFIG.rollupPlugins.push(require('rollup-plugin-strip')({
+//     functions: ['console.*', 'assert.*', 'debug']
+//   }))
+//   CONFIG.rollupPlugins.push(require('rollup-plugin-uglify')())
+// }
 
 module.exports = CONFIG

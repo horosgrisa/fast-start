@@ -1,6 +1,6 @@
 module.exports = () => {
   global.gulp.task('run', (done) => {
-    if (!process.env.NODE_ENV==='production') {
+    if (process.env.NODE_ENV!=='production') {
       if (global.CONFIG.server === 'node') {
         let started = false
         $.nodemon({
@@ -15,7 +15,7 @@ module.exports = () => {
           env: {
             NODE_ENV: 'dev'
           },
-          quiet: false
+          quiet: true
         })
         .on('start', () => {
           if (!started) {
