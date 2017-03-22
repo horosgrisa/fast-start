@@ -10,6 +10,7 @@
     "standard-flow"
   ],
   "plugins": [
+    "html",
     "json",
     "no-loops",
     "unicorn",

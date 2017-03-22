@@ -34,6 +34,7 @@
     "eslint-config-strict": "^13.0.0",
     "eslint-formatter-pretty": "^1.1.0",
     "eslint-plugin-flowtype-errors": "^3.0.1",
+    "eslint-plugin-html": "^2.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-json": "*",
     "eslint-plugin-no-loops": "^0.3.0",
