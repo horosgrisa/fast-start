@@ -1,7 +1,7 @@
 {
   "name": "fast-start",
   "version": "0.5.4",
-  "description": "This is base stucture for simple site. It support static sites, Nodejs,a ES6 with Rollup, PostCSS (with precss and cssnext), Pug, Nunjucks, HTML(will be processed with Nunjucks).",
+  "description": "This is base stucture for simple site. It support static sites, Node.js, ES6 with browserify & babel, PostCSS with cssnext, Nunjucks.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,6 @@
   "license": "MIT",
   "dependencies": {
     "babel-eslint": "^7.2.0",
-    "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.23.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.0",
@@ -28,12 +27,10 @@
     "envify": "^4.0.0",
     "eslint": "^3.18.0",
     "eslint-config-standard": "^7.1.0",
-    "eslint-config-standard-flow": "^1.0.1",
     "eslint-config-standard-latest": "^0.2.5",
     "eslint-config-standard-react": "^4.3.0",
     "eslint-config-strict": "^13.0.0",
     "eslint-formatter-pretty": "^1.1.0",
-    "eslint-plugin-flowtype-errors": "^3.0.1",
     "eslint-plugin-html": "^2.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-json": "*",
@@ -42,7 +39,6 @@
     "eslint-plugin-react": "^6.10.1",
     "eslint-plugin-standard": "^2.1.1",
     "eslint-plugin-unicorn": "^2.1.0",
-    "flow-bin": "^0.42.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-better-rollup": "^1.1.1",
     "gulp-changed": "^2.0.0",
@@ -77,8 +73,6 @@
     "postcss-sorting": "^2.0.1",
     "postcss-use": "^2.3.0",
     "posthtml-tidy": "^0.8.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
     "sourcemapify": "^1.1.1",
     "stylefmt": "^5.2.0",
     "stylelint": "^7.9.0",
