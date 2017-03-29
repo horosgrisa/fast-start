@@ -7,6 +7,7 @@
     "plugin:react/recommended",
     "standard-react",
     "plugin:unicorn/recommended",
+    "plugin:flowtype/recommended",
     "standard-flow"
   ],
   "plugins": [
@@ -14,6 +15,7 @@
     "json",
     "no-loops",
     "unicorn",
+    "flowtype",
     "flowtype-errors"
   ],
   "env": {
