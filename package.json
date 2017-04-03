@@ -13,7 +13,12 @@
   },
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
     "babel-eslint": "^7.2.0",
+=======
+    "babel-eslint": "^7.2.1",
+    "babel-plugin-syntax-flow": "^6.18.0",
+>>>>>>> 05edb33b6387b169a99df1f088252df32f11257a
     "babel-plugin-transform-class-properties": "^6.23.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.0",
@@ -31,6 +36,11 @@
     "eslint-config-standard-react": "^4.3.0",
     "eslint-config-strict": "^13.0.0",
     "eslint-formatter-pretty": "^1.1.0",
+<<<<<<< HEAD
+=======
+    "eslint-plugin-flowtype": "^2.30.4",
+    "eslint-plugin-flowtype-errors": "^3.0.3",
+>>>>>>> 05edb33b6387b169a99df1f088252df32f11257a
     "eslint-plugin-html": "^2.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-json": "*",
@@ -38,7 +48,12 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.1",
     "eslint-plugin-standard": "^2.1.1",
+<<<<<<< HEAD
     "eslint-plugin-unicorn": "^2.1.0",
+=======
+    "eslint-plugin-unicorn": "^2.1.1",
+    "flow-bin": "^0.42.0",
+>>>>>>> 05edb33b6387b169a99df1f088252df32f11257a
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-better-rollup": "^1.1.1",
     "gulp-changed": "^2.0.0",
@@ -77,6 +92,8 @@
     "stylefmt": "^5.2.0",
     "stylelint": "^7.9.0",
     "stylelint-config-standard": "^16.0.0",
+    "tsify": "^3.0.1",
+    "typescript": "^2.2.1",
     "uglifyify": "^3.0.4",
     "vinyl-buffer": "^1.0.0",
     "yargs": "^7.0.2"

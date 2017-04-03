@@ -6,13 +6,17 @@
     "standard-latest",
     "plugin:react/recommended",
     "standard-react",
-    "plugin:unicorn/recommended"
+    "plugin:unicorn/recommended",
+    "plugin:flowtype/recommended",
+    "standard-flow"
   ],
   "plugins": [
     "html",
     "json",
     "no-loops",
-    "unicorn"
+    "unicorn",
+    "flowtype",
+    "flowtype-errors"
   ],
   "env": {
     "browser": true,
