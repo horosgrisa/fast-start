@@ -8,7 +8,6 @@
     "standard-react",
     "plugin:unicorn/recommended",
     "plugin:flowtype/recommended",
-    "standard-flow",
     "standard-jsdoc"
   ],
   "plugins": [
@@ -16,8 +15,6 @@
     "json",
     "no-loops",
     "unicorn",
-    "flowtype",
-    "flowtype-errors",
     "typelint"
   ],
   "env": {
