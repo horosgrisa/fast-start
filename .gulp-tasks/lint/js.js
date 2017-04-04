@@ -3,5 +3,5 @@ module.exports = () => {
     base: global.CONFIG.src
   })
     .pipe($.eslint())
-    .pipe($.eslint.format(require('eslint-formatter-pretty'))))
+    .pipe($.eslint.format()))
 }

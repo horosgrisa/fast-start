@@ -31,7 +31,6 @@
     "eslint-config-standard-latest": "^0.2.5",
     "eslint-config-standard-react": "^4.3.0",
     "eslint-config-strict": "^13.0.0",
-    "eslint-formatter-pretty": "^1.1.0",
     "eslint-plugin-html": "^2.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsdoc": "^3.0.0",
