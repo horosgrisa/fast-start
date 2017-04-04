@@ -38,7 +38,7 @@
     "eslint-plugin-json": "*",
     "eslint-plugin-no-loops": "^0.3.0",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^6.10.1",
+    "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^2.1.1",
     "eslint-plugin-typelint": "^1.0.9",
     "eslint-plugin-unicorn": "^2.1.1",
