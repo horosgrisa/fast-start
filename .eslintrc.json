@@ -13,8 +13,7 @@
     "html",
     "json",
     "no-loops",
-    "unicorn",
-    "typelint"
+    "unicorn"
   ],
   "env": {
     "browser": true,
@@ -31,7 +30,6 @@
     "no-loops/no-loops": 1,
     "unicorn/filename-case": 0,
     "jsx-quotes":[2,"prefer-double"],
-    "no-console": [1],
-    "typelint/typelint": [2]
+    "no-console": [1]
   }
 }
