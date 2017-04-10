@@ -10,21 +10,25 @@ module.exports = () => {
       .pipe($.using(global.CONFIG.using))
       .pipe($.plumber())
       .pipe($.tap((file) => {
-        file.contents=browserify(file.path, {
+        file.contents = browserify(file.path, {
           buffer: true,
           extensions: ['.jsx'],
-          debug: process.env.NODE_ENV!=='production'
+          debug: process.env.NODE_ENV !== 'production'
         })
         .transform('babelify')
+        .transform('aliasify', {
+          aliases: {
+          }
+        })
         .transform('envify')
         .plugin(require('babelify-external-helpers'))
         .bundle()
       }))
       .pipe(buffer())
-      .pipe($.if(process.env.NODE_ENV==='production', $.uglify()))
-      .pipe($.if(process.env.NODE_ENV!=='production', $.sourcemaps.init({loadMaps: true})))
+      .pipe($.if(process.env.NODE_ENV === 'production', $.uglify()))
+      .pipe($.if(process.env.NODE_ENV !== 'production', $.sourcemaps.init({loadMaps: true})))
       .pipe($.rename((path) => { path.extname = '.js' }))
-      .pipe($.if(process.env.NODE_ENV!=='production', $.sourcemaps.write('./', {
+      .pipe($.if(process.env.NODE_ENV !== 'production', $.sourcemaps.write('./', {
         mapSources: (sourcePath, file) => `${sourcePath.replace(global.CONFIG.src, '')}`
       })))
       .pipe(gulp.dest(`${global.CONFIG.dist}/public/`))
