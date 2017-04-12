@@ -15,7 +15,7 @@
   "dependencies": {
     "aliasify": "^2.1.0",
     "babel-core": "^6.24.1",
-    "babel-eslint": "^7.2.1",
+    "babel-eslint": "^7.2.2",
     "babel-plugin-meaningful-logs": "^1.0.2",
     "babel-plugin-react-require": "^3.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
