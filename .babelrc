@@ -8,13 +8,23 @@
     "transform-object-rest-spread",
     "transform-class-properties",
     "react-require",
-    "transform-react-constant-elements"
+    "transform-react-constant-elements",
+    "syntax-flow",
+    "transform-flow-strip-types"
   ],
    "env": {
     "production": {
-      "presets": ["react-optimize"],
+      "presets": [
+        "react-optimize"
+      ],
       "plugins": [
       	"transform-react-remove-prop-types"
+      ]
+    },
+    "dev": {
+      "plugins": [
+        "tcomb",
+        "flow-react-proptypes"
       ]
     }
   }

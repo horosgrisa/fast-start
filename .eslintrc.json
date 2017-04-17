@@ -7,13 +7,15 @@
     "plugin:react/recommended",
     "standard-react",
     "plugin:unicorn/recommended",
-    "standard-jsdoc"
+    "plugin:flowtype/recommended"
   ],
   "plugins": [
     "html",
     "json",
     "no-loops",
-    "unicorn"
+    "unicorn",
+    "flowtype",
+    "flowtype-errors"
   ],
   "env": {
     "browser": true,
@@ -30,6 +32,7 @@
     "no-loops/no-loops": 1,
     "unicorn/filename-case": 0,
     "jsx-quotes":[2,"prefer-double"],
-    "no-console": [1]
+    "no-console": [1],
+    "flowtype-errors/show-errors": 2
   }
 }
