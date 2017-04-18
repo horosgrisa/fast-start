@@ -57,7 +57,7 @@
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-unicorn": "^2.1.1",
-    "flow-bin": "^0.44.1",
+    "flow-bin": "^0.44.2",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-better-rollup": "^1.1.1",
     "gulp-changed": "^2.0.0",
