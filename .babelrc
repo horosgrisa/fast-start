@@ -1,28 +1,48 @@
 {
-  "presets": [
-    [ "es2015" ],
-    [ "es2016" ],
-    [ "react" ]
-  ],
-  "plugins": [
-    "transform-object-rest-spread",
-    "transform-class-properties",
-    "react-require",
-    "transform-react-constant-elements",
-    "syntax-flow",
-    "transform-flow-strip-types"
-  ],
-   "env": {
+  "env": {
     "production": {
       "presets": [
-        "react-optimize"
+        [
+          "es2015"
+        ],
+        [
+          "es2016"
+        ],
+        [
+          "react"
+        ],
+        [
+          "react-optimize"
+        ]
       ],
       "plugins": [
-      	"transform-react-remove-prop-types"
+        "transform-object-rest-spread",
+        "transform-class-properties",
+        "transform-react-constant-elements",
+        "syntax-flow",
+        "transform-flow-strip-types",
+        "transform-react-remove-prop-types"
       ]
     },
     "dev": {
+      "presets": [
+        [
+          "import-export"
+        ],
+        [
+          "es2016"
+        ],
+        [
+          "react"
+        ]
+      ],
       "plugins": [
+        "transform-object-rest-spread",
+        "transform-class-properties",
+        "react-require",
+        "transform-react-constant-elements",
+        "syntax-flow",
+        "transform-flow-strip-types",
         "tcomb",
         "flow-react-proptypes"
       ]
