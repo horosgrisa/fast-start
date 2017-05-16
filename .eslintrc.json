@@ -7,7 +7,8 @@
     "plugin:react/recommended",
     "standard-react",
     "plugin:unicorn/recommended",
-    "plugin:flowtype/recommended"
+    "plugin:flowtype/recommended",
+    "plugin:jsx-a11y/recommended"
   ],
   "plugins": [
     "html",
@@ -15,7 +16,8 @@
     "no-loops",
     "unicorn",
     "flowtype",
-    "flowtype-errors"
+    "flowtype-errors",
+    "jsx-a11y"
   ],
   "env": {
     "browser": true,
