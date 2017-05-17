@@ -7,4 +7,3 @@ module.exports = () => {
   require('./build/js')()
   require('./build/html')()
 }
-

@@ -18,7 +18,7 @@ module.exports = () => {
       .pipe($.rename((path) => {
         path.extname = '.html'
       }))
-      .pipe($.if(process.env.NODE_ENV==='production', $.htmlmin({ collapseWhitespace: true })))
+      .pipe($.if(process.env.NODE_ENV === 'production', $.htmlmin({ collapseWhitespace: true })))
       .pipe(gulp.dest(global.CONFIG.dist))
       .pipe($.touchCmd())
     )
