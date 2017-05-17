@@ -12,7 +12,8 @@ module.exports = () => {
             `!${global.CONFIG.dist}/public`
           ],
           env: {
-            NODE_ENV: 'development'
+            NODE_ENV: 'development',
+            DEBUG: '*'
           },
           quiet: false
         })

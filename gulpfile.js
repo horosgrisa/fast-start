@@ -13,7 +13,7 @@ require('./.gulp-tasks/build')()
 global.gulp.task('build', global.gulp.parallel(
   'build:base',
   'build:config',
-  'build:asserts',
+  'build:public',
   'build:js',
   'build:css',
   'build:img',

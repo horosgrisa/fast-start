@@ -13,7 +13,7 @@ module.exports = () => {
         `${global.CONFIG.src}/../bower.{json,js}`
       ], global.gulp.parallel('build:config'))
 
-      global.gulp.watch(`${global.CONFIG.src}/assets/**/*.{eot,svg,ttf,woff,woff2,ico}`, global.gulp.parallel('build:asserts'))
+      global.gulp.watch(`${global.CONFIG.src}/assets/**/*.{eot,svg,ttf,woff,woff2,ico}`, global.gulp.parallel('build:public'))
 
       global.gulp.watch(`${global.CONFIG.src}/assets/**/*.{jpg,jpeg,png,gif}`, global.gulp.parallel('build:img'))
 
