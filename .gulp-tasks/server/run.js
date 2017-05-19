@@ -13,7 +13,7 @@ module.exports = () => {
           ],
           env: {
             NODE_ENV: 'development',
-            DEBUG: '*'
+            DEBUG: process.env.DEBUG
           },
           quiet: false
         })
