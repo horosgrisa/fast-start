@@ -1,5 +1,5 @@
 module.exports = () => {
-  global.gulp.task('build:css', (done) => gulp.src(`${global.CONFIG.src}/assets/*.css`)
+  global.gulp.task('build:css', (done) => gulp.src(`${global.CONFIG.src}/public/*.css`)
     .pipe($.if(!global.argv.all, $.changed(`${global.CONFIG.dist}/public/`, {
       hasChanged: $.changedEnhancements.compareLastModifiedTimeCSSDeps
     })))
@@ -9,7 +9,7 @@ module.exports = () => {
     .pipe($.postcss(global.CONFIG.postcssPlugins))
     .pipe($.if(process.env.NODE_ENV !== 'production', $.sourcemaps.write('.', {
       mapSources (mapFilePath) {
-        return `/assets/${mapFilePath}`
+        return `/public/${mapFilePath}`
       }
     })))
     .pipe(gulp.dest(`${global.CONFIG.dist}/public/`))

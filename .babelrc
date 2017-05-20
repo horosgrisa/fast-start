@@ -24,7 +24,7 @@
         "transform-react-remove-prop-types"
       ]
     },
-    "dev": {
+    "development": {
       "presets": [
         [
           "import-export"

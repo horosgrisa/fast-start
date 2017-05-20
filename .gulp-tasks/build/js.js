@@ -2,7 +2,7 @@ const browserify = require('browserify')
 const buffer = require('vinyl-buffer')
 
 module.exports = () => {
-  global.gulp.task('build:js', (done) => gulp.src(`${global.CONFIG.src}/assets/*.{js,jsx,es6,babel}`)
+  global.gulp.task('build:js', (done) => gulp.src(`${global.CONFIG.src}/public/*.{js,jsx,es6,babel}`)
       .pipe($.if(!global.argv.all, $.changed(`${global.CONFIG.dist}/public/`, {
         hasChanged: $.changedEnhancements.compareLastModifiedTimeJSDeps,
         extension: '.js'

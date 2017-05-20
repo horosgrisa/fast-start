@@ -3,8 +3,8 @@ module.exports = () => {
     `${global.CONFIG.src}/**`,
     `!${global.CONFIG.src}/views/**`,
     `!${global.CONFIG.src}/views`,
-    `!${global.CONFIG.src}/assets/**`,
-    `!${global.CONFIG.src}/assets`
+    `!${global.CONFIG.src}/public/**`,
+    `!${global.CONFIG.src}/public`
   ])
     .pipe($.if(!global.argv.all, $.changed(`${global.CONFIG.dist}/`)))
     .pipe($.using(global.CONFIG.using))
