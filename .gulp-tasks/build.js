@@ -5,5 +5,5 @@ module.exports = () => {
   require('./build/css')()
   require('./build/img')()
   require('./build/js')()
-  require('./build/html')()
+  require('./build/views')()
 }

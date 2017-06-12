@@ -6,7 +6,7 @@ module.exports = () => {
     `!${global.CONFIG.src}/public/**`,
     `!${global.CONFIG.src}/public`
   ])
-    .pipe($.if(!global.argv.all, $.changed(`${global.CONFIG.dist}/`)))
+    .pipe($.if(!global.argv.all, $.changed(global.CONFIG.dist)))
     .pipe($.using(global.CONFIG.using))
     .pipe($.plumber())
     .pipe(gulp.dest(global.CONFIG.dist))

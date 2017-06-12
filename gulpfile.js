@@ -1,5 +1,4 @@
 'use strict'
-/* @flow */
 
 global.gulp = require('gulp')
 
@@ -17,7 +16,7 @@ global.gulp.task('build', global.gulp.parallel(
   'build:js',
   'build:css',
   'build:img',
-  'build:html'
+  'build:views'
 ))
 
 require('./.gulp-tasks/deploy')()

@@ -11,5 +11,5 @@ module.exports = () => {
         require('../../.postcss-sorting.json')
       )
     ]))
-    .pipe(gulp.dest(`${global.CONFIG.src}/`)))
+    .pipe(gulp.dest(global.CONFIG.src)))
 }

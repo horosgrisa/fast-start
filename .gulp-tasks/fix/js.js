@@ -10,6 +10,6 @@ module.exports = () => {
       .pipe($.eslint({
         fix: true
       }))
-    .pipe($.if(isFixed, gulp.dest(`${global.CONFIG.src}/`)))
+    .pipe($.if(isFixed, gulp.dest(global.CONFIG.src)))
   })
 }

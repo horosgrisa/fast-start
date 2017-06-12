@@ -8,9 +8,7 @@ module.exports = () => {
     .pipe($.if(process.env.NODE_ENV !== 'production', $.sourcemaps.init()))
     .pipe($.postcss(global.CONFIG.postcssPlugins))
     .pipe($.if(process.env.NODE_ENV !== 'production', $.sourcemaps.write('.', {
-      mapSources (mapFilePath) {
-        return `/public/${mapFilePath}`
-      }
+      mapSources: (mapFilePath) => `/public/${mapFilePath}`
     })))
     .pipe(gulp.dest(`${global.CONFIG.dist}/public/`))
     .pipe($.touchCmd())

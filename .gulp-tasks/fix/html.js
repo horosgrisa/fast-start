@@ -11,5 +11,5 @@ module.exports = () => {
       quiet: 'yes',
       'tidy-mark': 'no'
     })]))
-    .pipe(gulp.dest(`${global.CONFIG.src}/`)))
+    .pipe(gulp.dest(global.CONFIG.src)))
 }

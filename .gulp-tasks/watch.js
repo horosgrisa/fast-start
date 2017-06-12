@@ -20,7 +20,7 @@ module.exports = () => {
       global.gulp.watch([`${global.CONFIG.src}/public/**/*.css`], global.gulp.parallel('build:css'))
       global.gulp.watch([`${global.CONFIG.src}/public/**/*.{js,jsx,es6,babel}`], global.gulp.parallel('build:js'))
 
-      global.gulp.watch(`${global.CONFIG.src}/views/**/*.{html,njk}`, global.gulp.parallel('build:html'))
+      global.gulp.watch(`${global.CONFIG.src}/views/**/*.{html,njk}`, global.gulp.parallel('build:views'))
     }
     done()
   })
