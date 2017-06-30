@@ -8,7 +8,8 @@
     "standard-react",
     "plugin:unicorn/recommended",
     "plugin:flowtype/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:promise/recommended"
   ],
   "plugins": [
     "json",
@@ -16,7 +17,13 @@
     "unicorn",
     "flowtype",
     "flowtype-errors",
-    "jsx-a11y"
+    "jsx-a11y",
+    "const-immutable",
+    "dollar-sign",
+    "async-await",
+    "sort-class-members",
+    "prefer-object-spread",
+    "promise"
   ],
   "env": {
     "browser": true,
@@ -34,6 +41,25 @@
     "unicorn/filename-case": 0,
     "jsx-quotes":[2,"prefer-double"],
     "no-console": [1],
-    "flowtype-errors/show-errors": 2
+    "flowtype-errors/show-errors": 2,
+    "const-immutable/no-mutation": 2,
+    "dollar-sign/dollar-sign": [2, "ignoreProperties"],
+    "async-await/space-after-async": 2,
+    "async-await/space-after-await": 2,
+    "sort-class-members/sort-class-members": [2, {
+      "order": [
+        "[static-properties]",
+        "[static-methods]",
+        "[properties]",
+        "[conventional-private-properties]",
+        "constructor",
+        "[methods]",
+        "[conventional-private-methods]"
+      ],
+      "accessorPairPositioning": "getThenSet"
+    }],
+    "prefer-object-spread/prefer-object-spread": 2
+
+
   }
 }
