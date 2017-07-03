@@ -4,8 +4,8 @@
     "eslint:recommended",
     "standard",
     "standard-latest",
-    "plugin:react/recommended",
     "standard-react",
+    "plugin:react/recommended",
     "plugin:unicorn/recommended",
     "plugin:flowtype/recommended",
     "plugin:jsx-a11y/recommended",
@@ -30,36 +30,45 @@
     "node": true
   },
   "globals": {
-    "gulp":true,
+    "gulp": true,
     "$": true,
-    "jQuery":true,
+    "jQuery": true,
     "React": true,
     "ReactDOM": true
   },
   "rules": {
     "no-loops/no-loops": 1,
     "unicorn/filename-case": 0,
-    "jsx-quotes":[2,"prefer-double"],
-    "no-console": [1],
+    "jsx-quotes": [
+      2,
+      "prefer-double"
+    ],
+    "no-console": [
+      1
+    ],
     "flowtype-errors/show-errors": 2,
     "const-immutable/no-mutation": 2,
-    "dollar-sign/dollar-sign": [2, "ignoreProperties"],
+    "dollar-sign/dollar-sign": [
+      2,
+      "ignoreProperties"
+    ],
     "async-await/space-after-async": 2,
     "async-await/space-after-await": 2,
-    "sort-class-members/sort-class-members": [2, {
-      "order": [
-        "[static-properties]",
-        "[static-methods]",
-        "[properties]",
-        "[conventional-private-properties]",
-        "constructor",
-        "[methods]",
-        "[conventional-private-methods]"
-      ],
-      "accessorPairPositioning": "getThenSet"
-    }],
+    "sort-class-members/sort-class-members": [
+      2,
+      {
+        "order": [
+          "[static-properties]",
+          "[static-methods]",
+          "[properties]",
+          "[conventional-private-properties]",
+          "constructor",
+          "[methods]",
+          "[conventional-private-methods]"
+        ],
+        "accessorPairPositioning": "getThenSet"
+      }
+    ],
     "prefer-object-spread/prefer-object-spread": 2
-
-
   }
 }
