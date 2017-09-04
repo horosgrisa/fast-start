@@ -21,7 +21,9 @@
         "transform-react-constant-elements",
         "syntax-flow",
         "transform-flow-strip-types",
-        "transform-react-remove-prop-types"
+        "transform-react-remove-prop-types",
+        "transform-strict-mode",
+		"transform-decorators-legacy"
       ]
     },
     "development": {
@@ -44,7 +46,9 @@
         "syntax-flow",
         "transform-flow-strip-types",
         "tcomb",
-        "flow-react-proptypes"
+        "flow-react-proptypes",
+        "transform-strict-mode",
+		"transform-decorators-legacy"
       ]
     }
   }
