@@ -1,5 +1,13 @@
 {
   "root": true,
+  "parserOptions": {
+       "ecmaVersion": 8,
+       "sourceType": "module",
+       "ecmaFeatures": {
+           "jsx": true,
+           "experimentalObjectRestSpread":true
+       }
+   },
   "extends": [
     "eslint:recommended",
     "standard",
@@ -16,7 +24,6 @@
     "no-loops",
     "unicorn",
     "flowtype",
-    "flowtype-errors",
     "jsx-a11y",
     "const-immutable",
     "dollar-sign",
@@ -46,7 +53,6 @@
     "no-console": [
       1
     ],
-    "flowtype-errors/show-errors": 2,
     "const-immutable/no-mutation": 2,
     "dollar-sign/dollar-sign": [
       2,
