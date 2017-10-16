@@ -17,7 +17,11 @@
     "plugin:unicorn/recommended",
     "plugin:flowtype/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:promise/recommended"
+    "plugin:promise/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react",
+    "prettier/standard"
   ],
   "plugins": [
     "json",
@@ -30,7 +34,8 @@
     "async-await",
     "sort-class-members",
     "prefer-object-spread",
-    "promise"
+    "promise",
+    "prettier"
   ],
   "env": {
     "browser": true,
