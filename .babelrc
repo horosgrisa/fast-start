@@ -1,54 +1,60 @@
 {
-  "env": {
-    "production": {
-      "presets": [
-        [
-          "es2015"
-        ],
-        [
-          "es2016"
-        ],
-        [
-          "react"
-        ],
-        [
-          "react-optimize"
+    "env": {
+      "production": {
+        "presets": [
+          [
+            "env"
+          , {
+              "targets": {
+                "browsers": [
+                  "last 2 versions"
+              ]
+            }
+          }
         ]
-      ],
-      "plugins": [
-        "transform-object-rest-spread",
-        "transform-class-properties",
-        "transform-react-constant-elements",
-        "syntax-flow",
-        "transform-flow-strip-types",
-        "transform-react-remove-prop-types",
-        "transform-strict-mode",
-		"transform-decorators-legacy"
+        , [
+            "react"
+        ]
+        , [
+            "react-optimize"
+        ]
       ]
-    },
-    "development": {
-      "presets": [
-        [
-          "import-export"
-        ],
-        [
-          "es2016"
-        ],
-        [
-          "react"
+      , "plugins": [
+         "syntax-flow"
+        , "transform-object-rest-spread"
+        , "transform-class-properties"
+        , "transform-decorators"
+        , "transform-react-constant-elements"
+        , "transform-flow-strip-types"
+        , "transform-react-remove-prop-types"
+        , "transform-strict-mode"
+      ]
+    }
+    , "development": {
+        "presets": [
+          [
+            "env"
+          , {
+              "targets": {
+                "browsers": [
+                  "last 1 versions"
+              ]
+            }
+          }
         ]
-      ],
-      "plugins": [
-        "transform-object-rest-spread",
-        "transform-class-properties",
-        "react-require",
-        "transform-react-constant-elements",
-        "syntax-flow",
-        "transform-flow-strip-types",
-        "tcomb",
-        "flow-react-proptypes",
-        "transform-strict-mode",
-		"transform-decorators-legacy"
+        , [
+            "react"
+        ]
+      ]
+      , "plugins": [
+         "syntax-flow"
+        , "flow-react-proptypes"
+        , "transform-class-properties"
+        , "transform-decorators"
+        , "transform-react-constant-elements"
+        , "transform-flow-strip-types"
+        , "tcomb"
+        , "transform-strict-mode"
       ]
     }
   }
