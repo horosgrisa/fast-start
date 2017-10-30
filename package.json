@@ -27,7 +27,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "latest",
     "babel-plugin-transform-flow-strip-types": "latest",
     "babel-plugin-transform-minify-booleans": "^6.8.3",
-    "babel-plugin-transform-object-rest-spread": "latest",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-constant-elements": "latest",
     "babel-plugin-transform-react-remove-prop-types": "latest",
     "babel-plugin-transform-strict-mode": "latest",

@@ -49,6 +49,7 @@
       , "plugins": [
          "syntax-flow"
         , "flow-react-proptypes"
+        , ["transform-object-rest-spread", { "useBuiltIns": true }]
         , "transform-class-properties"
         , "transform-decorators"
         , "transform-react-constant-elements"
