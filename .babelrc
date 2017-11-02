@@ -7,7 +7,7 @@
           , {
               "targets": {
                 "browsers": [
-                  "last 2 versions"
+                  ">1%"
               ]
             }
           }
@@ -28,6 +28,7 @@
         , "transform-flow-strip-types"
         , "transform-react-remove-prop-types"
         , "transform-strict-mode"
+        , "babel-plugin-loop-optimizer"
       ]
     }
     , "development": {
@@ -56,6 +57,7 @@
         , "transform-flow-strip-types"
         , "tcomb"
         , "transform-strict-mode"
+        , "meaningful-logs"
       ]
     }
   }
