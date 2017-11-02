@@ -13,9 +13,8 @@ try {
 try {
   fs.accessSync(path.join(__dirname, '..', CONFIG.src, '..', 'gulp.json'), fs.R_OK)
   const srcConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '..', CONFIG.src, '..', 'gulp.json')))
-  CONFIG = Object.assign(CONFIG, srcConfig)
+  CONFIG = {...CONFIG, ...srcConfig}
 } catch (err) {
-  CONFIG = Object.assign(CONFIG, {})
 }
 
 CONFIG.server = CONFIG.server || false
