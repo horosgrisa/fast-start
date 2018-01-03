@@ -10,26 +10,29 @@
    },
   "extends": [
     "eslint:recommended",
+    "es/2015/client",
     "standard",
     "standard-react",
+    "plugin:flowtype/recommended",
     "plugin:react/recommended",
     "plugin:unicorn/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:promise/recommended"
+    "plugin:promise/recommended",
+    "plugin:security/recommended"
   ],
   "plugins": [
     "json",
     "no-loops",
     "unicorn",
     "flowtype",
+    "flowtype-errors",
     "jsx-a11y",
     "const-immutable",
     "dollar-sign",
     "async-await",
-    "sort-class-members",
     "prefer-object-spread",
     "promise",
-    "prettier"
+    "security"
   ],
   "env": {
     "browser": true,
@@ -48,9 +51,11 @@
       2,
       "prefer-double"
     ],
+    "react/prefer-stateless-function":0,
     "no-console": [
       1
     ],
+    "flowtype-errors/show-errors": 2,
     "const-immutable/no-mutation": 2,
     "dollar-sign/dollar-sign": [
       2,
@@ -58,21 +63,18 @@
     ],
     "async-await/space-after-async": 2,
     "async-await/space-after-await": 2,
-    "sort-class-members/sort-class-members": [
-      2,
-      {
-        "order": [
-          "[static-properties]",
-          "[static-methods]",
-          "[properties]",
-          "[conventional-private-properties]",
-          "constructor",
-          "[methods]",
-          "[conventional-private-methods]"
-        ],
-        "accessorPairPositioning": "getThenSet"
-      }
-    ],
-    "prefer-object-spread/prefer-object-spread": 2
+
+    "prefer-object-spread/prefer-object-spread": 2,
+    "jsx-a11y/label-has-for": [ 2, {
+           "components": [ "Label" ],
+           "required": {
+               "every": [ "nesting", "id" ]
+           },
+           "allowChildren": true
+       }],
+
+    "sort-imports": [0]
+
+
   }
 }
