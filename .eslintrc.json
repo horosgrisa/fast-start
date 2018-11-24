@@ -1,18 +1,11 @@
 {
   "root": true,
   "parserOptions": {
-       "ecmaVersion": 8,
-       "sourceType": "module",
-       "ecmaFeatures": {
-           "jsx": true,
-           "experimentalObjectRestSpread":true
-       }
-   },
+    "ecmaVersion": 8,
+    "sourceType": "module"  },
   "extends": [
     "eslint:recommended",
-    "es/2015/client",
-    "standard",
-    "standard-react",
+    "airbnb",
     "plugin:flowtype/recommended",
     "plugin:react/recommended",
     "plugin:unicorn/recommended",
@@ -32,7 +25,8 @@
     "async-await",
     "prefer-object-spread",
     "promise",
-    "security"
+    "security",
+    "sql"
   ],
   "env": {
     "browser": true,
@@ -47,34 +41,41 @@
   },
   "rules": {
     "unicorn/filename-case": 0,
-    "jsx-quotes": [
-      2,
-      "prefer-double"
-    ],
-    "react/prefer-stateless-function":0,
-    "no-console": [
-      1
-    ],
+    "jsx-quotes": [2, "prefer-double"],
+    "react/prefer-stateless-function": 0,
+    "no-console": [1],
     "flowtype-errors/show-errors": 2,
     "const-immutable/no-mutation": 2,
-    "dollar-sign/dollar-sign": [
-      2,
-      "ignoreProperties"
-    ],
+    "dollar-sign/dollar-sign": [2, "ignoreProperties"],
     "async-await/space-after-async": 2,
     "async-await/space-after-await": 2,
 
     "prefer-object-spread/prefer-object-spread": 2,
-    "jsx-a11y/label-has-for": [ 2, {
-           "components": [ "Label" ],
-           "required": {
-               "every": [ "nesting", "id" ]
-           },
-           "allowChildren": true
-       }],
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "components": ["Label"],
+        "required": {
+          "every": ["nesting", "id"]
+        },
+        "allowChildren": true
+      }
+    ],
 
-    "sort-imports": [0]
-
-
+    "sort-imports": [0],
+    "sql/format": [
+      2,
+      {
+        "ignoreExpressions": false,
+        "ignoreInline": true,
+        "ignoreTagless": true
+      }
+    ],
+    "sql/no-unsafe-query": [
+      2,
+      {
+        "allowLiteral": false
+      }
+    ]
   }
 }

@@ -2,18 +2,10 @@
   "empty-lines-between-children-rules": 1,
   "empty-lines-between-media-rules": 0,
   "sort-order": [
+    ["$variable"],
+    ["@atrule"],
+    ["position", "z-index", "top", "right", "bottom", "left"],
     [
-      "$variable"
-    ], [
-      "@atrule"
-    ], [
-      "position",
-      "z-index",
-      "top",
-      "right",
-      "bottom",
-      "left"
-    ], [
       "display",
       "visibility",
       "float",
@@ -30,7 +22,8 @@
       "flex-order",
       "flex-pack",
       "flex-align"
-    ], [
+    ],
+    [
       "-webkit-box-sizing",
       "-moz-box-sizing",
       "box-sizing",
@@ -50,7 +43,8 @@
       "padding-right",
       "padding-bottom",
       "padding-left"
-    ], [
+    ],
+    [
       "table-layout",
       "empty-cells",
       "caption-side",
@@ -60,7 +54,8 @@
       "list-style-position",
       "list-style-type",
       "list-style-image"
-    ], [
+    ],
+    [
       "content",
       "quotes",
       "counter-reset",
@@ -193,7 +188,8 @@
       "-moz-hyphens",
       "hyphens",
       "pointer-events"
-    ], [
+    ],
+    [
       "opacity",
       "filter:progid:DXImageTransform.Microsoft.Alpha(Opacity",
       "-ms-filter:\\'progid:DXImageTransform.Microsoft.Alpha",
@@ -299,7 +295,8 @@
       "filter:progid:DXImageTransform.Microsoft.gradient",
       "-ms-filter:\\'progid:DXImageTransform.Microsoft.gradient",
       "text-shadow"
-    ], [
+    ],
+    [
       "font",
       "font-family",
       "font-size",
@@ -314,10 +311,8 @@
       "font-emphasize-style",
       "font-smooth",
       "line-height"
-    ], [
-      "@media"
-    ], [
-      ">child"
-    ]
+    ],
+    ["@media"],
+    [">child"]
   ]
 }
